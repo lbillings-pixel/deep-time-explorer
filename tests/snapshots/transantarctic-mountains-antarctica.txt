@@ -1,0 +1,16 @@
+Transantarctic Mountains, Antarctica
+Quaternary           tier 4 | Land, setting unknown | lat -84 to -84
+Neogene              tier 4 | Land, setting unknown | lat -85 to -79
+Paleogene            tier 4 | Land, setting unknown | lat -84 to -77
+Late Cretaceous      tier 4 | Land, setting unknown | lat -85 to -85
+Early Cretaceous     tier 4 | Land, setting unknown | lat -81 to -79
+Jurassic             tier 4 | Land, setting unknown | lat -68 to -61
+Triassic             tier 3 | River plain | lat -69 to -65
+Permian              tier 4 | Land, setting unknown | lat -90 to -88
+Late Carboniferous   tier 4 | Deep water (basin or slope) | lat -82 to -77
+Early Carboniferous  tier 4 | Land, setting unknown | lat -66 to -45
+Devonian             tier 4 | Open shelf sea | lat -49 to -41
+Silurian             tier 4 | Land, setting unknown | lat -25 to -14
+Ordovician           tier 4 | Open shelf sea | lat -6 to -2
+Cambrian             tier 4 | Open shelf sea | lat -15 to -2
+Precambrian          tier 5 | No record

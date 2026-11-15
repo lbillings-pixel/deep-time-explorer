@@ -1,0 +1,46 @@
+Grand Canyon, USA
+Quaternary | Land, setting unknown | neutral | north-america
+  1 fossil site of this age lies within 25 km. At the time, this spot lay about 36° north of the equator. Fossils of this age found within 25 km include Corynorhinus, Lasionycteris, Bassariscus and Procyon.
+  Drawn (* = recorded nearby): pine, gomphothere, bear, tapir, rodent, spider, birch, palm, broadleaf, spruce, wildflowers, tallgrass, mosscushion, grass, shrub, tussock, fern, clubmoss, bat*, bird
+Neogene | Land, setting unknown | neutral | north-america
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Brian Head Formation). At the time, this spot lay about 37° north of the equator.
+  Drawn (* = recorded nearby): pine, gomphothere, tapir, hyaenodont, rodent, spider, birch, palm, spruce, broadleaf, redwood, wildflowers, tallgrass, mosscushion, grass, shrub, tussock, fern, clubmoss, bird, butterfly
+Paleogene | River plain | neutral | north-america
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Brian Head Formation and Wasatch Formation). At the time, this spot lay about 40° north of the equator.
+  Drawn (* = recorded nearby): ginkgo, broadleaf, pantodont, wadingbird, earlyhorse, waterlily, cycad, pine, birch, palm, spruce, mesotreefern, magnolia, cypress, redwood, reed, wildflowers, clubmoss, shrub, fern, horsetail, mayfly, bird
+Late Cretaceous | Delta or estuary | neutral | north-america
+  1 fossil site of this age lies within 25 km. At the time, this spot lay about 42° north of the equator. Fossils of this age found within 25 km include Membranipora (a moss animal), Lingula (a lamp shell), Nuculana (a clam or other bivalve) and Barbatia (a clam or other bivalve).
+  Drawn (* = recorded nearby): crocodilian, turtle, tyrannosaur, sauropodtrack, earlymammal, spider, waterlily, araucaria, broadleaf, cypress, ginkgo, cycad, redwood, magnolia, bennettite, swampconifer, pine, cheirolepid, palm, clubmoss, horsetail, firstflower, fern, mayfly, earlybird
+Early Cretaceous | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 37° north of the equator.
+  Drawn (* = recorded nearby): ginkgo, brachiosaurid, stegosaur, allosaur, earlymammal, spider, mesotreefern, cycad, bennettite, araucaria, cheirolepid, pine, clubmoss, mosscushion, fern, pterodactyl, earlybird
+Jurassic | River plain | neutral | north-america
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Morrison Formation, Cow Springs Sandstone and Entrada Sandstone and 4 more) and 39 fossil sites 25 to 100 km away. At the time, this spot lay about 27° north of the equator. Fossils of this age found within 100 km include Grallator (a dinosaur footprint), Dilophosauripus, Eubrontes (a dinosaur footprint) and Dilophosaurus.
+  Drawn (* = recorded nearby): swampconifer, araucaria, diplodocid, theropod, turtle, sauropodtrack, cynodont, ginkgo, cycad, bennettite, mesotreefern, neocalamites, cheirolepid, horsetail, clubmoss, fern, rhamphorhynchus, pterodactyl
+Triassic | River plain | neutral | north-america
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Chinle Formation, Shinarump Conglomerate and Moenkopi Formation) and 42 fossil sites 25 to 100 km away. At the time, this spot lay about 11° north of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Machaeroprosopus, Typothorax (an armored crocodile relative), Shuvosaurus and Grallator (a dinosaur footprint).
+  Drawn (* = recorded nearby): voltzia, ginkgo, dicynodont, phytosaur, track3, crayfish, cheirolepid, cycad, bennettite, neocalamites, pleuromeia, horsetail, clubmoss, fern, rhamphorhynchus, mayfly
+Permian | Warm shallow sea | neutral | north-america | water 0.57
+  Rock of this age is recorded here (Paleozoic sedimentary rocks, Kaibab Limestone and Toroweap Formation and 3 more), and 38 fossil sites of this age lie within 25 km. At the time, this spot lay about 13° north of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Peniculauris (a lamp shell), Dyoros (a lamp shell), Bicorbis (a moss animal) and Echinauris (a lamp shell).
+  Drawn (* = recorded nearby): hybodont, nautiloid, blastoid, lacebryozoan, archimedes, colonialrugose, phylloidalgae, crinoid, tabulate, spongereef, trilobite*, bryozoan*, productid*, horseshoecrab, clam*
+Late Carboniferous | Open shelf sea | neutral | north-america | water 0.80
+  1 fossil site of this age lies within 25 km. At the time, this spot lay about 5° north of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Psephodus (a shark, ray or relative).
+  Drawn (* = recorded nearby): stethacanthus, coelacanth, nautiloid, jellyfish, acanthodian, lacebryozoan, blastoid, tabulate, trilobite, horseshoecrab, sponge, seastar, glasssponge, crinoid, archimedes, colonialrugose
+Early Carboniferous | Open shelf sea | neutral | north-america | water 0.87
+  1 fossil site of this age lies within 25 km. At the time, this spot lay about 2° south of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Psephodus (a shark, ray or relative).
+  Drawn (* = recorded nearby): stethacanthus, cladoselache, coelacanth, nautiloid, jellyfish, acanthodian, lacebryozoan, blastoid, tabulate, trilobite, seasnail, burrows, glasssponge, crinoid, archimedes, colonialrugose
+Devonian | Open shelf sea | neutral | north-america | water 0.80
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Temple Butte Limestone). At the time, this spot lay about 26° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, pterygotus, acanthodian, coelacanth, bothriolepis, goniatite, blastoid, lacebryozoan, tabulate, trilobite, eurypterid, cruziana, seasnail, burrows, crinoid, glasssponge, colonialrugose
+Silurian | Open shelf sea | neutral | north-america | water 0.80
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 9° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): pterygotus, orthocone, jawlessfish, thelodont, acanthodian, conodont, glasssponge, crinoid, tabulate, trilobite, eurypterid, cruziana, bryozoan, burrows
+Ordovician | Open shelf sea | neutral | north-america | water 0.80
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 7° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, graptolite, conodont, agnostid, eocrinoid, glasssponge, tabulate, trilobite, eurypterid, cruziana, bryozoan, burrows, crinoid
+Cambrian | Open shelf sea | neutral | north-america | water 0.80
+  8 fossil sites of this age lie within 25 km. At the time, this spot lay about 2° north of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Glyphaspis (a trilobite), Kootenia (a trilobite), Bolaspis (a trilobite) and Anoria (a trilobite).
+  Drawn (* = recorded nearby): anomalocaris, agnostid, conodont, marrella, glasssponge, eocrinoid, stromatolite, trilobite*, spinytrilobite, cruziana, burrows, sponge
+Precambrian | Warm shallow sea | neutral | north-america
+  Rock of this age is recorded here (Granite, granitic pegmatite, and aplite and Early Proterozoic metavolcanic rocks), and 22 fossil sites of this age lie within 25 km. Fossils of this age found within 25 km include Leiosphaeridia, Microlepidopalla, Lanulatisphaera and Culcitulisphaera.
+  Drawn (* = recorded nearby): stromatolite, seamat

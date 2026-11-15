@@ -1,0 +1,16 @@
+Canadian Shield, northern Ontario
+Quaternary           tier 2 | Ice | lat 50 to 50
+Neogene              tier 4 | Land, setting unknown | lat 49 to 52
+Paleogene            tier 4 | Land, setting unknown | lat 48 to 52
+Late Cretaceous      tier 3 | River plain | lat 49 to 52
+Early Cretaceous     tier 3 | River plain | lat 45 to 49
+Jurassic             tier 4 | Land, setting unknown | lat 33 to 38
+Triassic             tier 4 | Land, setting unknown | lat 20 to 24
+Permian              tier 4 | Land, setting unknown | lat 12 to 16
+Late Carboniferous   tier 4 | Land, setting unknown | lat 1 to 6
+Early Carboniferous  tier 4 | Land, setting unknown | lat -24 to -4
+Devonian             tier 3 | Open shelf sea | lat -30 to -22
+Silurian             tier 3 | Open shelf sea | lat -21 to -9
+Ordovician           tier 3 | Open shelf sea | lat -19 to 2
+Cambrian             tier 4 | Land, setting unknown | lat -21 to 18
+Precambrian          tier 3 | Open shelf sea

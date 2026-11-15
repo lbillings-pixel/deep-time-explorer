@@ -1,0 +1,16 @@
+Fayum, Egypt
+Quaternary           tier 4 | Land, setting unknown | lat 29 to 29
+Neogene              tier 4 | Land, setting unknown | lat 24 to 28
+Paleogene            tier 1 | River plain | lat 15 to 22
+Late Cretaceous      tier 3 | Open shelf sea | lat 11 to 11
+Early Cretaceous     tier 4 | Open shelf sea | lat 5 to 6
+Jurassic             tier 4 | Land, setting unknown | lat 4 to 10
+Triassic             tier 4 | Land, setting unknown | lat -1 to 0
+Permian              tier 4 | Land, setting unknown | lat -23 to -18
+Late Carboniferous   tier 4 | Land, setting unknown | lat -34 to -26
+Early Carboniferous  tier 4 | Open shelf sea | lat -62 to -36
+Devonian             tier 4 | Open shelf sea | lat -49 to -41
+Silurian             tier 4 | Land, setting unknown | lat -59 to -43
+Ordovician           tier 4 | Land, setting unknown | lat -67 to -51
+Cambrian             tier 4 | Land, setting unknown | lat -68 to -36
+Precambrian          tier 5 | No record

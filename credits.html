@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Credits and sources: Deep Time Explorer</title>
+    <meta name="description" content="The data, maps and published work behind Deep Time Explorer, and the terms each is used under." />
+    <script>
+      // The dark appearance, if chosen in the settings, is applied before anything is drawn. The same rule is in src/settings.ts.
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (theme === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.dataset.theme = 'dark';
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Site">
+        <a href="./">Deep Time Explorer</a>
+        <a href="about.html">About</a>
+      </nav>
+      <h1>Credits and sources</h1>
+      <p>Everything this site shows about a place comes from the open data listed here, or from published work cited beside the text it supports. This page says what each source supplies and the terms it is used under.</p>
+    </header>
+
+    <main class="credits">
+      <p>The site is personal and non-commercial. It carries no advertising, has no accounts and sets no cookies; the one thing it stores on a visitor's device is the choices made under Settings. To find the detailed geological map for a place, the visitor's browser sends that place's coordinates to Macrostrat. A name is sent to Open-Meteo only when the visitor chooses to search online.</p>
+
+      <h2>Who made this</h2>
+      <p>Deep Time Explorer was made by Lee Billings, who built it with Claude, an AI model made by Anthropic. Lee Billings directed and edited the project. Claude wrote the site's code, including the code that draws the scenes and paints the pictures, and researched and drafted the texts from the published sources they cite.</p>
+      <p>The site itself makes no AI calls: everything a visitor sees is worked out in their own browser from the data listed below. The code, texts and pictures made for the site are released under the MIT License; the data and maps listed below remain under their own terms.</p>
+
+      <h2>Rock at and around a place</h2>
+      <ul>
+        <li>
+          <strong><a href="https://macrostrat.org" rel="noopener">Macrostrat</a>.</strong> Peters, S.E. et al., "Macrostrat: a platform for geological data integration and deep-time research". Licence: CC BY 4.0. It supplies the detailed geological map looked up at the exact spot (the one live lookup the site makes for a place), the stacked records of rock layers by region, and the definitions of rock types and settings. Each place's own list, under "Sources for this place", names the individual maps and regional records used there.
+        </li>
+        <li>
+          <strong>Coarser maps shipped with the site</strong>, used when the detailed map cannot be reached. They were taken from Macrostrat's compilation, and each is shipped under its publisher's own terms:
+          <ul>
+            <li>Chorlton, L.B. (2007) Generalized geology of the world: bedrock domains and major faults in GIS format. Geological Survey of Canada, Open File 5529. <a href="https://doi.org/10.4095/223767" rel="noopener">doi:10.4095/223767</a>. Open Government Licence, Canada, by the publisher's current catalog record.</li>
+            <li>Harrison, J.C. et al. (2011) Geological map of the Arctic. Geological Survey of Canada Map 2159A. <a href="https://doi.org/10.4095/287868" rel="noopener">doi:10.4095/287868</a>. Open Government Licence, Canada.</li>
+            <li>Garrity, C.P. and Soller, D.R. (2009) Database of the Geologic Map of North America, adapted from the map by J.C. Reed, Jr. and others (2005). <a href="https://pubs.usgs.gov/ds/424/" rel="noopener">U.S. Geological Survey Data Series 424</a>. Public domain.</li>
+            <li>Wilson, F.H., Hults, C.P., Mull, C.G. and Karl, S.M., compilers (2015) Geologic map of Alaska. U.S. Geological Survey Scientific Investigations Map 3340. <a href="https://doi.org/10.3133/sim3340" rel="noopener">doi:10.3133/sim3340</a>. No constraints on use.</li>
+            <li>Wilson, F.H. and Labay, K.A., compilers (2025) Geologic map of the Greater Antilles and Virgin Islands. U.S. Geological Survey Scientific Investigations Map 3534. <a href="https://doi.org/10.3133/sim3534" rel="noopener">doi:10.3133/sim3534</a>. CC0.</li>
+            <li>Raymond, O.L. (editor), Gallagher, R. and Highet, L.M. (2012) Surface Geology of Australia, 1:2 500 000 scale, 2012 edition. Geoscience Australia, Commonwealth of Australia, Canberra. CC BY 4.0.</li>
+            <li>Asch, K. (2003) The 1:5M International Geological Map of Europe and Adjacent Areas. Geologisches Jahrbuch, SA 3. Bundesanstalt für Geowissenschaften und Rohstoffe (BGR), Germany. Free to use with a note of the source.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Geological provinces.</strong> Hasterok, D. et al. (2022) New maps of global geological provinces and tectonic plates. Earth-Science Reviews 231, 104069. Data: <a href="https://doi.org/10.5281/zenodo.6586972" rel="noopener">doi:10.5281/zenodo.6586972</a>, CC BY 4.0. It supplies the outlines used to tell which mountain-building and rifting events reached a place.
+        </li>
+      </ul>
+
+      <h2>Fossils</h2>
+      <ul>
+        <li>
+          <strong><a href="https://paleobiodb.org" rel="noopener">The Paleobiology Database</a>.</strong> Fossil sites within 100 km of a place, with their ages, rock formations and the names recorded at each. The database's data service states CC0; some of its older pages say CC BY 4.0. A copy is shipped with the site, and each place's source list gives its date.
+        </li>
+      </ul>
+
+      <h2>The ancient world</h2>
+      <ul>
+        <li>
+          <strong>Ancient land and sea.</strong> Scotese, C.R. and Wright, N. (2018) PALEOMAP Paleodigital Elevation Models (PaleoDEMS) for the Phanerozoic. <a href="https://doi.org/10.5281/zenodo.5460860" rel="noopener">doi:10.5281/zenodo.5460860</a>. CC BY 4.0. These maps color the globe and tell land from shallow sea and deep sea in each chapter's regional picture.
+        </li>
+        <li>
+          <strong>Where a place lay in the past.</strong> Three plate models, obtained through the <a href="https://gws.gplates.org" rel="noopener">GPlates Web Service</a>: PALEOMAP (Scotese), CC BY 4.0, which also turns the globe; Merdith et al. (2021), CC BY 4.0; and the Golonka model as updated by Wright et al. (2013), CC BY 3.0. Where the three disagree about a place's ancient latitude, the site gives the range.
+        </li>
+      </ul>
+
+      <h2>Place names</h2>
+      <ul>
+        <li><strong><a href="https://www.geonames.org" rel="noopener">GeoNames</a>.</strong> The list of towns and cities searched first: every populated place of 5,000 people or more. CC BY 4.0.</li>
+        <li><strong><a href="https://open-meteo.com" rel="noopener">Open-Meteo</a> geocoding</strong>, which itself uses GeoNames. It is asked only when a visitor chooses to search online for a smaller place. CC BY 4.0.</li>
+      </ul>
+
+      <h2>Texts</h2>
+      <ul>
+        <li>The story passages describe a kind of place at a time, not one location. What is uncertain, simplified or disputed in each is listed with it, under "The evidence and the caveats".</li>
+        <li>Each extinction, turning point, mountain-building event and opening of a rift or ocean lists its published sources in its own panel, under "The caveats and the sources". Many of those texts rest on the summaries of papers and on later accounts of them, not on a full reading of each paper; where that is so, the entry's caveats say it.</li>
+        <li>The great outpourings of lava are credited in the source list of each place they reached.</li>
+      </ul>
+
+      <h2>Pictures</h2>
+      <ul>
+        <li>Every scene on the timeline is drawn in the visitor's browser, by code written for this site, from separately drawn parts: sky, land or sea floor, water, plants and animals. Which plants and animals may appear is limited by time, setting, climate and continent. The scenes are representative, not portraits of a spot; each lists its own caveats.</li>
+        <li>The paintings of extinctions and turning points were made the same way, once, and are shipped as images. Each lists what in it is the painter's device.</li>
+        <li>No photograph and no artwork from another source is used.</li>
+      </ul>
+
+      <h2>What is deliberately not used</h2>
+      <ul>
+        <li>The continental geological maps of Africa and South America are not shipped, because their publishers do not allow it. When the detailed map cannot be reached, places there are covered by the world map alone.</li>
+        <li>The illustrated maps of the ancient world on scotese.com are not used; their terms do not allow it. The openly licensed elevation models above are used instead.</li>
+      </ul>
+
+      <p><a href="./">Back to the explorer</a></p>
+    </main>
+  </body>
+</html>

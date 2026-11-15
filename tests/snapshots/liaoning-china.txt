@@ -1,0 +1,16 @@
+Liaoning, China
+Quaternary           tier 4 | Land, setting unknown | lat 42 to 42
+Neogene              tier 4 | Land, setting unknown | lat 41 to 45
+Paleogene            tier 4 | Land, setting unknown | lat 41 to 47
+Late Cretaceous      tier 1 | Land, setting unknown | lat 40 to 46
+Early Cretaceous     tier 1 | Lake | lat 40 to 48
+Jurassic             tier 1 | Land, setting unknown | lat 45 to 57
+Triassic             tier 3 | Open shelf sea | lat 35 to 56
+Permian              tier 3 | Open shelf sea | lat 19 to 35
+Late Carboniferous   tier 4 | Land, setting unknown | lat 15 to 32
+Early Carboniferous  tier 3 | Warm shallow sea | lat -3 to 20
+Devonian             tier 4 | Land, setting unknown | lat -18 to 31
+Silurian             tier 4 | Land, setting unknown | lat -18 to 24
+Ordovician           tier 4 | Open shelf sea | lat -9 to 21
+Cambrian             tier 4 | Open shelf sea | lat 6 to 23
+Precambrian          tier 5 | No record

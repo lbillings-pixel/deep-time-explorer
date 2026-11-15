@@ -1,0 +1,16 @@
+Sydney, Australia
+Quaternary           tier 1 | Shoreline | lat -34 to -34
+Neogene              tier 1 | Land, setting unknown | lat -43 to -38
+Paleogene            tier 4 | Land, setting unknown | lat -55 to -48
+Late Cretaceous      tier 4 | Land, setting unknown | lat -60 to -58
+Early Cretaceous     tier 4 | Land, setting unknown | lat -80 to -70
+Jurassic             tier 4 | Land, setting unknown | lat -71 to -69
+Triassic             tier 1 | Lake | lat -68 to -63
+Permian              tier 1 | Land, setting unknown | lat -70 to -67
+Late Carboniferous   tier 4 | Land, setting unknown | lat -58 to -57
+Early Carboniferous  tier 4 | Land, setting unknown | lat -46 to -26
+Devonian             tier 3 | Open shelf sea | lat -29 to -20
+Silurian             tier 3 | Open shelf sea | lat -5 to 9
+Ordovician           tier 4 | Deep water (basin or slope) | lat 13 to 19
+Cambrian             tier 4 | Deep water (basin or slope) | lat 6 to 19
+Precambrian          tier 5 | No record

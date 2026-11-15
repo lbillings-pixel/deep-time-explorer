@@ -1,0 +1,16 @@
+[
+  { "name": "Reykjavik, Iceland", "lat": 64.13, "lng": -21.9 },
+  { "name": "Canadian Shield, northern Ontario", "lat": 50.0, "lng": -85.0 },
+  { "name": "Grand Canyon, USA", "lat": 36.1, "lng": -112.1 },
+  { "name": "London, UK", "lat": 51.5, "lng": -0.12 },
+  { "name": "Fayum, Egypt", "lat": 29.3, "lng": 30.6 },
+  { "name": "Karoo, South Africa", "lat": -32.3, "lng": 22.5 },
+  { "name": "Sydney, Australia", "lat": -33.87, "lng": 151.2 },
+  { "name": "Parana Basin, Brazil", "lat": -22.9, "lng": -47.1 },
+  { "name": "Liaoning, China", "lat": 41.5, "lng": 120.7 },
+  { "name": "Deccan Traps, India", "lat": 19.0, "lng": 74.0 },
+  { "name": "Delhi, India", "lat": 28.6, "lng": 77.2 },
+  { "name": "Wellington, New Zealand", "lat": -41.3, "lng": 174.8 },
+  { "name": "Transantarctic Mountains, Antarctica", "lat": -84.0, "lng": 170.0 },
+  { "name": "Mid-Pacific Ocean", "lat": 0.0, "lng": -140.0 }
+]

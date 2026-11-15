@@ -1,0 +1,43 @@
+Karoo, South Africa
+Quaternary | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 32° south of the equator.
+  Drawn (* = recorded nearby): broadleaf, elephant, erectus, snake, millipede, palm, acacia, tussock, fern, grass, shrub, tallgrass, clubmoss, mosscushion, wildflowers, bat
+Neogene | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 33° south of the equator.
+  Drawn (* = recorded nearby): broadleaf, gomphothere, camel, snake, millipede, palm, acacia, tussock, fern, grass, shrub, tallgrass, clubmoss, mosscushion, wildflowers, bat
+Paleogene | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 39° south of the equator.
+  Drawn (* = recorded nearby): broadleaf, arsinoitherium, lizard, millipede, cycad, palm, magnolia, mesotreefern, shrub, clubmoss, fern, mosscushion, wildflowers, bird
+Late Cretaceous | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 48° south of the equator.
+  Drawn (* = recorded nearby): broadleaf, titanosaur, abelisaur, lizard, millipede, palm, araucaria, ginkgo, bennettite, cycad, mesotreefern, fern, clubmoss, mosscushion, earlybird
+Early Cretaceous | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 45° south of the equator.
+  Drawn (* = recorded nearby): araucaria, titanosaur, ornithopod, earlymammal, millipede, cycad, ginkgo, bennettite, mesotreefern, cheirolepid, fern, clubmoss, mosscushion, pterodactyl
+Jurassic | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 40° south of the equator.
+  Drawn (* = recorded nearby): araucaria, brachiosaurid, allosaur, earlymammal, millipede, cycad, ginkgo, bennettite, mesotreefern, cheirolepid, fern, clubmoss, mosscushion, rhamphorhynchus
+Triassic | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 54° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): voltzia, aetosaur, cynodont, roachoid, cycad, ginkgo, bennettite, cheirolepid, dicroidium, pleuromeia, fern, clubmoss, mosscushion, rhamphorhynchus
+Permian | River plain | neutral | africa
+  Rock of this age is recorded here (Paleozoic sedimentary rocks), and 26 fossil sites of this age lie within 25 km. At the time, this spot lay about 58° south of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Diictodon (a mammal relative), Pristerodon, Gorgonops and Titanosuchus.
+  Drawn (* = recorded nearby): voltzia, glossopteris, gorgonopsian*, dicynodont*, amphibian, track5, walchia, treefern, cordaites, calamites, fern, horsetail, sphenophyllum, palaeodictyopteran
+Late Carboniferous | Open shelf sea | neutral | africa | water 0.93
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 65° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): stethacanthus, goniatite, jellyfish, conodont, archimedes, lacebryozoan, tabulate, trilobite, horseshoecrab, crinoid, seasnail, blastoid, glasssponge, colonialrugose
+Early Carboniferous | Shoreline | neutral | africa
+  No rock of this age is confirmed at this exact spot. The setting comes from 1 fossil site 25 to 100 km away. At the time, this spot lay about 77° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Cyrtoctenus.
+  Drawn (* = recorded nearby): clam, seastar, seaweed, seasnail, burrows
+Devonian | Open shelf sea | neutral | africa | water 0.87
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 66° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Archaeosigillaria, Praeramunculus and Haplostigma.
+  Drawn (* = recorded nearby): pterygotus, stethacanthus, bothriolepis, graptolite, goniatite, blastoid, lacebryozoan, tabulate, trilobite, eurypterid, cruziana, crinoid, seasnail, glasssponge, colonialrugose
+Silurian | Open shelf sea | neutral | africa | water 0.88
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 36° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): pterygotus, orthocone, graptolite, thelodont, acanthodian, crinoid, glasssponge, tabulate, trilobite, eurypterid, cruziana, seasnail
+Ordovician | Deep water (basin or slope) | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show deep sea in this area, and the picture rests on that alone. At the time, this spot lay about 26° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, conodont, agnostid, jellyfish, eocrinoid, trilobite, glasssponge, seastar, brachiopod, seasnail
+Cambrian | Open shelf sea | neutral | africa | water 0.48
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 31° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): anomalocaris, conodont, marrella, jellyfish, eocrinoid, glasssponge, stromatolite, trilobite, spinytrilobite, cruziana, seamat

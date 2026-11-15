@@ -1,0 +1,46 @@
+Canadian Shield, northern Ontario
+Quaternary | Ice | neutral | north-america
+  The setting is read from the kind of rock found here: Clayey Till (till). At the time, this spot lay about 50° north of the equator. The peat in the Clayey Till points to a wet climate. The till in the Clayey Till points to a cold climate.
+  Drawn (* = recorded nearby): horse, mammoth, seal, mosscushion, tussock, dwarfwillow
+Neogene | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 50° north of the equator.
+  Drawn (* = recorded nearby): spruce, gomphothere, tapir, bear, palm, birch, redwood, broadleaf, pine, tussock, wildflowers, shrub, mosscushion, grass, dwarfwillow, fern, clubmoss, tallgrass
+Paleogene | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 51° north of the equator.
+  Drawn (* = recorded nearby): spruce, brontothere, uintathere, birch, pine, cycad, magnolia, redwood, mesotreefern, ginkgo, palm, broadleaf, clubmoss, wildflowers, mosscushion, fern, shrub
+Late Cretaceous | River plain | neutral | north-america
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Mattagami Formation). At the time, this spot lay about 49° north of the equator.
+  Drawn (* = recorded nearby): spruce, swampconifer, tyrannosaur, hadrosaur, crocodilian, sauropodtrack, waterlily, redwood, pine, broadleaf, cypress, araucaria, ginkgo, bennettite, palm, cycad, mesotreefern, firstflower, clubmoss, fern, horsetail, cheirolepid, magnolia
+Early Cretaceous | River plain | neutral | north-america
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Mattagami Formation). At the time, this spot lay about 45° north of the equator.
+  Drawn (* = recorded nearby): ginkgo, pine, brachiosaurid, iguanodont, turtle, sauropodtrack, waterlily, araucaria, swampconifer, cycad, mesotreefern, cheirolepid, bennettite, firstflower, clubmoss, fern, horsetail
+Jurassic | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 38° north of the equator.
+  Drawn (* = recorded nearby): ginkgo, brachiosaurid, allosaur, plateosaurus, cycad, mesotreefern, cheirolepid, araucaria, bennettite, mosscushion, fern, clubmoss
+Triassic | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 21° north of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): ginkgo, rauisuchian, aetosaur, cheirolepid, voltzia, cycad, bennettite, mosscushion, clubmoss, fern, pleuromeia
+Permian | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 14° north of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): voltzia, dimetrodon, edaphosaurus, treefern, cordaites, medullosa, walchia, gigantopterid, mosscushion, fern
+Late Carboniferous | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 2° north of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): cordaites, edaphosaurus, walchia, lepidodendron, treefern, medullosa, mosscushion, fern
+Early Carboniferous | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 7° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): lepidodendron, medullosa, fern
+Devonian | Open shelf sea | neutral | north-america | water 0.87
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Stooping River Formation and Sextant Formation). At the time, this spot lay about 30° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, thelodont, palaeoniscoid, jawlessfish, bothriolepis, blastoid, glasssponge, colonialrugose, eurypterid, cruziana, lacebryozoan, seastar, crinoid
+Silurian | Open shelf sea | neutral | north-america | water 1.00
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Attawapiskat Formation). At the time, this spot lay about 17° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, conodont, jawlessfish, jellyfish, thelodont, glasssponge, crinoid, tabulate, eurypterid, cruziana, seastar
+Ordovician | Open shelf sea | neutral | north-america | water 0.60
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Churchill River Group). At the time, this spot lay about 19° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, conodont, graptolite, agnostid, jellyfish, glasssponge, eocrinoid, tabulate, eurypterid, cruziana, crinoid, seastar
+Cambrian | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 21° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): landcrust
+Precambrian | Open shelf sea | neutral | north-america
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Unnamed, Unnamed ultrabasics and Unnamed sediments and 1 more).
+  Drawn (* = recorded nearby): stromatolite, seamat

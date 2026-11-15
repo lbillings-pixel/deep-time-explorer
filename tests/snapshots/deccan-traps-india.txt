@@ -1,0 +1,16 @@
+Deccan Traps, India
+Quaternary           tier 1 | Land, setting unknown | lat 19 to 19
+Neogene              tier 4 | Land, setting unknown | lat 11 to 14
+Paleogene            tier 2 | Volcanic land | lat -3 to 1
+Late Cretaceous      tier 2 | Volcanic land | lat -37 to -35
+Early Cretaceous     tier 4 | Land, setting unknown | lat -45 to -40
+Jurassic             tier 4 | Land, setting unknown | lat -32 to -27
+Triassic             tier 4 | Land, setting unknown | lat -33 to -33
+Permian              tier 4 | Land, setting unknown | lat -58 to -52
+Late Carboniferous   tier 4 | Land, setting unknown | lat -67 to -59
+Early Carboniferous  tier 4 | Land, setting unknown | lat -72 to -63
+Devonian             tier 4 | Land, setting unknown | lat -56 to -54
+Silurian             tier 4 | Land, setting unknown | lat -40 to -37
+Ordovician           tier 4 | Land, setting unknown | lat -36 to -27
+Cambrian             tier 4 | Land, setting unknown | lat -43 to -20
+Precambrian          tier 5 | No record

@@ -1,0 +1,16 @@
+London, UK
+Quaternary           tier 1 | River plain | lat 52 to 52
+Neogene              tier 3 | Shoreline | lat 46 to 52
+Paleogene            tier 1 | Open shelf sea | lat 41 to 48
+Late Cretaceous      tier 1 | Open shelf sea | lat 42 to 43
+Early Cretaceous     tier 3 | Warm shallow sea | lat 41 to 42
+Jurassic             tier 3 | Open shelf sea | lat 36 to 40
+Triassic             tier 3 | Land, setting unknown | lat 28 to 29
+Permian              tier 4 | Land, setting unknown | lat 10 to 15
+Late Carboniferous   tier 3 | Land, setting unknown | lat -1 to 5
+Early Carboniferous  tier 3 | Open shelf sea | lat -34 to -6
+Devonian             tier 3 | Open shelf sea | lat -26 to -16
+Silurian             tier 4 | Land, setting unknown | lat -26 to -17
+Ordovician           tier 3 | Open shelf sea | lat -62 to -49
+Cambrian             tier 4 | Land, setting unknown | lat -88 to -62
+Precambrian          tier 5 | No record

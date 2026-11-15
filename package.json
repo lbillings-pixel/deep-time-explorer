@@ -1,0 +1,23 @@
+{
+  "name": "deep-time-explorer",
+  "private": true,
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Lee Billings",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "data": "node tools/build-all.mjs"
+  },
+  "devDependencies": {
+    "@mapbox/vector-tile": "^3.0.0",
+    "@types/node": "^26.6.6",
+    "pbf": "^5.1.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}

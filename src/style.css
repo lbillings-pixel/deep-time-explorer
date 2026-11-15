@@ -1,0 +1,1233 @@
+:root {
+  --ink: #1d2327;
+  --muted: #56616a;
+  --paper: #faf8f4;
+  --card: #ffffff;
+  --line: #d9d4c9;
+  --accent: #8a4b1f;
+  --focus: #0b57d0;
+  /* Text on a filled button. */
+  --on-accent: #ffffff;
+  --notice: #fff4dc;
+  --aside: #efece5;
+  color-scheme: light;
+}
+
+/* The dark appearance, chosen in the settings. The globe and the event panels are dark in both. */
+:root[data-theme='dark'] {
+  --ink: #e8e3d8;
+  --muted: #a7b0b6;
+  --paper: #14181b;
+  --card: #1e2428;
+  --line: #3b444a;
+  --accent: #e3a36c;
+  --focus: #8ab4f8;
+  --on-accent: #1b1208;
+  --notice: #3b2f14;
+  --aside: #252c31;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font: 1.0625rem/1.55 Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1,
+h2,
+h3,
+label,
+button,
+input,
+.tier,
+.age,
+.coords,
+.status {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.site-header,
+main,
+.site-footer {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-header h1 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 1.9rem;
+}
+
+.site-header p,
+.site-footer {
+  color: var(--muted);
+}
+
+.search label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+input[type='search'] {
+  flex: 1 1 14rem;
+  min-width: 0;
+  padding: 0.6rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid var(--muted);
+  border-radius: 6px;
+}
+
+button {
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--on-accent);
+  cursor: pointer;
+}
+
+#locate,
+#pick,
+.choices button {
+  background: var(--card);
+  color: var(--accent);
+}
+
+button.link {
+  border: 0;
+  padding: 0.3rem 0;
+  background: none;
+  color: var(--focus);
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.status {
+  min-height: 1.6rem;
+  margin: 0.75rem 0;
+  color: var(--muted);
+}
+
+.choices {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.choices button {
+  width: 100%;
+  text-align: left;
+}
+
+.credit,
+.coords,
+.models {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.coords {
+  margin-top: -0.75rem;
+}
+
+.notice {
+  padding: 0.6rem 0.8rem;
+  border-left: 4px solid #b26a00;
+  background: var(--notice);
+}
+
+.aside {
+  padding: 0.6rem 0.8rem;
+  border-left: 4px solid var(--muted);
+  background: var(--aside);
+  font-size: 0.95rem;
+}
+
+.how {
+  margin: 1rem 0 0.4rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* The eras: a row of links to jump by, then one group of tiles for each. */
+.eras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.75rem;
+}
+
+.eras a {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--accent);
+  font: 600 0.9rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+  text-decoration: none;
+}
+
+.timeline {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.era {
+  margin: 0;
+  scroll-margin-top: 0.5rem;
+}
+
+.era > summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.75rem;
+  padding: 0.35rem 0;
+  border-bottom: 2px solid var(--line);
+  color: var(--ink);
+}
+
+.era h3 {
+  display: inline;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+/* The era's own marker is lost to the row layout, so the row says what a click will do. */
+.era > summary::after {
+  content: 'Show';
+  margin-left: auto;
+  color: var(--accent);
+  font: 600 0.85rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.era[open] > summary::after {
+  content: 'Hide';
+}
+
+.tiles {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+/* A plain line among the tiles: the start of the timeline. */
+.tiles > .marker {
+  padding: 0.5rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* A tile: a picture and a few words in a row. Opened, the picture takes the full width and the text follows. */
+.tile > details {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.tile > details > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  list-style: none;
+  color: inherit;
+  font-weight: 400;
+}
+
+.tile > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.tile .pic {
+  flex: none;
+  width: clamp(7rem, 34vw, 13rem);
+}
+
+.tile .words {
+  display: grid;
+  gap: 0.1rem;
+  justify-items: start;
+  min-width: 0;
+}
+
+.tile h4 {
+  margin: 0;
+  font: 700 1.15rem/1.25 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+/* The tile says what a click will do, since its own marker is hidden. */
+.tile .words::after {
+  content: 'Open';
+  color: var(--accent);
+  font: 600 0.85rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.tile > details[open] .words::after {
+  content: 'Close';
+}
+
+.tile > details[open] > summary {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.tile > details[open] .pic {
+  width: 100%;
+}
+
+.tile .body {
+  padding: 0 0.9rem 0.6rem;
+}
+
+.tile .caption {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.tile .tier .full,
+.tile > details[open] .tier .short {
+  display: none;
+}
+
+.tile > details[open] .tier .full {
+  display: inline;
+}
+
+.tile .close {
+  display: block;
+  margin: 0.5rem 0 0 auto;
+}
+
+.age {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.environment {
+  font-weight: 600;
+}
+
+.tier {
+  display: inline-block;
+  margin: 0.1rem 0;
+  padding: 0.05rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.tier-1 {
+  color: #14532d;
+  background: #dcfce7;
+}
+.tier-2 {
+  color: #1e3a8a;
+  background: #dbeafe;
+}
+.tier-3 {
+  color: #5b3a00;
+  background: #fdecc8;
+}
+.tier-4 {
+  color: #4a4a4a;
+  background: #ececec;
+  border-style: dashed;
+}
+.tier-5 {
+  color: #6b1d1d;
+  background: #fbe4e4;
+  border-style: dotted;
+}
+
+.also,
+.note {
+  margin: 0.25rem 0;
+}
+
+.note {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.scene-art {
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #1d2327;
+  background: #e8e4da;
+}
+
+.scene-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.story p {
+  margin: 0.5rem 0;
+  max-width: 70ch;
+}
+
+/* What the data says about this place, set apart from the general passage. */
+.story .local {
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--accent);
+}
+
+.draft {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+
+details {
+  margin: 0.4rem 0;
+}
+
+summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.scene-deep-sea .scene-art {
+  background: linear-gradient(#5b7fa6, #1f3a5f);
+  color: #fff;
+}
+.scene-shelf-sea .scene-art {
+  background: linear-gradient(#9cc4dc, #4b86a8);
+}
+.scene-carbonate-sea .scene-art {
+  background: linear-gradient(#bfe6e3, #58b2b0);
+}
+.scene-reef .scene-art {
+  background: linear-gradient(#bfe6e3, #e59a7a);
+}
+.scene-shoreline .scene-art {
+  background: linear-gradient(#bcdcea, #ead9b0);
+}
+.scene-delta .scene-art {
+  background: linear-gradient(#c7dfd2, #b9a67a);
+}
+.scene-river-plain .scene-art {
+  background: linear-gradient(#d5e7c4, #a9c08a);
+}
+.scene-lake .scene-art {
+  background: linear-gradient(#cfe3ee, #8fb7a3);
+}
+.scene-swamp .scene-art {
+  background: linear-gradient(#b9cfa6, #5f7d55);
+}
+.scene-desert .scene-art {
+  background: linear-gradient(#f3e2b8, #dba564);
+}
+.scene-ice .scene-art {
+  background: linear-gradient(#f4f8fb, #bcd3e2);
+}
+.scene-volcanic-land .scene-art {
+  background: linear-gradient(#e7c7b4, #7d5a52);
+}
+.scene-mountains .scene-art {
+  background: linear-gradient(#dfe6ee, #8d94a0);
+}
+.scene-land .scene-art {
+  background: linear-gradient(#e6e2d2, #bdb59b);
+}
+.scene-none .scene-art {
+  display: grid;
+  place-items: center;
+  padding: 0.5rem;
+  text-align: center;
+  font: 0.9rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+  border: 2px dashed var(--line);
+  background: none;
+  color: var(--muted);
+}
+
+/* Opened, a chapter with no record has no picture to enlarge. */
+.tile > details[open] .scene-none {
+  display: none;
+}
+
+.facts {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.facts li {
+  margin: 0.3rem 0;
+}
+
+.sources-box {
+  margin: 1.5rem 0 0;
+}
+
+.sources {
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: var(--focus);
+}
+
+@media (max-width: 30rem) {
+  .search-row button {
+    flex: 1 1 auto;
+  }
+}
+
+/* The pause control under a scene. */
+.caption .motion {
+  font-size: inherit;
+}
+
+/* Caveats: what a reader should know before trusting the text or the picture. */
+.caveats {
+  margin: 0.6rem 0 0;
+}
+
+.caveats ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+  max-width: 72ch;
+}
+
+.caveats li {
+  margin: 0.4rem 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* The rock layers beneath the region: a panel, and on a wide screen a strip along the timeline. */
+.column {
+  margin: 1.25rem 0;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.column > summary h2 {
+  display: inline;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.column h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.column .legend,
+.column .bands,
+.column .bands ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.column .legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1rem;
+  margin-bottom: 0.75rem;
+  font: 0.82rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.swatch {
+  display: inline-block;
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-right: 0.35rem;
+  border: 1px solid rgb(0 0 0 / 0.35);
+  border-radius: 2px;
+  vertical-align: -0.05rem;
+}
+
+.band {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  gap: 0.75rem;
+  min-height: 3.2rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.band li {
+  margin: 0.2rem 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.band .none,
+.band .at-spot {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* A stretch of the column. The hatching is what shows where no layer lies. */
+.strata {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid #8c8676;
+  border-radius: 3px;
+  background: repeating-linear-gradient(135deg, #f3f0e8 0 4px, #dcd7ca 4px 5px);
+}
+
+.strata > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  min-height: 3px;
+  box-shadow: 0 0 0 0.5px rgb(0 0 0 / 0.45);
+}
+
+/* Confirmed at the spot by the geological map: a dark bar down the block's left side. */
+.strata > .here {
+  border-left: 3px solid var(--ink);
+}
+
+/* The strip along the timeline is for wide screens only. */
+.tile > .strata {
+  display: none;
+}
+
+@media (min-width: 60rem) {
+  .tile.with-strata {
+    position: relative;
+  }
+
+  .tile > .strata {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1.35rem;
+    width: 0.9rem;
+    cursor: pointer;
+  }
+}
+
+/* The chapters are the thread of the timeline. Events are small notes: under their chapter on a narrow screen, in a rail
+   beside the thread on a wide one. */
+.tile.marked > details {
+  outline: 3px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.notes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.under {
+  margin: -0.15rem 0 0.35rem 1.25rem;
+  padding-left: 0.6rem;
+  border-left: 2px solid var(--line);
+}
+
+.event-note {
+  --edge: #b9853f;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.3rem 0.5rem 0.3rem 0.3rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--edge);
+  border-radius: 6px;
+  background: none;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+}
+
+.event-note:hover {
+  background: var(--card);
+}
+
+.event-note.mass {
+  --edge: #a8431c;
+}
+
+.event-note.turning {
+  --edge: #3f8f86;
+}
+
+.event-note.tectonic {
+  --edge: #6f66a8;
+}
+
+.event-note .pic {
+  position: relative;
+  flex: none;
+  width: 3.6rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #2b3338;
+}
+
+.event-note .pic img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Out of the flow, so that the canvas cannot stretch its box. */
+.event-note .pic canvas {
+  position: absolute;
+  top: 4%;
+  left: 50%;
+  height: 92%;
+  aspect-ratio: 1;
+  translate: -50% 0;
+}
+
+.event-note .words {
+  display: grid;
+  min-width: 0;
+  font: 0.8rem/1.25 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.event-note .kicker {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.event-note .name {
+  font-weight: 600;
+}
+
+.event-note .age {
+  font-size: 0.75rem;
+}
+
+/* Under a chapter, a note is only as wide as its words. */
+.under .event-note {
+  width: auto;
+}
+
+.under .event-note .age {
+  display: none;
+}
+
+.rail[hidden],
+.under[hidden] {
+  display: none;
+}
+
+@media (min-width: 60rem) {
+  /* The rail takes the free space to the right of the page's column where there is some, and room from the column where there is not. */
+  .thread {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    gap: 1rem;
+    align-items: start;
+    margin-right: calc(-1 * clamp(0rem, (100vw - 100%) / 2 - 1.5rem, 18rem));
+  }
+
+  /* It keeps to the top of the screen while its era's chapters pass, so the events stay in view without a scroll bar of their own. */
+  .rail .notes {
+    display: grid;
+  }
+
+  .rail {
+    position: sticky;
+    top: 0.75rem;
+    margin-top: 0.6rem;
+  }
+}
+
+/* The panel an event opens in: dark, so that the painting carries it. */
+.event-panel {
+  width: min(46rem, calc(100vw - 1.5rem));
+  /* The second line counts only the part of the screen a phone's own bars leave free; older browsers keep the first. */
+  max-height: calc(100vh - 1.5rem);
+  max-height: calc(100dvh - 1.5rem);
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: #1d2327;
+  color: #f1ede4;
+}
+
+.event-panel::backdrop {
+  background: rgb(20 24 27 / 0.6);
+}
+
+.event-panel .inner {
+  padding: 0 1.1rem 0.8rem;
+  border-top: 6px solid #e3a36c;
+}
+
+.event-panel .inner.turning {
+  border-top-color: #9fd0c8;
+}
+
+.event-panel .inner.tectonic {
+  border-top-color: #c9c3e6;
+}
+
+.event-panel .kicker {
+  margin: 0;
+  color: #e3a36c;
+  font: 700 0.75rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-panel .turning .kicker {
+  color: #9fd0c8;
+}
+
+.event-panel .tectonic .kicker {
+  color: #c9c3e6;
+}
+
+.event-panel h3 {
+  margin: 0.1rem 0 0;
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.event-panel .inner > .age {
+  margin-bottom: 0.7rem;
+}
+
+.event-panel .age,
+.event-panel figcaption,
+.event-panel .caveats li {
+  color: #b9c0c4;
+}
+
+.event-panel summary,
+.event-panel .close,
+.event-panel .to-globe {
+  color: #e3a36c;
+}
+
+/* The kicker and Close: a bar that keeps to the top of the panel as it scrolls. */
+.event-panel .bar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 -1.1rem;
+  padding: 0.5rem 1.1rem;
+  background: #1d2327;
+}
+
+.event-panel .close {
+  flex: none;
+  padding: 0.35rem 0.8rem;
+  border-color: currentColor;
+  background: none;
+}
+
+.event-panel .story .local {
+  border-left-color: #e3a36c;
+}
+
+.event-panel .globe-pic {
+  position: relative;
+  width: min(100%, 16rem);
+  aspect-ratio: 1;
+  margin: 0 auto 0.5rem;
+}
+
+.event-panel .globe-pic canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.painting {
+  margin: 0;
+}
+
+.painting img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: #2b3338;
+}
+
+.painting figcaption {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+}
+
+/* The ancient globe. */
+.globe {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border-radius: 10px;
+  background: #101a24;
+  color: #eef1f3;
+}
+
+.globe h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.globe-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+}
+
+.globe canvas {
+  flex: 0 1 320px;
+  width: 320px;
+  max-width: 100%;
+  aspect-ratio: 1;
+  touch-action: none;
+  cursor: grab;
+  border-radius: 50%;
+}
+
+.globe canvas:focus-visible {
+  outline: 3px solid #f0b27a;
+  outline-offset: 4px;
+}
+
+.globe-side {
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.globe-when {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.globe-where {
+  margin: 0.25rem 0 0.9rem;
+  min-height: 3.2em;
+}
+
+.globe label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.globe input[type='range'] {
+  width: 100%;
+  margin: 0.3rem 0 0;
+  accent-color: #f0b27a;
+}
+
+.globe-ends {
+  display: flex;
+  justify-content: space-between;
+  color: #aab4bb;
+  font-size: 0.8rem;
+}
+
+.globe-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+
+.globe-buttons button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #f0b27a;
+  border-radius: 6px;
+  background: transparent;
+  color: #f0b27a;
+  font: inherit;
+  cursor: pointer;
+}
+
+.globe-buttons button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.globe-note {
+  margin: 0;
+  color: #aab4bb;
+  font-size: 0.82rem;
+}
+
+.globe-note summary {
+  color: #f0b27a;
+  font-weight: 400;
+}
+
+.picker .globe-row {
+  align-items: flex-start;
+}
+
+.picker canvas {
+  cursor: crosshair;
+}
+
+.picker-readout {
+  margin: 0 0 0.6rem;
+  min-height: 2.6em;
+}
+
+.picker .globe-buttons button:not(:disabled):first-child:last-child {
+  background: #f0b27a;
+  color: #101a24;
+  font-weight: 700;
+}
+
+.to-globe {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+/* The credits page: plain lists of sources. */
+.credits h2 {
+  margin: 1.75rem 0 0.25rem;
+  font-size: 1.2rem;
+}
+
+.credits li {
+  margin: 0.5rem 0;
+  overflow-wrap: anywhere;
+}
+
+/* On a touch screen, the small things to tap get more height: a finger needs more room than a mouse pointer. */
+@media (pointer: coarse) {
+  summary {
+    padding: 0.35rem 0;
+  }
+
+  .globe input[type='range'] {
+    height: 2rem;
+  }
+
+  .site-footer a,
+  .site-header a {
+    display: inline-block;
+    padding: 0.4rem 0;
+  }
+}
+
+/* The links at the top of each page. */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 0.25rem 1.25rem;
+  font: 0.95rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.site-nav a:first-child:not(:last-child):not([href='about.html']) {
+  margin-right: auto;
+}
+
+.site-nav button {
+  font-size: inherit;
+}
+
+/* The settings menu. */
+.settings {
+  width: min(26rem, calc(100vw - 1.5rem));
+  max-height: calc(100vh - 1.5rem);
+  max-height: calc(100dvh - 1.5rem);
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.settings::backdrop,
+.full-scene {
+  background: rgb(20 24 27 / 0.6);
+}
+
+.settings .bar {
+  position: sticky;
+  top: -1rem;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -1rem 0 0.25rem;
+  padding: 0.75rem 0 0.5rem;
+  background: var(--card);
+}
+
+.settings h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.settings fieldset {
+  margin: 0 0 0.75rem;
+  padding: 0;
+  border: 0;
+}
+
+.settings legend {
+  padding: 0;
+  font: 700 0.95rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.settings label {
+  display: block;
+  padding: 0.25rem 0;
+  font-weight: 400;
+}
+
+.settings input {
+  accent-color: var(--accent);
+}
+
+.settings .hint {
+  margin: 0.1rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* With "Full-screen pictures" on, the pointer says what a click on a picture will do. */
+.full-on-click .tile.chapter .pic:not(.scene-none) {
+  cursor: zoom-in;
+}
+
+/* A scene shown full screen: as large as the screen allows, on black. A click anywhere closes it. */
+.full-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  place-items: center;
+  background: #000;
+  cursor: zoom-out;
+}
+
+.full-scene .scene-art {
+  width: min(100vw, 160vh);
+  border-radius: 0;
+}
+
+.full-scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.full-on-click .painting img {
+  cursor: zoom-in;
+}
+
+.full-scene p {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0.3rem 0.7rem;
+  background: rgb(0 0 0 / 0.55);
+  color: #f1ede4;
+  font: 0.85rem system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.full-scene button {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  border-color: #f1ede4;
+  background: rgb(0 0 0 / 0.55);
+  color: #f1ede4;
+}
+
+/* The dark appearance: the pieces whose colors are not taken from the variables at the top. */
+[data-theme='dark'] input[type='search'] {
+  background: var(--card);
+  color: var(--ink);
+}
+
+[data-theme='dark'] .tier-1 {
+  color: #b7efc9;
+  background: #173624;
+}
+[data-theme='dark'] .tier-2 {
+  color: #c3d6fb;
+  background: #1c2c4f;
+}
+[data-theme='dark'] .tier-3 {
+  color: #f3d9a4;
+  background: #3d2c0c;
+}
+[data-theme='dark'] .tier-4 {
+  color: #cfd3d6;
+  background: #2c3236;
+}
+[data-theme='dark'] .tier-5 {
+  color: #f3c0c0;
+  background: #431c1c;
+}
+
+[data-theme='dark'] .strata {
+  border-color: #6b736f;
+  background: repeating-linear-gradient(135deg, #20262a 0 4px, #3b444a 4px 5px);
+}
+
+[data-theme='dark'] .swatch {
+  border-color: rgb(255 255 255 / 0.4);
+}
+
+[data-theme='dark'] .globe,
+[data-theme='dark'] .event-panel {
+  outline: 1px solid var(--line);
+}

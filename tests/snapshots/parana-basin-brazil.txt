@@ -1,0 +1,16 @@
+Parana Basin, Brazil
+Quaternary           tier 4 | Land, setting unknown | lat -23 to -23
+Neogene              tier 4 | Land, setting unknown | lat -27 to -23
+Paleogene            tier 4 | Land, setting unknown | lat -31 to -25
+Late Cretaceous      tier 3 | Land, setting unknown | lat -29 to -26
+Early Cretaceous     tier 4 | Land, setting unknown | lat -23 to -21
+Jurassic             tier 4 | Land, setting unknown | lat -26 to -19
+Triassic             tier 4 | Land, setting unknown | lat -35 to -31
+Permian              tier 3 | Lake | lat -43 to -40
+Late Carboniferous   tier 3 | Open shelf sea | lat -53 to -49
+Early Carboniferous  tier 4 | Land, setting unknown | lat -66 to -62
+Devonian             tier 4 | Land, setting unknown | lat -85 to -81
+Silurian             tier 4 | Land, setting unknown | lat -73 to -57
+Ordovician           tier 4 | Land, setting unknown | lat -48 to -40
+Cambrian             tier 4 | Land, setting unknown | lat -58 to -50
+Precambrian          tier 5 | No record

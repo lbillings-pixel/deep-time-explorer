@@ -1,0 +1,16 @@
+Wellington, New Zealand
+Quaternary           tier 1 | Shoreline | lat -41 to -41
+Neogene              tier 1 | Open shelf sea | lat -48 to -42
+Paleogene            tier 3 | Deep water (basin or slope) | lat -53 to -46
+Late Cretaceous      tier 3 | Deep water (basin or slope) | lat -67 to -67
+Early Cretaceous     tier 3 | Shoreline | lat -85 to -83
+Jurassic             tier 3 | Deep water (basin or slope) | lat -83 to -75
+Triassic             tier 1 | Open shelf sea | lat -80 to -73
+Permian              tier 3 | Open shelf sea | lat -77 to -73
+Late Carboniferous   tier 5 | No record
+Early Carboniferous  tier 5 | No record
+Devonian             tier 5 | No record
+Silurian             tier 5 | No record
+Ordovician           tier 5 | No record
+Cambrian             tier 5 | No record
+Precambrian          tier 5 | No record

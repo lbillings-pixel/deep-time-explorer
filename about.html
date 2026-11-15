@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About: Deep Time Explorer</title>
+    <meta name="description" content="What Deep Time Explorer is for, what it does, and what it cannot tell you." />
+    <script>
+      // The dark appearance, if chosen in the settings, is applied before anything is drawn. The same rule is in src/settings.ts.
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (theme === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.dataset.theme = 'dark';
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Site">
+        <a href="./">Deep Time Explorer</a>
+        <a href="credits.html">Credits and sources</a>
+      </nav>
+      <h1>About</h1>
+      <p>What this site is for, what it does, and what it cannot tell you.</p>
+    </header>
+
+    <main class="credits">
+      <h2>Purpose</h2>
+      <p>Every place on Earth has been many places: sea floor, swamp, desert, mountain belt. Deep Time Explorer takes one spot and shows what it was probably like through geological time, as far back as the evidence reliably goes, and says how good that evidence is. It is free, for anyone curious: the general public, students and teachers, rock and fossil enthusiasts.</p>
+
+      <h2>What it does</h2>
+      <ul>
+        <li><strong>Start from a place.</strong> Type a town or city, enter a latitude and longitude, use your device's location, or drop a pin on a globe.</li>
+        <li><strong>A timeline of fifteen chapters</strong>, from the Quaternary back to the Precambrian. For each, the site works out the most likely setting (a shallow sea, a river plain, a desert and so on) from the rock mapped at and around the spot, the fossils recorded nearby, the place's position at the time, and maps of ancient land and sea.</li>
+        <li><strong>A scene for each chapter</strong>, drawn in your browser from that evidence: ancient latitude sets the light, the rock's signs of climate set the colors, and only plants and animals known from that time, setting and part of the world may appear.</li>
+        <li><strong>A story for each chapter</strong>: what the data says about this place, then a short account of that kind of place at that time, and of the wider world.</li>
+        <li><strong>Events beside the timeline</strong>: mass extinctions and lesser ones, turning points in the history of life and the planet, and the mountain building and opening of oceans that reached the region.</li>
+        <li><strong>An ancient globe</strong> that shows where the place lay as the continents moved, back to 540 million years ago.</li>
+        <li><strong>The rock layers beneath the region</strong>, where a stacked record has been compiled.</li>
+        <li><strong>The evidence, the caveats and the sources</strong> for every chapter, picture and event, one or two clicks away.</li>
+      </ul>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li><strong>The scenes are representative, not portraits.</strong> A scene shows the kind of place the evidence points to. It is not a reconstruction of the exact spot, and its hills, shores and animals are placed by code, not by data.</li>
+        <li><strong>Most places have no rock from most of the past.</strong> Where none is recorded at the spot, the site falls back on rock in the region, and then on broad maps of the ancient world. Each chapter carries a label that says which: recorded here, inferred from the rock here, recorded in the region, regional picture, or no record. The further down that list, the less the picture can be trusted.</li>
+        <li><strong>The maps are coarse.</strong> The ancient maps have one value for about every 100 km, and rock records for a region can span tens of kilometers. A coast, a mountain front or a rock boundary near a place can fall on the wrong side of it.</li>
+        <li><strong>Ancient positions grow uncertain with age.</strong> Before about 200 million years ago plate models disagree, and the site gives the range. Before 540 million years ago there are no maps to place a spot on at all.</li>
+        <li><strong>The data is uneven.</strong> Detailed geological maps, stacked rock records and fossil finds are far denser for North America and Europe than for most of the world. A thin record often means few studies, not little history. Rock that formed deep underground says when it formed, not what the surface above it looked like.</li>
+        <li><strong>The fossil record is partial.</strong> Scenes show a small cast, drawn mostly from animals and plants that fossilize well. Upland life, soft-bodied life and small creatures are scarce in them.</li>
+        <li><strong>The texts are summaries.</strong> They rest on published work, often on the summaries of papers and not a full reading of each, and specialists dispute some of what they say. The caveats beside each text say where.</li>
+        <li><strong>The data is a snapshot.</strong> Fossil and rock records are copies taken on a date, given in each place's source list. The one live lookup, the detailed geological map, can fail; the site then says so and uses coarser maps.</li>
+      </ul>
+      <p>The site is not a substitute for a geological map, a field guide or a specialist. It is a way in.</p>
+
+      <h2>Who made it</h2>
+      <p>Deep Time Explorer was made by Lee Billings, who built it with Claude, an AI model made by Anthropic. The <a href="credits.html">credits page</a> says who did what and lists every source.</p>
+
+      <p><a href="credits.html">Credits and sources</a> · <a href="./">Back to the explorer</a></p>
+    </main>
+  </body>
+</html>

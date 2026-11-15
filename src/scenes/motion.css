@@ -1,0 +1,335 @@
+/* A scene as a stack of layers, and the gentle motion of each.
+   Only `transform` and `opacity` are ever animated: a device's graphics chip
+   moves a finished layer without redrawing it, so the cost stays low on phones.
+   Motion runs only while a scene is on screen (.live), and not at all when the
+   visitor has paused it or the device asks for reduced motion (html.still). */
+
+.stack {
+  position: relative;
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+  contain: layout paint;
+}
+
+.stack .world {
+  position: absolute;
+  inset: 0;
+}
+
+.stack .mirrored {
+  transform: scaleX(-1);
+}
+
+.stack svg {
+  position: absolute;
+  display: block;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* A shoal, swarm or flock: one frame that travels, holding a small layer for each individual. */
+.stack .grp {
+  position: absolute;
+  pointer-events: none;
+}
+
+.stack svg.lay {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stack svg.m-clouds {
+  width: 200%;
+}
+
+/* ---- plants and animals ---- */
+
+@keyframes sway {
+  from {
+    transform: skewX(calc(var(--a) * -1));
+  }
+  to {
+    transform: skewX(var(--a));
+  }
+}
+
+/* An animal standing on land does two things at once, each on its own clock:
+   it breathes (the body swells, feet planted), and every so often it shifts its
+   weight (leans the other way and stays there a while). `scale` and
+   `transform` are separate properties, so the two movements add together. */
+@keyframes breathe {
+  from {
+    scale: 1 1;
+  }
+  to {
+    scale: var(--bx) var(--by);
+  }
+}
+
+@keyframes shift {
+  0%,
+  28% {
+    transform: translateX(0) skewX(calc(var(--a) * -1));
+  }
+  40%,
+  76% {
+    transform: translateX(var(--s)) skewX(var(--a));
+  }
+  88%,
+  100% {
+    transform: translateX(0) skewX(calc(var(--a) * -1));
+  }
+}
+
+/* A small crawler creeps forward, turns round, and creeps back. One round takes about a minute or more, so the turn (1.5% of the round, about a second) comes rarely. */
+@keyframes crawl {
+  0% {
+    transform: translate(calc(var(--a) * -1), calc(var(--b) * -1)) scaleX(1);
+  }
+  48.5% {
+    transform: translate(var(--a), var(--b)) scaleX(1);
+  }
+  50% {
+    transform: translate(var(--a), var(--b)) scaleX(-1);
+  }
+  98.5% {
+    transform: translate(calc(var(--a) * -1), calc(var(--b) * -1)) scaleX(-1);
+  }
+  100% {
+    transform: translate(calc(var(--a) * -1), calc(var(--b) * -1)) scaleX(1);
+  }
+}
+
+/* A crab goes sideways, and a crawler on a slope backs up: to and fro with a rest at each end, never turning. */
+@keyframes scuttle {
+  0%,
+  12% {
+    transform: translate(calc(var(--a) * -1), calc(var(--b) * -1));
+  }
+  42%,
+  58% {
+    transform: translate(var(--a), var(--b));
+  }
+  88%,
+  100% {
+    transform: translate(calc(var(--a) * -1), calc(var(--b) * -1));
+  }
+}
+
+@keyframes bob {
+  from {
+    transform: translateY(-2.5%) rotate(-0.5deg);
+  }
+  to {
+    transform: translateY(2.5%) rotate(0.5deg);
+  }
+}
+
+@keyframes hover {
+  from {
+    transform: translate(-3%, -1.5%);
+  }
+  to {
+    transform: translate(3%, 1.5%);
+  }
+}
+
+@keyframes cross {
+  from {
+    transform: translateX(var(--a));
+  }
+  to {
+    transform: translateX(var(--b));
+  }
+}
+
+/* The gait of a swimmer or flyer: three small movements on three clocks, each on a
+   property of its own (`scale`, `rotate`, `translate`), so that they add to one another
+   and to the travel across the frame, which uses `transform`. */
+@keyframes beat {
+  from {
+    scale: 1 1;
+  }
+  to {
+    scale: var(--gx) var(--gy);
+  }
+}
+
+@keyframes tip {
+  from {
+    rotate: calc(var(--ga) * -1);
+  }
+  to {
+    rotate: var(--ga);
+  }
+}
+
+@keyframes rise {
+  from {
+    translate: 0 calc(var(--gr) * -1);
+  }
+  to {
+    translate: 0 var(--gr);
+  }
+}
+
+.live .gait {
+  animation:
+    beat var(--gt) ease-in-out var(--gd) infinite alternate,
+    tip var(--ht) ease-in-out var(--hd) infinite alternate,
+    rise var(--jt) ease-in-out var(--jd) infinite alternate;
+}
+
+.live .k-cross.gait {
+  animation:
+    cross var(--t) linear var(--d) infinite,
+    beat var(--gt) ease-in-out var(--gd) infinite alternate,
+    tip var(--ht) ease-in-out var(--hd) infinite alternate,
+    rise var(--jt) ease-in-out var(--jd) infinite alternate;
+}
+
+.live .k-hover.gait {
+  animation:
+    hover var(--t) ease-in-out var(--d) infinite alternate,
+    beat var(--gt) ease-in-out var(--gd) infinite alternate,
+    tip var(--ht) ease-in-out var(--hd) infinite alternate,
+    rise var(--jt) ease-in-out var(--jd) infinite alternate;
+}
+
+.live .k-sway {
+  animation: sway var(--t) ease-in-out var(--d) infinite alternate;
+}
+
+.live .k-idle {
+  animation:
+    breathe var(--t) ease-in-out var(--d) infinite alternate,
+    shift var(--u) ease-in-out var(--e) infinite;
+}
+
+.live .k-crawl {
+  animation: crawl var(--t) ease-in-out var(--d) infinite;
+}
+
+.live .k-scuttle {
+  animation: scuttle var(--t) ease-in-out var(--d) infinite;
+}
+
+.live .k-bob {
+  animation: bob var(--t) ease-in-out var(--d) infinite alternate;
+}
+
+.live .k-hover {
+  animation: hover var(--t) ease-in-out var(--d) infinite alternate;
+}
+
+.live .k-cross {
+  animation: cross var(--t) linear var(--d) infinite;
+}
+
+/* ---- sky and water ---- */
+
+@keyframes clouds {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Shafts of light through water: they brighten, dim and lean a little. */
+@keyframes rays {
+  from {
+    opacity: 0.5;
+    transform: skewX(-1.2deg);
+  }
+  to {
+    opacity: 1;
+    transform: skewX(1.2deg);
+  }
+}
+
+/* The underside of the water surface, and ripples seen from above: a slow slide and flicker. */
+@keyframes shimmer {
+  from {
+    opacity: 0.65;
+    transform: translateX(-0.4%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0.4%);
+  }
+}
+
+/* Light on water that must not slide (it is cut to the water's outline): it only flickers. */
+@keyframes glint {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Waves on a shore: in and out. */
+@keyframes swash {
+  from {
+    transform: translate(-0.5%, -0.5%);
+  }
+  to {
+    transform: translate(0.5%, 0.7%);
+  }
+}
+
+/* Smoke, steam and drifting haze: a slow rise and thinning. */
+@keyframes drift {
+  from {
+    opacity: 0.75;
+    transform: translate(-0.6%, 0.6%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0.6%, -0.6%);
+  }
+}
+
+/* Lava and embers: a slow pulse of glow. */
+@keyframes glow {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.live .m-clouds {
+  animation: clouds 260s linear infinite;
+}
+
+.live .m-rays {
+  animation: rays 7s ease-in-out infinite alternate;
+  transform-origin: 50% 0;
+}
+
+.live .m-shimmer {
+  animation: shimmer 4.6s ease-in-out infinite alternate;
+}
+
+.live .m-glint {
+  animation: glint 2.8s ease-in-out infinite alternate;
+}
+
+.live .m-swash {
+  animation: swash 5.5s ease-in-out infinite alternate;
+}
+
+.live .m-drift {
+  animation: drift 9s ease-in-out infinite alternate;
+}
+
+.live .m-glow {
+  animation: glow 3.4s ease-in-out infinite alternate;
+}
+
+html.still .stack * {
+  animation: none !important;
+}

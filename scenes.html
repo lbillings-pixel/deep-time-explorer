@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scene workbench: scenes drawn by code</title>
+  </head>
+  <body>
+    <header class="top">
+      <p class="kicker">Scene workbench</p>
+      <h1>Scenes drawn by code</h1>
+      <p class="lede">
+        Each picture below is assembled in your browser from separately drawn parts: sky, land or sea floor, water,
+        plants and animals. Nothing here is a photograph or an AI image, and nothing is fetched from a server.
+      </p>
+      <ul class="rules">
+        <li><strong>Ancient latitude sets the light:</strong> how high the sun stands, the color of the sky, the length of shadows.</li>
+        <li><strong>Climate sets the palette.</strong> In the app, wet, dry or cold would come only from rock evidence.</li>
+        <li><strong>The chapter and the scene type decide who may appear.</strong> A part is never drawn outside the chapters and scene types listed for it.</li>
+        <li><strong>The place sets the view.</strong> The same place number always gives the same picture.</li>
+      </ul>
+      <p class="warn">The parts gallery is at the foot of the page. Each group has its caveats behind a click: what is guessed, simplified or disputed.</p>
+    </header>
+    <main id="app"></main>
+    <noscript><p class="warn">This page needs JavaScript: the scenes are drawn by code.</p></noscript>
+    <script type="module" src="/src/scenes/page.ts"></script>
+  </body>
+</html>

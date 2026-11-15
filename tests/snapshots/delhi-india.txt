@@ -1,0 +1,16 @@
+Delhi, India
+Quaternary           tier 4 | Land, setting unknown | lat 29 to 29
+Neogene              tier 3 | Land, setting unknown | lat 20 to 23
+Paleogene            tier 3 | Warm shallow sea | lat 5 to 9
+Late Cretaceous      tier 4 | Open shelf sea | lat -31 to -29
+Early Cretaceous     tier 4 | Open shelf sea | lat -43 to -37
+Jurassic             tier 4 | Land, setting unknown | lat -30 to -26
+Triassic             tier 4 | Land, setting unknown | lat -32 to -30
+Permian              tier 4 | Land, setting unknown | lat -56 to -49
+Late Carboniferous   tier 4 | Land, setting unknown | lat -63 to -54
+Early Carboniferous  tier 4 | Land, setting unknown | lat -63 to -56
+Devonian             tier 4 | Open shelf sea | lat -46 to -44
+Silurian             tier 4 | Open shelf sea | lat -32 to -29
+Ordovician           tier 4 | Open shelf sea | lat -31 to -20
+Cambrian             tier 4 | Open shelf sea | lat -37 to -11
+Precambrian          tier 5 | No record

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deep Time Explorer</title>
+    <meta name="description" content="Enter a place and explore its geological history, as far back as the evidence reliably goes." />
+    <script>
+      // The dark appearance, if chosen in the settings, is applied before anything is drawn. The same rule is in src/settings.ts.
+      try {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (theme === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches)) document.documentElement.dataset.theme = 'dark';
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Site">
+        <a href="about.html">About</a>
+        <button type="button" id="settings-button" class="link">Settings</button>
+      </nav>
+      <h1>Deep Time Explorer</h1>
+      <p>Enter a place and see what it was like through geological time, as far back as the evidence reliably goes.</p>
+    </header>
+
+    <main>
+      <form id="search" class="search" role="search">
+        <label for="query">Place name, or latitude and longitude</label>
+        <div class="search-row">
+          <input id="query" name="query" type="search" autocomplete="off" placeholder="Reykjavik, or 64.13, -21.9" required />
+          <button type="submit">Search</button>
+          <button type="button" id="locate">Use my location</button>
+          <button type="button" id="pick" aria-expanded="false" aria-controls="picker">Drop a pin on a globe</button>
+        </div>
+      </form>
+
+      <div id="picker"></div>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <section id="choices" aria-label="Matching places"></section>
+      <section id="result" aria-label="Geological history"></section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Working prototype. Scenes are drawn by code from the data for each place, and are representative, not portraits. Every fact shown comes from the data sources listed for each location.</p>
+      <p><a href="about.html">About</a> · <a href="credits.html">Credits and sources</a></p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

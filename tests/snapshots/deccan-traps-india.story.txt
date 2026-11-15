@@ -1,0 +1,43 @@
+Deccan Traps, India
+Quaternary | Land, setting unknown | neutral | india
+  1 fossil site of this age lies within 25 km. At the time, this spot lay about 19° north of the equator. Fossils of this age found within 25 km include Rhinoceros, Elephas, Stegodon and Hexaprotodon.
+  Drawn (* = recorded nearby): acacia, elephant*, bison*, antelope*, lizard, spider, broadleaf, palm, clubmoss, fern, grass, mosscushion, tussock, tallgrass, wildflowers
+Neogene | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 14° north of the equator.
+  Drawn (* = recorded nearby): acacia, gomphothere, deer, rodent, spider, broadleaf, palm, clubmoss, fern, grass, mosscushion, tussock, tallgrass, wildflowers
+Paleogene | Volcanic land | neutral | india
+  The setting is read from the kind of rock found here: Mesozoic-Cenozoic volcanic rocks (volcanic, basalt), dated by the Deccan Traps. At the time, this spot lay about 1° north of the equator.
+  Drawn (* = recorded nearby): mesotreefern, magnolia, mosscushion, clubmoss, shrub, fern, wildflowers, tortoise, spider
+Late Cretaceous | Volcanic land | neutral | india
+  The setting is read from the kind of rock found here: Mesozoic-Cenozoic volcanic rocks (volcanic, basalt), dated by the Deccan Traps. At the time, this spot lay about 35° south of the equator.
+  Drawn (* = recorded nearby): ornithopod, titanosaur, palm, bennettite, fern, mosscushion, clubmoss, earlymammal, spider
+Early Cretaceous | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 43° south of the equator.
+  Drawn (* = recorded nearby): ginkgo, brachiosaurid, allosaur, earlymammal, spider, araucaria, cheirolepid, mesotreefern, cycad, bennettite, mosscushion, fern, clubmoss
+Jurassic | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 27° south of the equator.
+  Drawn (* = recorded nearby): ginkgo, diplodocid, stegosaur, cynodont, spider, araucaria, cheirolepid, mesotreefern, cycad, bennettite, mosscushion, fern, clubmoss
+Triassic | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 33° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): ginkgo, rauisuchian, cynodont, roachoid, voltzia, dicroidium, cheirolepid, cycad, bennettite, fern, clubmoss, mosscushion, pleuromeia
+Permian | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 56° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): glossopteris, dicynodont, hylonomus, trigonotarbid, voltzia, cordaites, treefern, walchia, mosscushion, fern
+Late Carboniferous | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 67° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): cordaites, hylonomus, scorpion, lepidodendron, treefern, walchia, mosscushion, fern
+Early Carboniferous | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 63° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): lepidodendron, millipede, fern
+Devonian | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 54° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): archaeopteris, trigonotarbid, prototaxites, cladoxylopsid, liverwortmat, rhynia, asteroxylon, cooksonia
+Silurian | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 40° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): prototaxites, trigonotarbid, cooksonia, landcrust, liverwortmat
+Ordovician | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 27° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): liverwortmat, landcrust
+Cambrian | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 20° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): landcrust

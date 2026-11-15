@@ -1,0 +1,16 @@
+Grand Canyon, USA
+Quaternary           tier 1 | Land, setting unknown | lat 36 to 36
+Neogene              tier 3 | Land, setting unknown | lat 37 to 40
+Paleogene            tier 3 | River plain | lat 40 to 44
+Late Cretaceous      tier 1 | Delta or estuary | lat 42 to 45
+Early Cretaceous     tier 4 | Land, setting unknown | lat 37 to 42
+Jurassic             tier 3 | River plain | lat 24 to 27
+Triassic             tier 3 | River plain | lat 10 to 14
+Permian              tier 1 | Warm shallow sea | lat 10 to 13
+Late Carboniferous   tier 1 | Open shelf sea | lat 1 to 6
+Early Carboniferous  tier 1 | Open shelf sea | lat -13 to -1
+Devonian             tier 3 | Open shelf sea | lat -26 to -17
+Silurian             tier 4 | Open shelf sea | lat -25 to 0
+Ordovician           tier 4 | Open shelf sea | lat -7 to 11
+Cambrian             tier 1 | Open shelf sea | lat 2 to 28
+Precambrian          tier 1 | Warm shallow sea

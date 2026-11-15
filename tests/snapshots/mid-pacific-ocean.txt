@@ -1,0 +1,16 @@
+Mid-Pacific Ocean
+Quaternary           tier 5 | No record
+Neogene              tier 5 | No record
+Paleogene            tier 5 | No record
+Late Cretaceous      tier 5 | No record
+Early Cretaceous     tier 5 | No record
+Jurassic             tier 5 | No record
+Triassic             tier 5 | No record
+Permian              tier 5 | No record
+Late Carboniferous   tier 5 | No record
+Early Carboniferous  tier 5 | No record
+Devonian             tier 5 | No record
+Silurian             tier 5 | No record
+Ordovician           tier 5 | No record
+Cambrian             tier 5 | No record
+Precambrian          tier 5 | No record

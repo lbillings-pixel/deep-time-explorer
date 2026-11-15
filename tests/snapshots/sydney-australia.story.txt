@@ -1,0 +1,43 @@
+Sydney, Australia
+Quaternary | Shoreline | neutral | australia
+  1 fossil site of this age lies within 25 km. At the time, this spot lay about 34° south of the equator. Fossils of this age found within 25 km include Nautilus.
+  Drawn (* = recorded nearby): mangrove, palm, reed, shrub, grass, barnacles, seaweed, sanddollar, clam, seagrass, seasnail, crab, horseshoecrab, flamingo, oysterbank, sapiens, lizard, seabird
+Neogene | Land, setting unknown | neutral | australia
+  15 fossil sites of this age lie within 25 km. At the time, this spot lay about 43° south of the equator. Fossils of this age found within 25 km include Araucariacites (a conifer pollen grain), Cupanieidites, Haloragacidites (a flowering plant) and Nothofagidites.
+  Drawn (* = recorded nearby): southernbeech*, giantkangaroo, lizard, beetle, palm, eucalyptus, broadleaf, clubmoss, grass, wildflowers, tallgrass, mosscushion, shrub, tussock, fern
+Paleogene | Land, setting unknown | neutral | australia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 55° south of the equator.
+  Drawn (* = recorded nearby): broadleaf, lizard, beetle, magnolia, mesotreefern, palm, cycad, southernbeech, wildflowers, mosscushion, clubmoss, shrub, fern
+Late Cretaceous | Land, setting unknown | neutral | australia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 59° south of the equator.
+  Drawn (* = recorded nearby): araucaria, ornithopod, lizard, beetle, magnolia, bennettite, cycad, southernbeech, ginkgo, mesotreefern, palm, broadleaf, cheirolepid, mosscushion, clubmoss, fern
+Early Cretaceous | Land, setting unknown | neutral | australia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 75° south of the equator.
+  Drawn (* = recorded nearby): araucaria, stegosaur, lizard, beetle, mesotreefern, cheirolepid, bennettite, ginkgo, cycad, mosscushion, clubmoss, fern
+Jurassic | Land, setting unknown | neutral | australia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 69° south of the equator.
+  Drawn (* = recorded nearby): araucaria, theropod, earlymammal, beetle, mesotreefern, cheirolepid, bennettite, ginkgo, cycad, mosscushion, clubmoss, fern
+Triassic | Lake | neutral | australia
+  Rock of this age is recorded here (Mesozoic sedimentary rocks), and 7 fossil sites of this age lie within 25 km. At the time, this spot lay about 63° south of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Cleithrolepis, Myriolepis (a ray-finned fish), Palaeoniscum (a ray-finned fish) and Expleuracanthus (a shark, ray or relative).
+  Drawn (* = recorded nearby): ginkgo*, neocalamites, horsetail*, clubmoss, pleuromeia, fern, voltzia, dicroidium, bennettite, dicynodont, cycad, track5, waterweed, lungfish*, palaeoniscoid*, lepidotes*, xenacanth*, mussel*, earlymammal, metoposaur, spider, rhamphorhynchus
+Permian | Land, setting unknown | neutral | australia
+  1 fossil site of this age lies within 25 km. At the time, this spot lay about 70° south of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Elcanopsis (an insect).
+  Drawn (* = recorded nearby): voltzia, dicynodont, cynodont, landsnail, walchia, treefern, glossopteris, cordaites, mosscushion, fern
+Late Carboniferous | Land, setting unknown | neutral | australia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 58° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): lepidodendron, hylonomus, landsnail, walchia, treefern, cordaites, mosscushion, fern
+Early Carboniferous | Land, setting unknown | neutral | australia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 46° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): lepidodendron, scorpion, fern
+Devonian | Open shelf sea | neutral | australia | water 0.40
+  No rock of this age is confirmed at this exact spot. The setting comes from 22 fossil sites 25 to 100 km away. At the time, this spot lay about 20° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Modiomorpha (a clam or other bivalve), Tentaculites, Leptostrophia (a lamp shell) and Molongia (a lamp shell).
+  Drawn (* = recorded nearby): pterygotus, dunkleosteus, thelodont, acanthodian, conodont, coelacanth, crinoid, glasssponge, tabulate, trilobite, eurypterid, cruziana, lacebryozoan, burrows, brittlestar, productid, blastoid
+Silurian | Open shelf sea | neutral | australia
+  No rock of this age is confirmed at this exact spot. The setting comes from 12 fossil sites 25 to 100 km away. At the time, this spot lay about 7° north of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Encrinurus (a trilobite), Ctenodonta (a clam or other bivalve), Hyolithes (a cone-shelled sea animal) and Aegiria (a lamp shell).
+  Drawn (* = recorded nearby): orthocone, pterygotus, conodont, jawlessfish, thelodont, acanthodian, glasssponge, crinoid, tabulate, trilobite, eurypterid, cruziana, burrows, brittlestar, brachiopod
+Ordovician | Deep water (basin or slope) | neutral | australia
+  No rock of this age is recorded here. Broad maps of the ancient world show deep sea in this area, and the picture rests on that alone. At the time, this spot lay about 19° north of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, graptolite, agnostid, conodont, glasssponge, trilobite, sponge, burrows
+Cambrian | Deep water (basin or slope) | neutral | australia
+  No rock of this age is recorded here. Broad maps of the ancient world show deep sea in this area, and the picture rests on that alone. At the time, this spot lay about 19° north of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): anomalocaris, agnostid, marrella, conodont, glasssponge, trilobite, spinytrilobite, brachiopod, sponge

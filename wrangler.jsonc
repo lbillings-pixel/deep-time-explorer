@@ -1,0 +1,14 @@
+// Settings for Cloudflare, read by its deploy step ("npx wrangler deploy").
+//
+// The site is plain static files: "npm run build" writes them to dist/, and
+// this file tells Cloudflare to publish that folder as it is. No server code
+// runs. With this file present, Cloudflare's tool does not try to set the
+// project up by itself (which failed, because it wanted to rewrite
+// vite.config.ts).
+{
+  "name": "deep-time-explorer",
+  "compatibility_date": "2026-11-13",
+  "assets": {
+    "directory": "./dist"
+  }
+}

@@ -1,0 +1,43 @@
+Transantarctic Mountains, Antarctica
+Quaternary | Land, setting unknown | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 84° south of the equator.
+  Drawn (* = recorded nearby): broadleaf, lizard, landsnail, palm, wildflowers, tussock, fern, shrub, tallgrass, mosscushion, grass, clubmoss, songbirds, bat
+Neogene | Land, setting unknown | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 85° south of the equator.
+  Drawn (* = recorded nearby): southernbeech, lizard, landsnail, palm, broadleaf, wildflowers, tussock, fern, shrub, tallgrass, mosscushion, grass, clubmoss, songbirds, bat
+Paleogene | Land, setting unknown | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 84° south of the equator.
+  Drawn (* = recorded nearby): southernbeech, marsupialantarctic, landsnail, magnolia, broadleaf, cycad, palm, mesotreefern, wildflowers, shrub, mosscushion, clubmoss, fern, bat, butterfly
+Late Cretaceous | Land, setting unknown | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 85° south of the equator.
+  Drawn (* = recorded nearby): broadleaf, titanosaur, ornithopod, earlymammal, landsnail, araucaria, southernbeech, bennettite, cycad, magnolia, ginkgo, clubmoss, mosscushion, fern, azhdarchid, earlybird
+Early Cretaceous | Land, setting unknown | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 79° south of the equator.
+  Drawn (* = recorded nearby): ginkgo, titanosaur, ornithopod, stegosaur, earlymammal, landsnail, araucaria, mesotreefern, cycad, bennettite, clubmoss, mosscushion, fern, earlybird, pterodactyl
+Jurassic | Land, setting unknown | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 61° south of the equator.
+  Drawn (* = recorded nearby): ginkgo, brachiosaurid, stegosaur, allosaur, cynodont, landsnail, araucaria, mesotreefern, cycad, bennettite, clubmoss, mosscushion, fern, pterodactyl, rhamphorhynchus
+Triassic | River plain | neutral | antarctica
+  No rock of this age is confirmed at this exact spot. The setting comes from 4 fossil sites 25 to 100 km away. At the time, this spot lay about 65° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Mesenteriophyllum, Parotosuchus (an early amphibian), Angonisaurus and Cynognathus.
+  Drawn (* = recorded nearby): ginkgo, voltzia, rauisuchian, metoposaur, cycad, neocalamites, cheirolepid, bennettite, dicroidium, pleuromeia, clubmoss, horsetail, fern, mayfly, dragonfly
+Permian | Land, setting unknown | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 90° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Paracalamites, Gangamopteris, Glossopteris (a seed plant) and Palaeovittaria.
+  Drawn (* = recorded nearby): voltzia, dicynodont, hylonomus, trigonotarbid, walchia, glossopteris, cordaites, treefern, mosscushion, fern, palaeodictyopteran
+Late Carboniferous | Deep water (basin or slope) | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show deep sea in this area, and the picture rests on that alone. At the time, this spot lay about 77° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): stethacanthus, palaeoniscoid, goniatite, glasssponge, trilobite, conulariid
+Early Carboniferous | Land, setting unknown | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 66° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): lepidodendron, trigonotarbid, fern
+Devonian | Open shelf sea | neutral | antarctica | water 0.66
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 41° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, pterygotus, thelodont, graptolite, palaeoniscoid, coelacanth, crinoid, lacebryozoan, tabulate, trilobite, eurypterid, cruziana, burrows, brittlestar, blastoid, glasssponge
+Silurian | Land, setting unknown | neutral | antarctica
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 14° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): prototaxites, trigonotarbid, liverwortmat, cooksonia, landcrust
+Ordovician | Open shelf sea | neutral | antarctica | water 0.52
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 2° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, conodont, agnostid, graptolite, jellyfish, glasssponge, crinoid, tabulate, trilobite, eurypterid, cruziana, brittlestar, burrows, eocrinoid
+Cambrian | Open shelf sea | neutral | antarctica | water 0.67
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 2° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): anomalocaris, conodont, marrella, agnostid, jellyfish, glasssponge, eocrinoid, stromatolite, trilobite, spinytrilobite, cruziana, burrows, brachiopod

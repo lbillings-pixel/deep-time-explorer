@@ -1,0 +1,25 @@
+Wellington, New Zealand
+Quaternary | Shoreline | neutral | new-zealand
+  2 fossil sites of this age lie within 25 km. At the time, this spot lay about 41° south of the equator. Fossils of this age found within 25 km include Mesoplodon and Rattus.
+  Drawn (* = recorded nearby): palm, shrub, grass, reed, burrows, scallop, seagrass, seaweed, sanddollar, barnacles, horseshoecrab, crab, crocodilian, oysterbank, lizard, songbirds
+Neogene | Open shelf sea | neutral | new-zealand | water 0.20
+  1 fossil site of this age lies within 25 km. At the time, this spot lay about 48° south of the equator. Fossils of this age found within 25 km include Calliostoma (a snail) and NO_GENUS_SPECIFIED.
+  Drawn (* = recorded nearby): tuna, megashark, jellyfish, dolphin, seaturtle, ray, seapen, isocrinid, oysterbank, horseshoecrab, seaurchin, scallop, sponge, kelp, seafan, glasssponge
+Paleogene | Deep water (basin or slope) | neutral | new-zealand
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Wanstead Formation, Pukemuri Siltstone and Mungaroa Formation and 1 more) and 51 fossil sites 25 to 100 km away. At the time, this spot lay about 53° south of the equator. Fossils of this age found within 100 km include Dictyomitra (a glass-shelled single-celled organism), Lithomespilus (a glass-shelled single-celled organism), Stichomitra (a glass-shelled single-celled organism) and Amphipyndax (a glass-shelled single-celled organism).
+  Drawn (* = recorded nearby): megashark, shark, lanternfish, jellyfish, fishschool, nautiloid, isocrinid, crab, seaurchin, sponge
+Late Cretaceous | Deep water (basin or slope) | neutral | new-zealand
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Whangai Formation and Glenburn Formation) and 26 fossil sites 25 to 100 km away. At the time, this spot lay about 67° south of the equator. Fossils of this age found within 100 km include Lithomespilus (a glass-shelled single-celled organism), Lithomelissa (a glass-shelled single-celled organism), Theocampe (a glass-shelled single-celled organism) and Myllocercion (a glass-shelled single-celled organism).
+  Drawn (* = recorded nearby): xiphactinus, pliosaur, jellyfish, heteromorph, seaturtle, fishschool, isocrinid, crab, inoceramid, seaurchin
+Early Cretaceous | Shoreline | neutral | new-zealand
+  No rock of this age is confirmed at this exact spot. The setting comes from 12 fossil sites 25 to 100 km away. At the time, this spot lay about 85° south of the equator. Fossils of this age found within 100 km include Inoceramus (a clam or other bivalve), Aucellina (a clam or other bivalve), Wellmanites and Parvamussium (a clam or other bivalve).
+  Drawn (* = recorded nearby): araucaria, cycad, burrows, seasnail, clam, seaweed, seastar, seaurchin, horseshoecrab, sauropodtrack, crab, crocrelative, oysterbank, lizard, earlybird
+Jurassic | Deep water (basin or slope) | neutral | new-zealand
+  No rock of this age is confirmed at this exact spot. The setting comes from 1 fossil site 25 to 100 km away. At the time, this spot lay about 75° south of the equator. Fossils of this age found within 100 km include Zartus (a glass-shelled single-celled organism), Droltus (a glass-shelled single-celled organism), Eucyrtidiellum (a glass-shelled single-celled organism) and Napora (a glass-shelled single-celled organism).
+  Drawn (* = recorded nearby): plesiosaur, shark, ammonite, belemnite, fishschool, nautiloid, isocrinid, lobster, inoceramid, seaurchin
+Triassic | Open shelf sea | neutral | new-zealand | water 0.10
+  Rock of this age is recorded here (Rakaia Terrane sandstone and mudstone), and 2 fossil sites of this age lie within 25 km. At the time, this spot lay about 73° south of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Halobia (a clam or other bivalve).
+  Drawn (* = recorded nearby): ichthyosaur, hybodont, jellyfish, ceratite, palaeoniscoid, coelacanth, isocrinid, crinoid, horseshoecrab, clam*, sponge, seaurchin, glasssponge
+Permian | Open shelf sea | neutral | new-zealand | water 0.80
+  No rock of this age is confirmed at this exact spot. The setting comes from 6 fossil sites 25 to 100 km away. At the time, this spot lay about 77° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Maitaia (a clam or other bivalve), Durvilleoceras, Xenodiscus and Atomodesma (a clam or other bivalve).
+  Drawn (* = recorded nearby): helicoprion, hybodont, palaeoniscoid, coelacanth, acanthodian, conodont, glasssponge, archimedes, tabulate, horseshoecrab, bryozoan, clam, seastar, crinoid, blastoid, lacebryozoan, colonialrugose

@@ -1,0 +1,155 @@
+// Whitelist: life in rivers and lakes.
+// Each entry says where and when one part may be drawn, and why. The drawings
+// are in ../parts/freshwater.ts. Edit the lists freely; the code obeys them.
+
+import type { EnvType } from '../../match/taxonomy';
+import type { PartCaveat } from '../permit';
+import { type Permit, LAURASIA, span } from '../permit';
+
+/** The four freshwater scenes. */
+const FRESH: EnvType[] = ['river-plain', 'lake', 'delta', 'swamp'];
+
+/** What a visitor should know before trusting these drawings: guesses, simplifications and points specialists dispute. */
+export const CAVEATS: PartCaveat[] = [
+  { parts: ['mesosaurus'], text: 'Mesosaurus lived only in the Early Permian, in one inland sea that covered what is now southern Brazil, Uruguay, Paraguay, Namibia and South Africa. It is shown only in South America and Africa and, as an extra guard, only at ancient latitudes between 30 and 70 degrees south, so that it does not turn up in North Africa or the Amazon. The latitude figures are round numbers. Whether that sea was salty, brackish or nearly fresh is debated, which is why Mesosaurus can appear in both lake and sea scenes.' },
+  { parts: ['mesosaurus'], text: 'Mesosaurus is treated here as a reptile. Experts disagree on whether mesosaurs sit just inside or just outside the reptile family tree. Its color and tail bars are guesses.' },
+  { parts: ['lepidotes'], text: 'The heavy-scaled fish stands for a whole array of similar fishes (Semionotus in the Triassic, Lepidotes and Scheenstia in the Jurassic and Early Cretaceous). Lepidotes in the strict sense is Early Jurassic. By the Late Cretaceous such fishes were uncommon. Triassic ones were mostly slimmer than the deep-bodied form drawn.' },
+  { parts: ['lakefish'], text: 'The school of small lake fish can appear in any Jurassic scene, but freshwater schools of small modern-type bony fishes are known only from the Late Jurassic on (Australia, Argentina, China). Of the fishes it stands for, Knightia is Eocene and Lycoptera is Early Cretaceous.' },
+  { parts: ['gar'], text: 'The gar is shown on the same landmasses in every chapter from the Late Cretaceous onward: North America, Europe, Africa, India and Asia. In the Late Cretaceous gars lived on all of these, and also in Madagascar and in South America, where to be cautious the gar is not shown. In Africa and India they are not known after about the Paleocene, in Europe not after the Oligocene or so, and in Asia the later record is thin. From the Neogene on, gars are North and Central American only.' },
+  { parts: ['sturgeon'], text: 'Sturgeons are shown in rivers, lakes and deltas only. Many also live in coastal seas and come into rivers to breed, but none is shown in a sea scene. The oldest undoubted sturgeons are Late Cretaceous, from North America and Asia.' },
+  { parts: ['bowfin'], text: 'The bowfin appears from the Early Cretaceous onward. Jurassic members of the family were sea fishes; freshwater ones are known from the Early Cretaceous. In every chapter it is shown only on the northern landmasses: the Cretaceous relatives in South America and Africa were mostly fishes of coasts and brackish water, and after the Cretaceous the family is northern only. Today one genus survives, in eastern North America. The tail eyespot is that of the living bowfin.' },
+  { parts: ['mussel'], text: 'Freshwater mussels stand for two unrelated sets of clams: the "coal measures" mussels of the Late Carboniferous and Permian (Carbonicola and others) and the true river mussels (unionids) from the Triassic on. Their shells look alike.' },
+  { parts: ['pondsnail'], text: 'Pond snails appear from the Jurassic onward. Freshwater snails of other kinds existed earlier (Carboniferous onward), but the river-snail and ramshorn shapes drawn are known from the Jurassic.' },
+  { parts: ['crayfish'], text: 'The oldest crayfish body fossils and burrows are Late Triassic (western North America). The record is patchy until the Early Cretaceous. Crayfish are naturally absent today from mainland Africa, India and most of the tropics, but the crayfish can be shown on any landmass and in any climate.' },
+  { parts: ['waterweed'], text: 'The water weed stands for stoneworts (charophyte algae) through its whole span, from the Devonian to today, and is drawn like living Chara. Devonian stoneworts are known mostly from their tiny spore cases, so their overall shape then is partly assumed. From the Cretaceous on the drawing could equally be read as a flowering water plant such as hornwort.' },
+  { parts: ['mayfly'], text: 'Mayflies appear from the Permian onward. Carboniferous fossils once called mayflies are disputed. Permian mayfly relatives had hind wings as large as the fore wings; the drawing shows the modern form with small hind wings, which fits from about the Jurassic on.' },
+  { parts: ['giantsalamander'], text: 'In the Jurassic and Cretaceous giant salamanders are known only from Asia (China, Kazakhstan, Uzbekistan), and whether the Jurassic Chunerpeton truly belongs to the giant-salamander family is disputed. They reach North America in the Paleocene and Europe in the Oligocene. The giant salamander is nevertheless shown on all three northern landmasses in every chapter from the Jurassic onward. Mesozoic ones were much smaller than the living giants.' },
+  { parts: ['champsosaur'], text: 'In the Late Cretaceous champsosaurs are well known only from western North America; Europe and Asia have them mainly in the Paleocene (Simoedosaurus). The large gharial-like kinds died out early in the Eocene, so most of the Paleogene had none, although the champsosaur can appear in any Paleogene scene. Their skin had small scales without the bony plates of crocodiles, which is how the drawing differs from that of a crocodile.' },
+];
+
+export const PERMITS: Permit[] = [
+  {
+    id: 'mesosaurus',
+    name: 'Mesosaurus (early swimming reptile)',
+    group: 'reptile',
+    scenes: ['lake', 'delta', 'shelf-sea'],
+    chapters: ['Permian'],
+    regions: ['south-america', 'africa'],
+    latitudes: [-70, -30],
+    matches: ['Mesosaurus', 'Stereosternum', 'Brazilosaurus'],
+    basis: 'Mesosaurus, about a metre long, swam in an Early Permian inland sea across southern South America and southern Africa; finding it on both continents was early evidence that they were once joined.',
+  },
+  {
+    id: 'lepidotes',
+    name: 'Heavy-scaled fish (Lepidotes type)',
+    group: 'fish',
+    scenes: [...FRESH, 'shelf-sea', 'carbonate-sea'],
+    chapters: span('Triassic', 'Late Cretaceous'),
+    matches: ['Lepidotes', 'Semionotus', 'Scheenstia', 'Paralepidotus', 'Callipurbeckia', 'Macrosemimimus', 'Araripelepidotes', 'Pliodetes', 'Isanichthys'],
+    basis: 'Deep-bodied fishes armoured with thick, shiny, enamelled scales were common in Mesozoic lakes, rivers and shallow seas worldwide.',
+  },
+  {
+    id: 'lakefish',
+    name: 'School of small lake fish',
+    group: 'fish',
+    scenes: FRESH,
+    chapters: span('Jurassic', 'Quaternary'),
+    matches: ['Knightia', 'Lycoptera', 'Diplomystus', 'Gosiutichthys', 'Cavenderichthys', 'Luisiella', 'Paraclupea', 'Leuciscus', 'Rutilus'],
+    basis: 'Small schooling bony fishes are among the commonest fossils of lake beds from the Late Jurassic on; Knightia of the Eocene Green River lakes is found by the thousand.',
+  },
+  {
+    id: 'gar',
+    name: 'Gar',
+    group: 'fish',
+    scenes: FRESH,
+    chapters: span('Late Cretaceous', 'Quaternary'),
+    regions: ['north-america', 'europe', 'africa', 'india', 'asia'],
+    matches: ['Lepisosteus', 'Atractosteus', 'Masillosteus', 'Cuneatus', 'Herreraichthys'],
+    basis: 'Gars, long-snouted fishes armoured with diamond-shaped scales, have lived in rivers and lakes since the Cretaceous and survive in North America.',
+  },
+  {
+    id: 'sturgeon',
+    name: 'Sturgeon',
+    group: 'fish',
+    scenes: ['river-plain', 'lake', 'delta'],
+    chapters: span('Late Cretaceous', 'Quaternary'),
+    regions: LAURASIA,
+    matches: ['Acipenser', 'Protoscaphirhynchus', 'Priscosturion', 'Anchiacipenser', 'Scaphirhynchus', 'Huso', 'Psammorhynchus'],
+    basis: 'Sturgeons, with their rows of bony plates, are known from Late Cretaceous rivers of North America and Asia and still live across the northern continents.',
+  },
+  {
+    id: 'bowfin',
+    name: 'Bowfin',
+    group: 'fish',
+    scenes: ['lake', 'river-plain', 'swamp'],
+    chapters: span('Early Cretaceous', 'Quaternary'),
+    regions: LAURASIA,
+    matches: ['Amia', 'Cyclurus', 'Melvius', 'Sinamia', 'Amiopsis', 'Kindleia', 'Pseudamiatus'],
+    basis: 'Bowfins and their close relatives lived in the lakes and rivers of the northern continents from the Early Cretaceous; one species survives in North America.',
+  },
+  {
+    id: 'mussel',
+    name: 'Freshwater mussels',
+    group: 'mollusc',
+    scenes: FRESH,
+    chapters: span('Late Carboniferous', 'Quaternary'),
+    matches: ['Carbonicola', 'Anthraconaia', 'Anthracosia', 'Naiadites', 'Palaeomutela', 'Unio', 'Anodonta', 'Elliptio', 'Margaritifera', 'Plesielliptio'],
+    basis: 'Mussel-like clams have lived in the mud of rivers, lakes and swamps since the Late Carboniferous, when their shells formed whole beds in the coal measures.',
+  },
+  {
+    id: 'pondsnail',
+    name: 'Pond snails',
+    group: 'mollusc',
+    scenes: ['lake', 'swamp', 'river-plain'],
+    chapters: span('Jurassic', 'Quaternary'),
+    matches: ['Viviparus', 'Lymnaea', 'Planorbis', 'Physa', 'Gyraulus', 'Valvata', 'Campeloma', 'Lioplacodes', 'Bellamya'],
+    basis: 'River snails, pond snails and ramshorn snails of familiar shape are found in lake and river deposits from the Jurassic on.',
+  },
+  {
+    id: 'crayfish',
+    name: 'Crayfish',
+    group: 'arthropod',
+    scenes: ['lake', 'river-plain', 'swamp'],
+    chapters: span('Triassic', 'Quaternary'),
+    matches: ['Astacus', 'Austropotamobius', 'Protastacus', 'Palaeocambarus', 'Cricoidoscelosus', 'Procambarus', 'Pacifastacus', 'Cambarus', 'Palaeoechinastacus'],
+    basis: 'Crayfish and their burrows are known from river deposits as old as the Late Triassic, and from lake beds of the Early Cretaceous on.',
+  },
+  {
+    id: 'waterweed',
+    name: 'Stonewort (water weed)',
+    group: 'alga',
+    scenes: ['lake', 'river-plain', 'swamp'],
+    chapters: span('Devonian', 'Quaternary'),
+    matches: ['Chara', 'Nitella', 'Palaeonitella', 'Sycidium', 'Trochiliscus', 'Porochara', 'Clavator', 'Aclistochara', 'Harrisichara', 'Charophyceae'],
+    basis: 'Stoneworts, green algae that grow as whorled stems on lake and river beds, have a fossil record going back to the Devonian.',
+  },
+  {
+    id: 'mayfly',
+    name: 'Mayflies',
+    group: 'insect',
+    scenes: FRESH,
+    chapters: span('Permian', 'Quaternary'),
+    matches: ['Protereisma', 'Misthodotes', 'Hexagenites', 'Ephemeropsis', 'Mesoneta', 'Mesobaetis', 'Australiphemera', 'Ephemera', 'Hexagenia', 'Baetis'],
+    basis: 'Mayflies, whose young live in fresh water, are among the oldest living groups of winged insects, with undoubted relatives in the Permian.',
+  },
+  {
+    id: 'giantsalamander',
+    name: 'Giant salamander',
+    group: 'amphibian',
+    scenes: ['lake', 'river-plain', 'swamp'],
+    chapters: span('Jurassic', 'Quaternary'),
+    regions: LAURASIA,
+    matches: ['Andrias', 'Cryptobranchus', 'Chunerpeton', 'Eoscapherpeton', 'Aviturus', 'Zaissanurus', 'Ulanurus'],
+    basis: 'Giant salamanders and their early relatives are known from Jurassic and Cretaceous Asia, and later from Europe and North America; they survive in China, Japan and the eastern United States.',
+  },
+  {
+    id: 'champsosaur',
+    name: 'Champsosaur (gharial-like reptile)',
+    group: 'reptile',
+    scenes: FRESH,
+    chapters: span('Late Cretaceous', 'Paleogene'),
+    regions: LAURASIA,
+    matches: ['Champsosaurus', 'Simoedosaurus', 'Kosmodraco'],
+    basis: 'Champsosaurs, fish-eating reptiles that looked like gharials but were not crocodiles, lived in northern rivers and swamps and survived the extinction that ended the Cretaceous.',
+  },
+];

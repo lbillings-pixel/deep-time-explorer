@@ -1,0 +1,43 @@
+Fayum, Egypt
+Quaternary | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 29° north of the equator.
+  Drawn (* = recorded nearby): broadleaf, giraffid, lizard, palm, acacia, clubmoss, wildflowers, shrub, fern, grass, mosscushion, songbirds, bird, tussock, tallgrass
+Neogene | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 28° north of the equator.
+  Drawn (* = recorded nearby): broadleaf, antelope, snake, palm, acacia, clubmoss, wildflowers, shrub, fern, grass, mosscushion, songbirds, bird, tussock, tallgrass
+Paleogene | River plain | neutral | africa
+  33 fossil sites of this age lie within 25 km. At the time, this spot lay about 22° north of the equator. Fossils of this age found within 25 km include Thyrohyrax, Bothriogenys, Apidium and Phiomys.
+  Drawn (* = recorded nearby): broadleaf, arsinoitherium*, waterlily, magnolia, mesotreefern, palm, cycad, clubmoss, fern, horsetail, wildflowers, reed, shrub, bird*, butterfly
+Late Cretaceous | Open shelf sea | neutral | africa | water 0.80
+  No rock of this age is confirmed at this exact spot. The setting comes from 17 fossil sites 25 to 100 km away. At the time, this spot lay about 11° north of the equator. Fossils of this age found within 100 km include Durania (a clam or other bivalve), Anomoeodus (a ray-finned fish), Discorbis (a shelled single-celled organism) and Ceriopora (a moss animal).
+  Drawn (* = recorded nearby): shark, ichthyosaur, ray, seaturtle, ammonite, isocrinid, seapen, oysterbank, lobster, horseshoecrab, seafan, sponge, glasssponge
+Early Cretaceous | Open shelf sea | neutral | africa | water 0.60
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 6° north of the equator.
+  Drawn (* = recorded nearby): shark, ichthyosaur, lepidotes, seaturtle, belemnite, isocrinid, glasssponge, oysterbank, lobster, horseshoecrab, sponge
+Jurassic | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 10° north of the equator.
+  Drawn (* = recorded nearby): araucaria, stegosaur, earlymammal, mesotreefern, ginkgo, cheirolepid, bennettite, cycad, fern, mosscushion, clubmoss, pterodactyl, rhamphorhynchus
+Triassic | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay on the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): voltzia, rhynchosaur, earlymammal, cheirolepid, dicroidium, bennettite, ginkgo, cycad, fern, pleuromeia, mosscushion, clubmoss, rhamphorhynchus
+Permian | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 22° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): cordaites, moschops, cynodont, walchia, treefern, glossopteris, voltzia, fern, mosscushion, palaeodictyopteran
+Late Carboniferous | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 33° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): lepidodendron, hylonomus, cordaites, walchia, treefern, fern, mosscushion, palaeodictyopteran
+Early Carboniferous | Open shelf sea | neutral | africa | water 0.25
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 36° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): cladoselache, stethacanthus, conodont, nautiloid, goniatite, glasssponge, archimedes, colonialrugose, trilobite, lacebryozoan, brachiopod, crinoid, blastoid, tabulate
+Devonian | Open shelf sea | neutral | africa | water 0.68
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 47° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): dunkleosteus, orthocone, bothriolepis, jellyfish, jawlessfish, lacebryozoan, glasssponge, colonialrugose, trilobite, eurypterid, cruziana, crinoid, brachiopod, blastoid, tabulate
+Silurian | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 59° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): prototaxites, landcrust, cooksonia, liverwortmat
+Ordovician | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 51° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): landcrust, liverwortmat
+Cambrian | Land, setting unknown | neutral | africa
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 36° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): landcrust

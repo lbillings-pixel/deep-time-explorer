@@ -1,0 +1,43 @@
+Delhi, India
+Quaternary | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 29° north of the equator.
+  Drawn (* = recorded nearby): broadleaf, sapiens, deer, lizard, millipede, acacia, palm, clubmoss, tallgrass, mosscushion, tussock, fern, grass, shrub, butterfly, wildflowers
+Neogene | Land, setting unknown | neutral | india
+  No rock of this age is confirmed at this exact spot. The setting comes from 2 fossil sites 25 to 100 km away. At the time, this spot lay about 23° north of the equator. Fossils of this age found within 100 km include Crocodylus (a crocodile).
+  Drawn (* = recorded nearby): broadleaf, rhino, deer, rodent, millipede, acacia, palm, clubmoss, tallgrass, mosscushion, tussock, fern, grass, shrub, butterfly, wildflowers
+Paleogene | Warm shallow sea | neutral | india
+  No rock of this age is confirmed at this exact spot. The setting comes from 3 fossil sites 25 to 100 km away. At the time, this spot lay about 9° north of the equator. Fossils of this age found within 100 km include Distichoplax (a red seaweed).
+  Drawn (* = recorded nearby): seabird, pelagornis, seacow, basilosaurus, fishschool, seaturtle, seafan, oysterbank, stonycoral, tablecoral, crab, seaurchin, seaweed, horseshoecrab, seastar
+Late Cretaceous | Open shelf sea | neutral | india | water 0.84
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 29° south of the equator.
+  Drawn (* = recorded nearby): plesiosaur, mosasaur, fishschool, heteromorph, nautiloid, jellyfish, seaturtle, isocrinid, glasssponge, oysterbank, crab, horseshoecrab, seafan, seapen
+Early Cretaceous | Open shelf sea | neutral | india | water 0.64
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 40° south of the equator.
+  Drawn (* = recorded nearby): plesiosaur, marinecroc, seaturtle, lepidotes, nautiloid, coelacanth, heteromorph, isocrinid, glasssponge, oysterbank, crab, horseshoecrab
+Jurassic | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 26° south of the equator.
+  Drawn (* = recorded nearby): araucaria, stegosaur, allosaur, lizard, millipede, ginkgo, cycad, bennettite, cheirolepid, mesotreefern, clubmoss, fern, mosscushion, rhamphorhynchus
+Triassic | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 30° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): voltzia, theropod, rauisuchian, earlymammal, millipede, ginkgo, cycad, bennettite, dicroidium, cheirolepid, clubmoss, fern, pleuromeia, mosscushion, rhamphorhynchus
+Permian | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 55° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): glossopteris, dicynodont, cynodont, roachoid, voltzia, treefern, walchia, cordaites, fern, mosscushion, palaeodictyopteran
+Late Carboniferous | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 63° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): lepidodendron, hylonomus, trigonotarbid, cordaites, treefern, walchia, fern, mosscushion, palaeodictyopteran
+Early Carboniferous | Land, setting unknown | neutral | india
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 56° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): lepidodendron, trigonotarbid, fern
+Devonian | Open shelf sea | neutral | india | water 0.42
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 44° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): stethacanthus, orthocone, bothriolepis, jellyfish, coelacanth, acanthodian, graptolite, lacebryozoan, blastoid, tabulate, eurypterid, trilobite, cruziana, crinoid, glasssponge, colonialrugose
+Silurian | Open shelf sea | neutral | india | water 0.33
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 32° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, pterygotus, graptolite, acanthodian, thelodont, jellyfish, jawlessfish, glasssponge, crinoid, tabulate, eurypterid, trilobite, cruziana
+Ordovician | Open shelf sea | neutral | india | water 0.60
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 20° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, conodont, jellyfish, graptolite, agnostid, eocrinoid, glasssponge, tabulate, eurypterid, trilobite, cruziana, crinoid
+Cambrian | Open shelf sea | neutral | india | water 0.64
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 11° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): anomalocaris, conodont, jellyfish, agnostid, marrella, glasssponge, eocrinoid, stromatolite, spinytrilobite, trilobite, cruziana

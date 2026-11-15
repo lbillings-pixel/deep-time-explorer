@@ -1,0 +1,43 @@
+Liaoning, China
+Quaternary | Land, setting unknown | neutral | asia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 42° north of the equator.
+  Drawn (* = recorded nearby): pine, elephant, rhino, rodent, scorpion, spruce, broadleaf, birch, palm, dwarfwillow, shrub, fern, tallgrass, wildflowers, clubmoss, tussock, grass, mosscushion, bird, butterfly
+Neogene | Land, setting unknown | neutral | asia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 41° north of the equator.
+  Drawn (* = recorded nearby): redwood, gomphothere, camel, rodent, scorpion, spruce, broadleaf, pine, birch, palm, dwarfwillow, shrub, fern, tallgrass, wildflowers, clubmoss, tussock, grass, mosscushion, bird, butterfly
+Paleogene | Land, setting unknown | neutral | asia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 43° north of the equator.
+  Drawn (* = recorded nearby): spruce, paraceratherium, brontothere, primate, scorpion, pine, ginkgo, redwood, broadleaf, mesotreefern, magnolia, mosscushion, fern, shrub, clubmoss, wildflowers, bird, butterfly
+Late Cretaceous | Land, setting unknown | neutral | asia
+  2 fossil sites of this age lie within 25 km. At the time, this spot lay about 43° north of the equator. Fossils of this age found within 25 km include Crichtonpelta.
+  Drawn (* = recorded nearby): spruce, tyrannosaur, ornithomimid, earlymammal, scorpion, broadleaf, pine, araucaria, redwood, ginkgo, mesotreefern, cheirolepid, clubmoss, fern, mosscushion, earlybird, azhdarchid
+Early Cretaceous | Lake | neutral | asia
+  82 fossil sites of this age lie within 25 km. At the time, this spot lay about 45° north of the equator. Fossils of this age found within 25 km include Confuciusornis (a bird), Psittacosaurus (a parrot-beaked dinosaur), Stellularis (an insect) and Liaobatrachus.
+  Drawn (* = recorded nearby): pine, bennettite, firstflower*, clubmoss, horsetail, fern, waterlily, ginkgo, araucaria, mesotreefern, swampconifer, dromaeosaur*, brachiosaurid, cycad, spinosaur, track3*, waterweed, bowfin*, lakefish*, mussel, pondsnail, psittacosaur*, spider*, pterodactyl*, earlybird*
+Jurassic | Land, setting unknown | neutral | asia
+  Rock of this age is recorded here (Mesozoic volcanic rocks), and 6 fossil sites of this age lie within 25 km. At the time, this spot lay about 45° north of the equator. Fossils of this age found within 25 km include Grallator (a dinosaur footprint), Samarura (an insect), Elisama (an insect) and Chifengia (an insect).
+  Drawn (* = recorded nearby): ginkgo, diplodocid, stegosaur, cynodont, scorpion, araucaria, cheirolepid, bennettite, clubmoss, fern, mosscushion, rhamphorhynchus, pterodactyl
+Triassic | Open shelf sea | neutral | asia
+  No rock of this age is confirmed at this exact spot. The setting comes from 3 fossil sites 25 to 100 km away. At the time, this spot lay about 48° north of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Neocalamites (a fern or horsetail), Liaoningia (a clam or other bivalve), Equisetites (a fern or horsetail) and Schizoneura (a fern or horsetail).
+  Drawn (* = recorded nearby): hybodont, palaeoniscoid, ceratite, jellyfish, crinoid, glasssponge, lobster, horseshoecrab, isocrinid, burrows, seastar
+Permian | Open shelf sea | neutral | asia
+  No rock of this age is confirmed at this exact spot. The setting comes from 8 fossil sites 25 to 100 km away. At the time, this spot lay about 19° north of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Pecopteris, Calamites (a fern or horsetail), Lepidodendron and Neuropteris.
+  Drawn (* = recorded nearby): hybodont, acanthodian, coelacanth, palaeoniscoid, glasssponge, blastoid, tabulate, trilobite, horseshoecrab, crinoid, sponge, conulariid, lacebryozoan, archimedes, colonialrugose
+Late Carboniferous | Land, setting unknown | neutral | asia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 15° north of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): cordaites, hylonomus, arthropleura, medullosa, walchia, lepidodendron, treefern, fern, mosscushion, palaeodictyopteran
+Early Carboniferous | Warm shallow sea | neutral | asia
+  No rock of this age is confirmed at this exact spot. The setting comes from 1 fossil site 25 to 100 km away. At the time, this spot lay about 3° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): acanthodian, stethacanthus, coelacanth, lacebryozoan, crinoid, blastoid, archimedes, tabulate, colonialrugose, trilobite, sponge, horncoral, seastar
+Devonian | Land, setting unknown | neutral | asia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 18° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): archaeopteris, trigonotarbid, cladoxylopsid, prototaxites, rhynia, cooksonia, liverwortmat, asteroxylon
+Silurian | Land, setting unknown | neutral | asia
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 18° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): prototaxites, trigonotarbid, liverwortmat, landcrust, cooksonia
+Ordovician | Open shelf sea | neutral | asia | water 0.43
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 9° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): orthocone, graptolite, conodont, jellyfish, crinoid, eocrinoid, tabulate, trilobite, eurypterid, cruziana, glasssponge, horncoral, seastar
+Cambrian | Open shelf sea | neutral | asia | water 0.53
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 6° north of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): anomalocaris, agnostid, conodont, jellyfish, eocrinoid, glasssponge, stromatolite, trilobite, spinytrilobite, cruziana, seamat, burrows
