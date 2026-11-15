@@ -117,6 +117,9 @@ export function pictureCaveats(st: Stage): string[] {
     out.push(
       "Mountains are shown because published work places this spot in a region where mountains were being built at this time, and the evidence listed with this chapter ties the spot to them. Nothing records their height, their shape or whether they carried snow: all of that in the picture is the artist's choice.",
     );
+    if (p.worn) {
+      out.push('By this time the mountains here were no longer being built and were wearing down. This site has one picture for mountains, so the peaks shown are probably higher and sharper than the worn range was.');
+    }
     if (['Precambrian', 'Cambrian', 'Ordovician', 'Silurian'].includes(p.chapter)) {
       out.push(
         `Before plants spread over the land, rivers commonly ran in many shifting channels over loose gravel and sand, with nothing to hold their banks. The ${p.climate === 'dry' ? 'dry stream bed' : 'stream'} in this picture is drawn that way, and its course is imagined.`,

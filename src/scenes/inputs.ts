@@ -6,6 +6,7 @@
 import type { LatLng } from '../geo/plates';
 import { climateEvidence, rockClimate } from '../match/climate';
 import type { ChapterResult } from '../match/match';
+import { wornDown } from '../match/mountain-caveats';
 import type { EnvType } from '../match/taxonomy';
 import { subSeed } from './draw';
 import { regionOf } from './region';
@@ -37,6 +38,7 @@ export function sceneParams(c: ChapterResult, place: LatLng): SceneParams | null
     place: { lat: place.lat, lng: place.lng },
     localOrganisms: [...new Set(c.sitesNear.flatMap((s) => s.genera))],
   };
+  if (wornDown(c)) params.worn = true;
   if (SHALLOW_SEAS.includes(env.type) && c.paleo?.status === 'ok') {
     const depths = c.paleo.terrain.filter((t) => t.terrain === 'shallow-sea').map((t) => -t.metres);
     if (depths.length > 0) {

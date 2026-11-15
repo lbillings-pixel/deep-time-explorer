@@ -30,6 +30,26 @@ export interface TectonicEvent {
   provinces: number[];
   /** Rough present-day rectangles, [south, west, north, east]. */
   boxes: [south: number, west: number, north: number, east: number][];
+  /**
+   * Mountains only: the age, in Ma, until which the range is shown wearing down after its building ended, where
+   * published work dates what became of it. Equal to `young`: not at all (the range was buried or collapsed at once).
+   * 0: to the present. Absent: the default span, WEARING_DOWN.
+   */
+  wornBy?: number;
+  /** Shown with a chapter in which this range is wearing down: what published work says of it after the building ended. */
+  wornCaveat?: string;
+}
+
+/**
+ * How long, in millions of years, a range is shown wearing down after its building ended, unless the entry says otherwise.
+ * A judgment made for this site, not a published figure: models of how mountains wear away give from a few million to
+ * hundreds of millions of years, and in the two cases with dates the rugged relief was gone within 10 to 40 million.
+ */
+export const WEARING_DOWN = 30;
+
+/** The age, in Ma, until which a mountain-building event's range is shown wearing down. */
+export function wornBy(e: TectonicEvent): number {
+  return e.wornBy ?? Math.max(0, e.young - WEARING_DOWN);
 }
 
 /**

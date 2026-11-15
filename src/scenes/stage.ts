@@ -34,6 +34,8 @@ export interface SceneParams {
    * chapter limits allow.
    */
   localOrganisms?: string[];
+  /** Mountains only: the range's building had ended, and it is shown wearing down. The picture is the same; its caveats say so. */
+  worn?: boolean;
 }
 
 export interface Light {

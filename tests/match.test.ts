@@ -146,6 +146,27 @@ describe('rock that does not record the surface', () => {
     expect(at('neogene', 2400, { ...rising, young: 10 }).mountains).toEqual([]);
   });
 
+  it('after the building ends a range is shown wearing down, for its span and no longer, and does not lead', () => {
+    const gneiss = unit({ old: 1600, young: 1000, liths: [lith('gneiss', 'metamorphic', 'metamorphic')] });
+    // Ended 280 million years ago: by default it wears down for 30 million years, into the first of the Triassic.
+    const belt = { id: 'test-belt', name: 'Test mountain building', kind: 'mountains' as const, old: 335, young: 280, provinces: [], boxes: [] };
+    const at = (id: string, b: typeof belt & { wornBy?: number }, units = [gneiss]) => matchChapter(chapter(id), units, [], map('land'), [], [b]);
+    expect(at('permian', belt).mountains).toMatchObject([{ state: 'building' }]);
+    expect(at('triassic', belt).mountains).toMatchObject([{ state: 'wearing-down' }]);
+    expect(at('triassic', belt).environments[0]).toMatchObject({ type: 'mountains', tier: 3 });
+    expect(at('jurassic', belt).mountains).toEqual([]);
+    // An entry can say that the range was buried at once, or that it stands to this day.
+    expect(at('triassic', { ...belt, wornBy: 280 }).mountains).toEqual([]);
+    expect(at('quaternary', { ...belt, wornBy: 0 }).mountains).toMatchObject([{ state: 'wearing-down' }]);
+    // Where the ancient maps show sea, a worn range is not assumed to have stood above it.
+    expect(matchChapter(chapter('triassic'), [gneiss], [], map('shallow-sea'), [], [belt]).mountains).toEqual([]);
+    // Without deep rock at the spot nothing ties it to the old range.
+    expect(at('triassic', belt, []).mountains).toEqual([]);
+    // A worn range is weighed with the other evidence from the region: a sea recorded there for the whole chapter outweighs it.
+    const sea = unit({ origin: 'column', old: 251.9, young: 201.4, envs: ['marine indet.', 'reef, buildup or bioherm'] });
+    expect(at('triassic', belt, [gneiss, sea]).environments.map((e) => e.type)).toEqual(['reef', 'mountains', 'shelf-sea']);
+  });
+
   it('lava is volcanic land only where the regional map shows land', () => {
     const lava = unit({ liths: [lith('basalt', 'volcanic', 'igneous')] });
     expect(matchChapter(chapter('permian'), [lava], [], map('land')).environments[0]!.type).toBe('volcanic-land');

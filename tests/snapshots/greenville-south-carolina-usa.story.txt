@@ -17,9 +17,9 @@ Early Cretaceous | Land, setting unknown | neutral | north-america
 Jurassic | Land, setting unknown | neutral | north-america
   No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 23° north of the equator.
   Drawn (* = recorded nearby): ginkgo, diplodocid, stegosaur, earlymammal, spider, araucaria, bennettite, cycad, mesotreefern, cheirolepid, mosscushion, clubmoss, fern, rhamphorhynchus
-Triassic | Land, setting unknown | neutral | north-america
-  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 6° north of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): ginkgo, theropod, cynodont, spider, cycad, voltzia, bennettite, cheirolepid, clubmoss, mosscushion, pleuromeia, fern, rhamphorhynchus
+Triassic | Mountains | neutral | north-america
+  No rock at this spot records the surface at this time. The setting comes from published work on the region (the Alleghanian mountain building) and from rock mapped here that formed deep underground and is old enough to have been part of those mountains. Their building had ended by this time, and they are taken to have still stood, wearing down. At the time, this spot lay about 6° north of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): cycad, bennettite, ginkgo, voltzia, cheirolepid, clubmoss, mosscushion, pleuromeia, fern, rhamphorhynchus
 Permian | Mountains | neutral | north-america
   No rock at this spot records the surface at this time. The setting comes from published work on the region (the Alleghanian mountain building) and from rock mapped here that formed deep underground and is old enough to have been here while the mountains were built. At the time, this spot lay about 1° south of the equator. Positions this old are uncertain.
   Drawn (* = recorded nearby): gigantopterid, treefern, voltzia, cordaites, medullosa, mosscushion, fern, palaeodictyopteran

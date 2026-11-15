@@ -59,11 +59,23 @@ const PLACES: [name: string, lat: number, lng: number, has: string[], not: strin
   ['Calgary, Alberta (plains)', 51.05, -114.07, [], ['sevier', 'laramide']],
   ['Las Vegas, Nevada', 36.17, -115.14, [], ['sevier', 'laramide']],
   ['Reno, Nevada', 39.53, -119.81, [], ['sevier', 'cordilleran-arc']],
-  ['Lander, Wyoming', 42.83, -108.73, ['laramide'], ['sevier']],
-  ['Aspen, Colorado', 39.19, -106.82, ['laramide'], ['sevier']],
+  ['Lander, Wyoming', 42.83, -108.73, ['laramide'], ['sevier', 'ancestral-rockies']],
+  ['Aspen, Colorado', 39.19, -106.82, ['laramide'], ['sevier', 'ancestral-rockies']],
   ['Black Elk Peak, Black Hills', 43.87, -103.53, ['laramide', 'trans-hudson'], []],
   ['Rapid City, South Dakota', 44.08, -103.23, [], ['laramide', 'trans-hudson']],
-  ['Denver, Colorado (plains)', 39.74, -104.99, [], ['laramide']],
+  ['Denver, Colorado (plains)', 39.74, -104.99, [], ['laramide', 'ancestral-rockies']],
+  // The Ancestral Rocky Mountains: the old uplifts, and the basins and plains beside them.
+  ['Estes Park, Colorado', 40.38, -105.52, ['ancestral-rockies', 'laramide'], []],
+  ['Georgetown, Colorado', 39.71, -105.7, ['ancestral-rockies', 'laramide'], []],
+  ['Pikes Peak, Colorado', 38.84, -105.04, ['ancestral-rockies'], []],
+  ['Colorado National Monument', 39.04, -108.69, ['ancestral-rockies'], []],
+  ['Black Canyon of the Gunnison', 38.57, -107.72, ['ancestral-rockies'], []],
+  ['Vail, Colorado (basin)', 39.64, -106.37, [], ['ancestral-rockies']],
+  ['Glenwood Springs, Colorado (basin)', 39.55, -107.32, [], ['ancestral-rockies']],
+  ['Moab, Utah (basin)', 38.57, -109.55, [], ['ancestral-rockies']],
+  ['Manitou Springs, Colorado (basin edge)', 38.86, -104.92, [], ['ancestral-rockies']],
+  ['Boulder, Colorado (plains)', 40.01, -105.27, [], ['ancestral-rockies']],
+  ['Durango, Colorado (basin)', 37.28, -107.88, [], ['ancestral-rockies']],
   ['Casper, Wyoming', 42.85, -106.31, [], ['laramide']],
   ['Flagstaff, Arizona', 35.2, -111.65, [], ['laramide', 'sevier']],
   ['Yosemite Valley, California', 37.75, -119.59, ['cordilleran-arc'], ['sevier']],
@@ -213,7 +225,7 @@ describe('the mountain-building events', () => {
       if (e.vetted) bad.push(`${e.id}: marked as reviewed`);
     }
     expect(bad).toEqual([]);
-    expect(MOUNTAIN_BUILDING.length).toBe(28);
+    expect(MOUNTAIN_BUILDING.length).toBe(29);
     // Held back until their dates are confirmed.
     expect(ids).not.toContain('brasiliano');
     expect(ids).not.toContain('sveconorwegian');

@@ -2,7 +2,7 @@
 // for each time chapter, with a confidence tier.
 import { type Chapter, CHAPTERS, RECONSTRUCTION_LIMIT, chaptersSpanned, inChapter, overlap } from './chapters';
 import type { MajorEvent } from './events';
-import type { TectonicEvent } from './tectonics';
+import { type TectonicEvent, wornBy } from './tectonics';
 import { type EnvType, type Lith, envFromName, readLiths } from './taxonomy';
 import type { Terrain } from '../geo/paleodem';
 
@@ -90,8 +90,9 @@ export interface ChapterResult {
   /**
    * The mountain-building events that give this chapter its mountains, each with what ties the spot to it: rock mapped
    * here that formed underground (`unit`), or, for an event still going on, high ground here today (`metres`).
+   * 'wearing-down': the building had ended before this chapter, and the range is taken to have still stood (see wornBy).
    */
-  mountains: { event: TectonicEvent; unit: RockUnit | null; metres: number | null }[];
+  mountains: { event: TectonicEvent; unit: RockUnit | null; metres: number | null; state: 'building' | 'wearing-down' }[];
   sitesNear: FossilSite[];
   sitesRegion: FossilSite[];
   paleo: Paleo | null;
@@ -233,21 +234,41 @@ export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilS
   // Rock that formed underground cannot say when it was later squeezed and lifted. A mountain-building event in the
   // region can, provided the rock (or the rock it was made from) already existed: the map's age for it must not be
   // younger than the end of the event.
+  const mapShowsSea = paleo?.status === 'ok' && paleo.terrain.length > 0 && majorityTerrain(paleo.terrain) !== 'land';
   const deepHere = units.filter((u) => u.origin === 'here' && readLiths(u.liths, u.name).some((r) => r.kind === 'underground')).sort((a, b) => b.old - a.old);
   const mountains: ChapterResult['mountains'] = [];
   for (const event of tectonics) {
-    if (event.kind !== 'mountains' || !inChapter(chapter, event.old, event.young)) continue;
+    if (event.kind !== 'mountains') continue;
     const unit = deepHere.find((u) => u.old >= event.young);
-    if (unit) mountains.push({ event, unit, metres: null });
+    if (!inChapter(chapter, event.old, event.young)) {
+      // After the building ended a range wears down, and for a while it still stands. That is a weaker statement than
+      // "mountains were being built", and it is made only where the deep rock ties the spot to the range, and never where
+      // the ancient maps show sea: a worn range can be flooded, as the Urals were.
+      if (unit && !mapShowsSea && wornBy(event) < event.young && inChapter(chapter, event.young, wornBy(event))) mountains.push({ event, unit, metres: null, state: 'wearing-down' });
+      continue;
+    }
+    if (unit) mountains.push({ event, unit, metres: null, state: 'building' });
     // A belt that is still rising has not yet been worn down to its deep rock everywhere, so much of the range fails the
     // test above. There, high ground at the spot today shows that the spot is in the range and not on the lowland the
     // event's outline also takes in. It is evidence of the present, so it is trusted only for the youngest chapters.
-    else if (event.young === 0 && heightNow !== null && heightNow >= HIGH_GROUND && chapter.old <= HIGH_GROUND_REACH) mountains.push({ event, unit: null, metres: heightNow });
+    else if (event.young === 0 && heightNow !== null && heightNow >= HIGH_GROUND && chapter.old <= HIGH_GROUND_REACH) mountains.push({ event, unit: null, metres: heightNow, state: 'building' });
   }
   // That is evidence from the region, and it ranks with it: rock or fossils that record a setting at the spot come first.
   // Among the evidence from the region, mountains lead: the event names this ground, while rock recorded elsewhere in the
   // region (a sea, a river plain) is more likely the lowland beside the range than the range itself.
-  const fromMountains: Candidate[] = mountains.map(({ event, unit, metres }) => ({
+  // A range wearing down does not lead: it is weighed with the other evidence from the region.
+  const fromWorn: Candidate[] = mountains
+    .filter((m) => m.state === 'wearing-down')
+    .map(({ event, unit }) => ({
+      type: 'mountains',
+      specific: true,
+      ...clip(event.young, wornBy(event)),
+      score: share(event.young, wornBy(event)),
+      evidence: `${event.name} in this region had ended; its mountains are taken to have been wearing down at this time; ${unit!.name}, mapped here, formed underground and is old enough to have been part of them`,
+    }));
+  const fromMountains: Candidate[] = mountains
+    .filter((m) => m.state === 'building')
+    .map(({ event, unit, metres }) => ({
     type: 'mountains',
     specific: true,
     ...clip(event.old, event.young),
@@ -260,7 +281,7 @@ export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilS
   const ladder: Environment[][] = [
     rank([...fromUnits(columnHere), ...fromSites(sitesNear, `within ${NEAR_KM} km`)], 1),
     rank(fromRockType, 2),
-    [...rank(fromMountains, 3), ...rank([...fromUnits(rocksRegion), ...fromSites(sitesRegion, `${NEAR_KM} to ${REGION_KM} km away`)], 3)],
+    [...rank(fromMountains, 3), ...rank([...fromUnits(rocksRegion), ...fromSites(sitesRegion, `${NEAR_KM} to ${REGION_KM} km away`), ...fromWorn], 3)],
   ];
   const environments: Environment[] = [];
   for (const rung of ladder) for (const e of rung) if (!environments.some((x) => x.type === e.type)) environments.push(e);

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { type Exploration, explore } from '../src/explore';
 import { MAJOR_EVENTS } from '../src/match/events';
 import { TIER_LABEL } from '../src/match/match';
+import { WORN_CAVEAT, WORN_SPAN_CAVEAT, mountainCaveats, wornDown } from '../src/match/mountain-caveats';
 import { ENV_LABEL } from '../src/match/taxonomy';
 import { PLACES, nodeRead, savedMapUnits } from './helpers';
 
@@ -57,9 +58,15 @@ describe('test places', () => {
   it('Greenville: rock that formed underground, inside mountain belts, gives chapters of mountains', async () => {
     const x = await run('Greenville, South Carolina, USA');
     const mountains = x.timeline.filter((c) => c.environments[0]?.type === 'mountains');
-    expect(mountains.map((c) => c.chapter.id)).toEqual(['permian', 'late-carboniferous', 'early-carboniferous', 'devonian', 'ordovician']);
+    expect(mountains.map((c) => c.chapter.id)).toEqual(['triassic', 'permian', 'late-carboniferous', 'early-carboniferous', 'devonian', 'ordovician']);
     // "Recorded in the region", never more: the mountain building is a published event for the region, not a date measured here.
     expect(mountains.every((c) => c.tier === 3)).toBe(true);
+    // In the Triassic the building had ended, and the range is shown wearing down, with the caveats that go with that.
+    const triassic = chapter(x, 'triassic');
+    expect(wornDown(triassic)).toBe(true);
+    expect(mountainCaveats(triassic)).toEqual([WORN_CAVEAT, WORN_SPAN_CAVEAT]);
+    expect(wornDown(chapter(x, 'permian'))).toBe(false);
+    expect(mountainCaveats(chapter(x, 'permian'))).toEqual([]);
     expect(chapter(x, 'permian').mountains.map((m) => m.event.id)).toContain('alleghanian');
   });
 

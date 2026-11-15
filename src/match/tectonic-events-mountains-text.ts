@@ -114,6 +114,23 @@ export const TEXT: Record<string, TectonicText> = {
     ],
     vetted: false,
   },
+  'ancestral-rockies': {
+    plain:
+      "About 320 to 290 million years ago, long before today's Rockies, blocks of very old rock were pushed up here into a range of mountains. Rivers carried their rubble into the low ground alongside, where it hardened into red sandstone. Geologists still debate what pushed them up so far from the edge of the continent: a collision with South America and Africa to the south-east, plates grinding past the south-west coast, or both at once.",
+    caveats: [
+      'These mountains were worn down and buried by younger rock. The mountains here today were raised much later, on some of the same ground.',
+      'Published dates for the start run from about 330 to 315 million years ago, and for the end from about 299 to 270 million, depending on whether the end is taken as the last movement on the faults or the burial of the highlands.',
+      'The region is drawn as rough boxes around ground where the old rock of the uplifts lies at the surface today. The uplifts were larger than the boxes, and others in New Mexico, Oklahoma and Texas are left out.',
+      'The dates and the debate come from the summaries of published papers, not from a reading of the full papers.',
+    ],
+    sources: [
+      'Kluth, C.F. and Coney, P.J. (1981) Plate tectonics of the Ancestral Rocky Mountains. Geology 9, 10-15.',
+      'Ye, H., Royden, L., Burchfiel, C. and Schuepbach, M. (1996) Late Paleozoic deformation of interior North America: the greater Ancestral Rocky Mountains. AAPG Bulletin 80, 1397-1432.',
+      'Sweet, D.E., Brotherton, J.L., Chowdhury, N.U.M.K. and Ramsey, C.E. (2021) Tectonic subsidence analysis of the Ancestral Rocky Mountains from the interior to the southern margin. Palaeogeography, Palaeoclimatology, Palaeoecology 576, 110508.',
+      'Leary, R.J., Umhoefer, P., Smith, M.E. and Riggs, N. (2017) A three-sided orogen: a new tectonic model for Ancestral Rocky Mountain uplift and basin development. Geology 45, 735-738.',
+    ],
+    vetted: false,
+  },
   'alleghanian': {
     plain:
       'About 335 to 280 million years ago Africa collided with North America as the supercontinent Pangaea came together, pushing up a mountain range along what is now the Appalachians. Today\'s mountains are the worn remains of that range.',

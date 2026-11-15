@@ -20,6 +20,7 @@ import { loadEventText, loadTectonicText } from './match/event-text';
 import { EVENTS, type EventText, type TimelineEvent, PICTURE_CAVEAT } from './match/extinctions';
 import type { Chapter } from './match/chapters';
 import { type ChapterResult, type RockUnit, TIER_LABEL, type Tier } from './match/match';
+import { mountainCaveats, wornDown } from './match/mountain-caveats';
 import { ENV_LABEL, readLiths } from './match/taxonomy';
 import { KIND_LABEL, REGION_CAVEAT, type TectonicEvent, type TectonicText, chapterOf } from './match/tectonics';
 import { type Place, parseCoordinates, searchOnline, searchShipped } from './places';
@@ -173,9 +174,11 @@ function factList(c: ChapterResult): HTMLElement {
   for (const e of c.events) fact('Major event', `${e.name}, ${ageRange(e.old, e.young)}. ${e.summary}`);
   for (const m of c.mountains) {
     fact(
-      'Mountain building in the region',
+      m.state === 'building' ? 'Mountain building in the region' : 'Mountains wearing down in the region',
       `${m.event.name}, ${ageRange(m.event.old, m.event.young)}. ` +
-        (m.unit
+        (m.state === 'wearing-down'
+          ? `The building had ended before this time. ${m.unit!.name}, mapped at this spot, formed underground and is old enough to have been part of those mountains, which are taken to have still stood, wearing down. No evidence at this spot shows how high.`
+          : m.unit
           ? `${m.unit.name}, mapped at this spot, formed underground and is old enough to have been here while those mountains were built. Whether it was squeezed and heated then, or only lifted, no date measured at this spot shows.`
           : `The mountain building is still going on, and ground rises to about ${m.metres!.toLocaleString('en')} meters within 10 km of this spot today. That places the spot in the range. How long the range has stood here, no evidence at this spot shows.`),
     );
@@ -243,7 +246,7 @@ function textCaveats(c: ChapterResult, chapterStory: ChapterStory | null): strin
   const wider = all.filter((x) => x.about.includes('world') && !mine.includes(x));
   // A major event dates rock that the map dates loosely; say what that link rests on.
   const events = c.events.map((e) => `The ${e.name} entry describes the event as a whole. Its link to this spot rests on the kind of rock mapped here and on the region, not on a date measured at this spot.`);
-  return [...mine.map((x) => x.text), ...events, ...wider.map((x) => x.text), ...labelCaveats(shownGenera(c))];
+  return [...mountainCaveats(c), ...mine.map((x) => x.text), ...events, ...wider.map((x) => x.text), ...labelCaveats(shownGenera(c))];
 }
 
 /** One chapter's stretch of the rock column, drawn by time: each layer a block in the color of its main rock, the gaps left hatched. */
@@ -370,7 +373,7 @@ function chapterTile(c: ChapterResult, place: LatLng, globe: Globe | null, band:
     { class: 'words' },
     h('h4', {}, c.chapter.name),
     h('span', { class: 'age' }, ageRange(c.chapter.old, c.chapter.young)),
-    h('span', { class: 'environment' }, env ? ENV_LABEL[env.type] : 'No record'),
+    h('span', { class: 'environment' }, env ? (wornDown(c) ? 'Mountains, wearing down' : ENV_LABEL[env.type]) : 'No record'),
     // The short wording on the closed tile, the full wording once it is open.
     env ? h('span', { class: `tier tier-${c.tier}` }, h('span', { class: 'short' }, TIER_SHORT[c.tier]), h('span', { class: 'full' }, TIER_LABEL[c.tier])) : null,
   );
@@ -632,7 +635,7 @@ function tectonicBody(e: TectonicEvent, text: TectonicText, x: Exploration, glob
   } else {
     local = 'The plate model cannot place this spot at the time, so there is no globe to show.';
   }
-  const deep = x.timeline.flatMap((c) => c.mountains).find((m) => m.event === e);
+  const deep = x.timeline.flatMap((c) => c.mountains).find((m) => m.event === e && m.state === 'building');
   return [
     then && h('div', { class: 'globe-pic', 'aria-hidden': 'true' }, smallGlobe(x.globe!.dem, then.age, then.at)),
     h(

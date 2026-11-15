@@ -109,6 +109,30 @@ export const MOUNTAIN_BUILDING: TectonicEvent[] = [
     // Middle and Southern Rocky Mountains. Box: the Black Hills, which the map puts in its Wyoming Craton.
     provinces: [564, 574],
     boxes: [[43.6, -104.4, 44.6, -103.3]],
+    // All sides agree the region has stood high ever since; what is disputed is why (docs/research/tectonic-rockies-additions.md, part 2).
+    wornBy: 0,
+    wornCaveat:
+      'The squeezing that raised these mountains had ended by about 50 million years ago. The ranges were worn down to a high, rolling upland, and the peaks and canyons seen today were carved mostly in the last 10 million years. Geologists disagree about whether the land was also lifted again during that time, or whether a changing climate did the carving.',
+  },
+  {
+    id: 'ancestral-rockies',
+    name: 'Ancestral Rocky Mountains',
+    kind: 'mountains',
+    old: 320,
+    young: 290,
+    // No province outlines the old uplifts: the map's Southern Rocky Mountains take in the basins between them (Aspen, Vail, Durango),
+    // and the Uncompahgre Plateau shares a province with its own basin (Moab). So boxes, drawn tight on ground where the old rock
+    // of the uplifts is at the surface today: the northern Front Range, Pikes Peak, the Uncompahgre Plateau in two steps, the Black Canyon.
+    provinces: [],
+    boxes: [
+      [39.5, -105.9, 40.8, -105.4],
+      [38.7, -105.3, 38.9, -104.98],
+      [38.85, -108.9, 39.15, -108.6],
+      [38.3, -108.6, 38.85, -108.15],
+      [38.4, -107.85, 38.65, -107.2],
+    ],
+    // The highlands sank and were buried in the Early Permian, directly after the building.
+    wornBy: 290,
   },
   {
     id: 'alleghanian',
@@ -160,6 +184,8 @@ export const MOUNTAIN_BUILDING: TectonicEvent[] = [
     ],
   },
   {
+    // The range collapsed by stretching in the Devonian, by about 380 million years ago (docs/research/tectonic-rockies-additions.md, part 2).
+    wornBy: 380,
     id: 'scandian',
     name: 'Caledonian mountain building, Scandian phase',
     kind: 'mountains',
