@@ -117,6 +117,21 @@ describe('rock that does not record the surface', () => {
     expect(r.tier).toBe(4);
   });
 
+  it('gneiss inside a mountain belt gives mountains, ahead of rock recorded elsewhere in the region but behind rock recorded here', () => {
+    const belt = { id: 'test-belt', name: 'Test mountain building', kind: 'mountains' as const, old: 280, young: 270, provinces: [], boxes: [] };
+    const gneiss = unit({ old: 1600, young: 1000, liths: [lith('gneiss', 'metamorphic', 'metamorphic')] });
+    const seaNearby = unit({ origin: 'column', envs: ['marine indet.'] });
+    const inRegion = matchChapter(chapter('permian'), [gneiss, seaNearby], [], map('land'), [], [belt]);
+    expect(inRegion.environments.map((e) => e.type)).toEqual(['mountains', 'shelf-sea']);
+    expect(inRegion.tier).toBe(3);
+    // A river recorded by fossil sites at the spot is evidence of the spot itself, and stays first.
+    const here = matchChapter(chapter('permian'), [gneiss], [site({})], map('land'), [], [belt]);
+    expect(here.environments.map((e) => e.type)).toEqual(['river-plain', 'mountains']);
+    // Rock younger than the event was not there to be lifted.
+    const young = unit({ old: 100, young: 90, liths: [lith('gneiss', 'metamorphic', 'metamorphic')] });
+    expect(matchChapter(chapter('permian'), [young], [], map('land'), [], [belt]).mountains).toEqual([]);
+  });
+
   it('lava is volcanic land only where the regional map shows land', () => {
     const lava = unit({ liths: [lith('basalt', 'volcanic', 'igneous')] });
     expect(matchChapter(chapter('permian'), [lava], [], map('land')).environments[0]!.type).toBe('volcanic-land');

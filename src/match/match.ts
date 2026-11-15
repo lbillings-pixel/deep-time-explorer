@@ -230,8 +230,9 @@ export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilS
     const unit = deepHere.find((u) => u.old >= event.young);
     if (unit) mountains.push({ event, unit });
   }
-  // That is evidence from the region, and it ranks with it: rock or fossils that record a setting at the spot come first, but
-  // mountains come before the broad map's bare "land".
+  // That is evidence from the region, and it ranks with it: rock or fossils that record a setting at the spot come first.
+  // Among the evidence from the region, mountains lead: the event names this ground, while rock recorded elsewhere in the
+  // region (a sea, a river plain) is more likely the lowland beside the range than the range itself.
   const fromMountains: Candidate[] = mountains.map(({ event, unit }) => ({
     type: 'mountains',
     specific: true,
@@ -243,10 +244,13 @@ export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilS
   const ladder: Environment[][] = [
     rank([...fromUnits(columnHere), ...fromSites(sitesNear, `within ${NEAR_KM} km`)], 1),
     rank(fromRockType, 2),
-    rank([...fromUnits(rocksRegion), ...fromSites(sitesRegion, `${NEAR_KM} to ${REGION_KM} km away`), ...fromMountains], 3),
+    [...rank(fromMountains, 3), ...rank([...fromUnits(rocksRegion), ...fromSites(sitesRegion, `${NEAR_KM} to ${REGION_KM} km away`)], 3)],
   ];
   const environments: Environment[] = [];
   for (const rung of ladder) for (const e of rung) if (!environments.some((x) => x.type === e.type)) environments.push(e);
+  // Evidence at the spot that says only "land" does not say what kind of land. Mountains recorded for the region do, and agree with it.
+  const range = environments.find((e) => e.type === 'mountains');
+  if (range && environments[0]!.type === 'land') environments.unshift(...environments.splice(environments.indexOf(range), 1));
 
   const mapTerrain = paleo?.status === 'ok' && paleo.terrain.length > 0 ? majorityTerrain(paleo.terrain) : null;
   let tier: Tier = 5;
