@@ -1,0 +1,43 @@
+Greenville, South Carolina, USA
+Quaternary | River plain | neutral | north-america
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Unnamed). At the time, this spot lay about 35° north of the equator.
+  Drawn (* = recorded nearby): pine, spruce, gomphothere, sapiens, horse, waterlily, broadleaf, birch, cypress, palm, tussock, grass, wildflowers, fern, shrub, tallgrass, mayfly, horsetail
+Neogene | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 35° north of the equator.
+  Drawn (* = recorded nearby): spruce, gomphothere, camel, tortoise, spider, redwood, pine, broadleaf, birch, palm, grass, mosscushion, fern, shrub, tussock, wildflowers, tallgrass, songbirds, clubmoss
+Paleogene | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 35° north of the equator.
+  Drawn (* = recorded nearby): pine, gastornis, tortoise, spider, cycad, spruce, redwood, broadleaf, ginkgo, birch, mesotreefern, palm, magnolia, wildflowers, mosscushion, fern, shrub, clubmoss, butterfly
+Late Cretaceous | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 34° north of the equator.
+  Drawn (* = recorded nearby): redwood, tyrannosaur, ankylosaur, earlymammal, spider, pine, broadleaf, spruce, bennettite, ginkgo, araucaria, cycad, palm, cheirolepid, magnolia, mesotreefern, mosscushion, clubmoss, fern, earlybird
+Early Cretaceous | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 30° north of the equator.
+  Drawn (* = recorded nearby): ginkgo, brachiosaurid, allosaur, earlymammal, spider, pine, araucaria, bennettite, cycad, mesotreefern, cheirolepid, mosscushion, clubmoss, fern, pterodactyl
+Jurassic | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 23° north of the equator.
+  Drawn (* = recorded nearby): ginkgo, diplodocid, stegosaur, earlymammal, spider, araucaria, bennettite, cycad, mesotreefern, cheirolepid, mosscushion, clubmoss, fern, rhamphorhynchus
+Triassic | Land, setting unknown | neutral | north-america
+  No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 6° north of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): ginkgo, theropod, cynodont, spider, cycad, voltzia, bennettite, cheirolepid, clubmoss, mosscushion, pleuromeia, fern, rhamphorhynchus
+Permian | Mountains | neutral | north-america
+  No rock at this spot records the surface at this time. The setting comes from published work on the region (the Alleghanian mountain building) and from rock mapped here that formed deep underground and is old enough to have been here while the mountains were built. At the time, this spot lay about 1° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): gigantopterid, treefern, voltzia, cordaites, medullosa, mosscushion, fern, palaeodictyopteran
+Late Carboniferous | Mountains | neutral | north-america
+  No rock at this spot records the surface at this time. The setting comes from published work on the region (the Alleghanian mountain building) and from rock mapped here that formed deep underground and is old enough to have been here while the mountains were built. At the time, this spot lay about 12° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): treefern, medullosa, cordaites, lepidodendron, walchia, mosscushion, fern, palaeodictyopteran
+Early Carboniferous | Mountains | neutral | north-america
+  No rock at this spot records the surface at this time. The setting comes from published work on the region (the Alleghanian mountain building and the Acadian and Neoacadian mountain building) and from rock mapped here that formed deep underground and is old enough to have been here while the mountains were built. At the time, this spot lay about 21° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): medullosa, lepidodendron, fern
+Devonian | Mountains | neutral | north-america
+  No rock at this spot records the surface at this time. The setting comes from published work on the region (the Acadian and Neoacadian mountain building) and from rock mapped here that formed deep underground and is old enough to have been here while the mountains were built. At the time, this spot lay about 45° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Foerstia.
+  Drawn (* = recorded nearby): cladoxylopsid, archaeopteris, rhynia, asteroxylon, cooksonia, liverwortmat
+Silurian | Open shelf sea | neutral | north-america | water 0.87
+  No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 31° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): pterygotus, orthocone, acanthodian, graptolite, jawlessfish, crinoid, glasssponge, tabulate, eurypterid, trilobite, cruziana, seasnail, brachiopod
+Ordovician | Mountains | neutral | north-america
+  No rock at this spot records the surface at this time. The setting comes from published work on the region (the Taconic mountain building) and from rock mapped here that formed deep underground and is old enough to have been here while the mountains were built. At the time, this spot lay about 31° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): liverwortmat, landcrust
+Cambrian | Open shelf sea | neutral | north-america | water 0.80
+  No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Richtex Formation, Upper Sedimentary Sequence and Persimmon Fork Formation and 3 more). At the time, this spot lay about 26° south of the equator. Positions this old are uncertain.
+  Drawn (* = recorded nearby): anomalocaris, agnostid, jellyfish, conodont, eocrinoid, glasssponge, stromatolite, spinytrilobite, trilobite, cruziana, brachiopod, burrows

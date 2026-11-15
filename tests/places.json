@@ -12,5 +12,6 @@
   { "name": "Delhi, India", "lat": 28.6, "lng": 77.2 },
   { "name": "Wellington, New Zealand", "lat": -41.3, "lng": 174.8 },
   { "name": "Transantarctic Mountains, Antarctica", "lat": -84.0, "lng": 170.0 },
-  { "name": "Mid-Pacific Ocean", "lat": 0.0, "lng": -140.0 }
+  { "name": "Mid-Pacific Ocean", "lat": 0.0, "lng": -140.0 },
+  { "name": "Greenville, South Carolina, USA", "lat": 34.85, "lng": -82.4 }
 ]

@@ -54,6 +54,15 @@ describe('test places', () => {
     expect(permian.environments[0]?.type).toBe('river-plain');
   });
 
+  it('Greenville: rock that formed underground, inside mountain belts, gives chapters of mountains', async () => {
+    const x = await run('Greenville, South Carolina, USA');
+    const mountains = x.timeline.filter((c) => c.environments[0]?.type === 'mountains');
+    expect(mountains.map((c) => c.chapter.id)).toEqual(['permian', 'late-carboniferous', 'early-carboniferous', 'devonian', 'ordovician']);
+    // "Recorded in the region", never more: the mountain building is a published event for the region, not a date measured here.
+    expect(mountains.every((c) => c.tier === 3)).toBe(true);
+    expect(chapter(x, 'permian').mountains.map((m) => m.event.id)).toContain('alleghanian');
+  });
+
   it('Deccan Traps: the vetted event dates basalt that the map dates too loosely', async () => {
     const x = await run('Deccan Traps, India');
     const lateCretaceous = chapter(x, 'late-cretaceous');

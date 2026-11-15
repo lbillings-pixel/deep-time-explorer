@@ -428,5 +428,83 @@
    "b_age": 1200
   }
  ],
- "Mid-Pacific Ocean": []
+ "Mid-Pacific Ocean": [],
+ "Greenville, South Carolina, USA": [
+  {
+   "source_id": 456,
+   "name": "Sillimanite schist and sillimanite-mica schist",
+   "strat_name": "Sillimanite schist and sillimanite-mica schist",
+   "lith": "schist",
+   "liths": [
+    84
+   ],
+   "t_age": 486.85,
+   "b_age": 1000
+  },
+  {
+   "source_id": 133,
+   "name": "Sillimanite schist and sillimanite-mica schist",
+   "strat_name": "",
+   "lith": "Major:{mica schist}",
+   "liths": [
+    84
+   ],
+   "t_age": 485.4,
+   "b_age": 1000
+  },
+  {
+   "source_id": 522,
+   "name": "Micaceous Saprolite",
+   "strat_name": "Micaceous Saprolite",
+   "lith": "clay, sand, schist, silt",
+   "liths": [
+    3,
+    4,
+    84,
+    93
+   ],
+   "t_age": 0,
+   "b_age": 66
+  },
+  {
+   "source_id": 470,
+   "name": "Sixmile thrust sheet",
+   "strat_name": "Sixmile thrust sheet",
+   "lith": "amphibolite, gneiss, schist, volcanic",
+   "liths": [
+    63,
+    79,
+    84,
+    86
+   ],
+   "t_age": 251.902,
+   "b_age": 1000
+  },
+  {
+   "source_id": 7,
+   "name": "Neoproterozoic-Cambrian volcanic: interlayered sedimentary and volcanic rocks",
+   "strat_name": "",
+   "lith": "volcanic: interlayered sedimentary and volcanic rocks",
+   "liths": [
+    63,
+    111
+   ],
+   "t_age": 485.4,
+   "b_age": 1000
+  },
+  {
+   "source_id": 154,
+   "name": "Precambrian-Phanerozoic crystalline metamorphic rocks",
+   "strat_name": "",
+   "lith": "felsic paragneiss; amphibolite grade paragneiss/metavolcanic gneiss",
+   "liths": [
+    79,
+    86,
+    120,
+    178
+   ],
+   "t_age": 251.902,
+   "b_age": 1000
+  }
+ ]
 }
