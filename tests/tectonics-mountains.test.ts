@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { provinceAt } from '../src/data/provinces';
-import { MOUNTAIN_BUILDING } from '../src/match/tectonic-events-mountains';
+import { MOUNTAIN_BUILDING } from '../src/match/events-all';
 import { tectonicsAt } from '../src/match/tectonics';
 import { nodeRead } from './helpers';
 

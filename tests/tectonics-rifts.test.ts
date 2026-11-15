@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { provinceAt } from '../src/data/provinces';
-import { RIFTS_AND_OCEANS } from '../src/match/tectonic-events-rifts';
+import { RIFTS_AND_OCEANS } from '../src/match/events-all';
 import { tectonicsAt } from '../src/match/tectonics';
 import { nodeRead } from './helpers';
 

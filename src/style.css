@@ -835,6 +835,7 @@ a {
 }
 
 .event-panel .age,
+.event-panel .wait,
 .event-panel figcaption,
 .event-panel .caveats li {
   color: #b9c0c4;

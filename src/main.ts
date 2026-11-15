@@ -16,11 +16,12 @@ import { coordWords, createPicker } from './globe/picker';
 import { PALETTES, paintGlobe } from './globe/render';
 import { CLIMATE_WORD, climateEvidence } from './match/climate';
 import { MAJOR_EVENTS } from './match/events';
-import { EVENTS, type TimelineEvent, PICTURE_CAVEAT } from './match/extinctions';
+import { loadEventText, loadTectonicText } from './match/event-text';
+import { EVENTS, type EventText, type TimelineEvent, PICTURE_CAVEAT } from './match/extinctions';
 import type { Chapter } from './match/chapters';
 import { type ChapterResult, type RockUnit, TIER_LABEL, type Tier } from './match/match';
 import { ENV_LABEL, readLiths } from './match/taxonomy';
-import { KIND_LABEL, REGION_CAVEAT, type TectonicEvent, chapterOf } from './match/tectonics';
+import { KIND_LABEL, REGION_CAVEAT, type TectonicEvent, type TectonicText, chapterOf } from './match/tectonics';
 import { type Place, parseCoordinates, searchOnline, searchShipped } from './places';
 import { sceneParams } from './scenes/inputs';
 import { showFullScreen } from './fullscreen';
@@ -452,12 +453,12 @@ function placeThen(e: TimelineEvent, then: PlaceThen | undefined): string | null
 }
 
 /** The painting, the text and the caveats of an extinction. */
-function extinctionBody(e: TimelineEvent, then: PlaceThen | undefined, globe: Globe | null): Child[] {
+function extinctionBody(e: TimelineEvent, text: EventText, then: PlaceThen | undefined, globe: Globe | null): Child[] {
   const base = `${import.meta.env.BASE_URL}extinctions/${e.id}`;
-  const img = h('img', { src: `${base}-800.webp`, srcset: `${base}-800.webp 800w, ${base}.webp 1600w`, sizes: '(max-width: 760px) 100vw, 720px', width: '1600', height: '900', loading: 'lazy', alt: e.picture });
+  const img = h('img', { src: `${base}-800.webp`, srcset: `${base}-800.webp 800w, ${base}.webp 1600w`, sizes: '(max-width: 760px) 100vw, 720px', width: '1600', height: '900', loading: 'lazy', alt: text.picture });
   // The painting full screen: by the button under it, or, with "Full-screen pictures" on in the settings, by a click on the painting.
   const enlarge = h('button', { type: 'button', class: 'link' }, 'Full screen');
-  const full = () => showFullScreen(h('img', { src: `${base}.webp`, width: '1600', height: '900', alt: e.picture }), `${e.name}. An impression painted by this site's code, not a record of a real view.`, enlarge);
+  const full = () => showFullScreen(h('img', { src: `${base}.webp`, width: '1600', height: '900', alt: text.picture }), `${e.name}. An impression painted by this site's code, not a record of a real view.`, enlarge);
   enlarge.addEventListener('click', full);
   img.addEventListener('click', () => settings.fullscreen && full());
   const figure = h('figure', { class: 'painting' }, img, h('figcaption', {}, "An impression painted by this site's code, not a record of a real view. ", enlarge));
@@ -469,15 +470,15 @@ function extinctionBody(e: TimelineEvent, then: PlaceThen | undefined, globe: Gl
   const local = e.age > OLDEST_MAP ? 'This is older than the oldest maps of the ancient world, which reach back about 540 million years, so this site cannot say where this spot lay at the time.' : placeThen(e, then);
   return [
     figure,
-    h('div', { class: 'story' }, local && h('p', { class: 'local' }, local), h('p', {}, e.plain), h('details', {}, h('summary', {}, 'More detail'), h('p', {}, e.more))),
+    h('div', { class: 'story' }, local && h('p', { class: 'local' }, local), h('p', {}, text.plain), h('details', {}, h('summary', {}, 'More detail'), h('p', {}, text.more))),
     globe && then ? onGlobe(globe, e.age, 'Show this time on the globe') : null,
     h(
       'details',
       { class: 'evidence' },
-      h('summary', {}, e.sources ? 'The caveats and the sources' : 'The caveats'),
-      caveatList('Caveats about the text', e.caveats),
-      caveatList('Caveats about the picture', [PICTURE_CAVEAT, ...(e.pictureCaveats ?? [])]),
-      caveatList('Published sources', e.sources ?? []),
+      h('summary', {}, text.sources ? 'The caveats and the sources' : 'The caveats'),
+      caveatList('Caveats about the text', text.caveats),
+      caveatList('Caveats about the picture', [PICTURE_CAVEAT, ...(text.pictureCaveats ?? [])]),
+      caveatList('Published sources', text.sources ?? []),
     ),
   ];
 }
@@ -507,8 +508,8 @@ interface EventNote {
   thumb: HTMLElement | null;
   /** Id of the chapter the event belongs with. */
   chapter: string;
-  /** The panel's contents, built only when the note is opened. */
-  body: () => Child[];
+  /** The panel's contents, built when the note is opened, once the event's text has been fetched. */
+  body: () => Promise<Child[]>;
 }
 
 /** A note for one event: a small picture, a label, a name and a date. It opens the event's panel, and while it is pointed at, its chapter is outlined. */
@@ -523,11 +524,22 @@ function eventNote(n: EventNote): HTMLElement {
     // Close stands at the top and stays there as the panel is scrolled: at the foot, a phone's own bars can cover it.
     const close = h('button', { type: 'button', class: 'close' }, 'Close');
     close.addEventListener('click', () => eventPanel.close());
-    eventPanel.replaceChildren(
-      h('div', { class: `inner ${n.kind}` }, h('div', { class: 'bar' }, h('p', { class: 'kicker' }, n.kicker), close), h('h3', { id: 'event-panel-title' }, n.name), h('p', { class: 'age' }, n.when), ...n.body()),
-    );
+    const wait = h('p', { class: 'wait', role: 'status' }, 'Loading…');
+    const inner = h('div', { class: `inner ${n.kind}` }, h('div', { class: 'bar' }, h('p', { class: 'kicker' }, n.kicker), close), h('h3', { id: 'event-panel-title' }, n.name), h('p', { class: 'age' }, n.when), wait);
+    eventPanel.replaceChildren(inner);
     eventPanel.showModal();
     eventPanel.scrollTop = 0;
+    // If another note is opened meanwhile, this one's contents arrive in a panel no longer shown, and do no harm.
+    n.body().then(
+      (body) => {
+        wait.remove();
+        inner.append(...body.filter((c): c is Node | string => !!c));
+      },
+      (err) => {
+        console.error(err);
+        wait.textContent = 'The text could not be loaded. Check your connection, then close this and open it again.';
+      },
+    );
   });
   const mark = (on: boolean) => document.getElementById(`chapter-${n.chapter}`)?.classList.toggle('marked', on);
   button.addEventListener('mouseenter', () => mark(true));
@@ -550,7 +562,7 @@ function extinctionNote(e: TimelineEvent, then: PlaceThen | undefined, globe: Gl
     when: e.when,
     thumb,
     chapter: e.chapter,
-    body: () => extinctionBody(e, then, globe),
+    body: async () => extinctionBody(e, await loadEventText(e), then, globe),
   });
 }
 
@@ -600,11 +612,11 @@ function tectonicNote(e: TectonicEvent, x: Exploration, globe: Globe | null): HT
     when: ageRange(e.old, e.young),
     thumb: then && smallGlobe(x.globe!.dem, then.age, then.at),
     chapter: chapterOf(e).id,
-    body: () => tectonicBody(e, x, globe, then),
+    body: async () => tectonicBody(e, await loadTectonicText(e), x, globe, then),
   });
 }
 
-function tectonicBody(e: TectonicEvent, x: Exploration, globe: Globe | null, then: ReturnType<typeof tectonicThen>): Child[] {
+function tectonicBody(e: TectonicEvent, text: TectonicText, x: Exploration, globe: Globe | null, then: ReturnType<typeof tectonicThen>): Child[] {
   let local: string;
   if (then) {
     local = then.age === 0 ? 'The small globe shows the Earth today, with this spot marked.' : `The small globe shows the Earth ${then.age} million years ago, about the middle of this event, with this spot marked. It then lay ${latitudeWords(then.at.lat)} and, on the broad maps of the ancient world, ${TERRAIN_THEN[then.terrain]}.`;
@@ -621,7 +633,7 @@ function tectonicBody(e: TectonicEvent, x: Exploration, globe: Globe | null, the
       'div',
       { class: 'story' },
       h('p', { class: 'local' }, 'This spot lies inside the region that published work gives for this event. ', local),
-      h('p', {}, e.plain),
+      h('p', {}, text.plain),
       deep && h('p', {}, `Rock that formed deep underground is mapped at this spot (${deep.unit.name}), and it is old enough to have been here while these mountains were built. Whether it was squeezed and heated then, or only lifted, no date measured at this spot shows.`),
     ),
     globe && then ? onGlobe(globe, then.age, 'Show this time on the globe') : null,
@@ -629,9 +641,9 @@ function tectonicBody(e: TectonicEvent, x: Exploration, globe: Globe | null, the
       'details',
       { class: 'evidence' },
       h('summary', {}, 'The caveats and the sources'),
-      caveatList('Caveats about the text', [REGION_CAVEAT, ...e.caveats]),
+      caveatList('Caveats about the text', [REGION_CAVEAT, ...text.caveats]),
       then ? caveatList('Caveats about the picture', ['The globe is drawn from reconstructed maps of the ancient world on a grid of about 100 km. It shows this spot where one plate model places it; other models differ, more so further back in time.']) : null,
-      caveatList('Published sources', e.sources),
+      caveatList('Published sources', text.sources),
     ),
   ];
 }

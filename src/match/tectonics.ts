@@ -30,6 +30,13 @@ export interface TectonicEvent {
   provinces: number[];
   /** Rough present-day rectangles, [south, west, north, east]. */
   boxes: [south: number, west: number, north: number, east: number][];
+}
+
+/**
+ * What is read when an event is opened. It is kept apart from the entry (in the file of the same name ending
+ * in -text.ts, by id) so that the page downloads it only then: see event-text.ts.
+ */
+export interface TectonicText {
   /** Two or three plain sentences, shown to the visitor. */
   plain: string;
   /** What a reader should know before trusting the text. */

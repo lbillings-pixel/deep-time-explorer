@@ -3,8 +3,8 @@ import { describe, expect, it } from 'vitest';
 import { explore } from '../src/explore';
 import { CHAPTERS } from '../src/match/chapters';
 import { MAJOR_EVENTS } from '../src/match/events';
-import { EVENTS, EXTINCTIONS, PICTURE_CAVEAT } from '../src/match/extinctions';
-import { TURNING_POINTS } from '../src/match/turning-points';
+import { EVENTS, EXTINCTIONS, TURNING_POINTS } from '../src/match/events-all';
+import { PICTURE_CAVEAT } from '../src/match/extinctions';
 import { PLACES, nodeRead, savedMapUnits } from './helpers';
 
 describe('the extinctions and turning points', () => {

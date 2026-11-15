@@ -3,13 +3,12 @@
 // a short text, and a sentence from the data about where the visitor's place lay
 // at the time.
 //
-// Rank 1: the five great mass extinctions. Each is a full panel between the
-// chapter it closed and the chapter that followed.
-// Rank 2: lesser extinctions. Each is a small card with a thumbnail, under the
-// card of the chapter it fell in, which opens to the same panel.
+// Rank 1: the five great mass extinctions, each belonging with the chapter it closed.
+// Rank 2: lesser extinctions, each belonging with the chapter it fell in.
+// A turning point (kind: 'turning-point', in turning-points.ts) is rank 2.
 //
-// A turning point (kind: 'turning-point', in turning-points.ts) is shown like a lesser extinction:
-// a small card under the chapter it fell in.
+// Each is a small note beside its chapter, which opens a panel. An entry here holds only what
+// the note needs; what the panel shows is an EventText, in extinctions-text.ts.
 
 import { TURNING_POINTS } from './turning-points';
 
@@ -29,6 +28,13 @@ export interface TimelineEvent {
    * because the timeline runs youngest first. Rank 2: the chapter the event fell in; the card is shown just below it.
    */
   chapter: string;
+}
+
+/**
+ * What is read when an event is opened. It is kept apart from the entry (in the file of the same name ending
+ * in -text.ts, by id) so that the page downloads it only then: see event-text.ts.
+ */
+export interface EventText {
   /** The default text, in plain language. */
   plain: string;
   /** Shown on request: the evidence and the debates. */
@@ -59,17 +65,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     age: 66,
     rank: 1,
     chapter: 'late-cretaceous',
-    plain: `About 66 million years ago an asteroid roughly 10 kilometers across struck the shallow sea where the Yucatán Peninsula of Mexico now lies. The impact dug a crater about 180 kilometers wide, called Chicxulub. It set off earthquakes and giant waves, and threw so much rock dust, soot and sulfur into the upper air that sunlight was dimmed across the world for months or years. Plants on land and plankton in the sea stopped growing, and the food chains built on them collapsed. All dinosaurs other than birds died out. So did the flying pterosaurs, the great sea reptiles and the ammonites. By the usual estimate about three-quarters of all species were lost. Small animals that could shelter, and live on seeds, insects or decaying matter, fared better: birds, mammals, lizards, crocodiles and turtles among them. In the Paleogene that followed, mammals grew large and varied.`,
-    more: `The clue that led to the discovery was a thin layer of clay, found at this level in rocks around the world, that is rich in iridium, a metal rare in Earth's crust but common in meteorites. Luis and Walter Alvarez and their colleagues reported it in 1980 from Gubbio in Italy. The same layer holds grains of quartz with a pattern of fractures made only by violent shock, and tiny beads of glass that cooled from droplets of molten rock. The buried crater was identified in 1991. Drilling into its inner ring of peaks in 2016 brought up rock that had been shattered and lifted from deep in the crust within minutes of the impact. At about the same time, the Deccan Traps eruptions were covering much of India in lava. Most researchers regard the impact as the main cause of the extinction, and debate how much the eruptions added to the stress on life or shaped its recovery. In western North America the boundary clay is followed by a brief abundance of fern spores, the mark of ferns spreading over a devastated landscape.`,
-    caveats: [
-      'The figure of about three-quarters of species lost is an estimate. The fossil record is complete enough to count extinctions directly only for some groups, such as plankton with hard shells.',
-      'The parts played by the asteroid and by the Deccan Traps eruptions are debated. Most researchers hold that the impact was the main cause. A minority argue that the eruptions were as important, or had already put life under stress.',
-      'How long the darkness and cold lasted is estimated from computer models of soot and sulfur in the atmosphere. Estimates range from months to more than a decade.',
-      'Whether dinosaurs other than birds were already declining before the impact is disputed. An apparent decline may reflect gaps in the fossil record.',
-      'The sizes given for the asteroid and the crater are estimates. Published figures run from about 10 to 15 kilometers for the asteroid and from about 180 to 200 kilometers for the crater.',
-    ],
-    picture: 'A painting. A tyrannosaur stands in silhouette on a dark shore, facing a blinding fireball on the sea horizon that throws up a great fan of fire. Streaks of burning rock cross the night sky, two horned dinosaurs stand on the wet sand, and a giant pterosaur flies away.',
-    vetted: false,
   },
   {
     id: 'end-triassic',
@@ -78,16 +73,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     age: 201.4,
     rank: 1,
     chapter: 'triassic',
-    plain: `About 201 million years ago, at the end of the Triassic, the supercontinent Pangaea began to tear apart along the line that would become the Atlantic Ocean. Molten rock rose along the rift and poured out as lava across parts of what are now North America, South America, Africa and Europe. It was one of the largest volcanic episodes known, and is called the Central Atlantic Magmatic Province. The carbon dioxide and other gases released with it warmed the climate and made the oceans more acidic. Reef corals were devastated, the eel-like conodont animals disappeared for good, and the coiled-shelled ammonoids and many other shellfish barely came through. On land, most of the large crocodile-line reptiles that had dominated the Triassic died out, along with many big amphibians. Dinosaurs survived, and in the Jurassic that followed they became the dominant large animals on land. By the usual estimate about three-quarters of the species in the sea were lost.`,
-    more: `Remains of this magma include the Palisades cliffs along the Hudson River, where molten rock cooled underground, and lava flows in eastern North America, Morocco and Brazil. Dating by the decay of uranium to lead in crystals of zircon places the first large eruptions within a few tens of thousands of years of the extinction, about 201.5 million years ago. Fossil leaves from Greenland and Sweden have fewer breathing pores (stomata) above the boundary than below it, which is how plants respond to air richer in carbon dioxide. In the sea, the animals and algae that build with lime suffered most, as would be expected if the water had turned more acidic. An older idea, that an asteroid was responsible, lost ground when the large Manicouagan crater in Quebec proved to be about 14 million years too old. How sudden the losses on land were, and how closely they matched those in the sea, is less clear, because fossils on land are harder to date precisely.`,
-    caveats: [
-      'The figure of about three-quarters of marine species lost is an estimate scaled up from counts of larger groups. Published values range from about 70 to 80 percent.',
-      'How abrupt the extinction was on land is debated. Some groups of Triassic reptiles and amphibians may have declined earlier, and the fossil record of land animals close to the boundary is patchy.',
-      'Why dinosaurs came through when their crocodile-line rivals did not is not known. Proposals include feathers that kept them warm through volcanic winters, faster growth, and chance.',
-      'The lavas erupted in several pulses over roughly 600,000 years. Matching each pulse to a step in the extinction is work still in progress.',
-    ],
-    picture: 'A painting. Under a dim sun in a sulfur-yellow haze, a forest of dead, bare trunks stands around a shallow, steaming lake, with a crack of glowing lava at its far side. A large land-living crocodile relative wades in the lake, and a small, slender dinosaur walks along the near shore.',
-    vetted: false,
   },
   {
     id: 'end-permian',
@@ -96,18 +81,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     age: 252,
     rank: 1,
     chapter: 'permian',
-    plain: `About 252 million years ago, at the end of the Permian, life came closer to ending than at any other time known. By most estimates more than 80 percent of the species in the sea died out, and by a common estimate about 70 percent of the backboned animals on land. The trigger is widely held to be the Siberian Traps: eruptions that buried a region of Siberia several times the size of France under lava. They released vast amounts of carbon dioxide and other gases, partly by baking the coal and salt beds that the molten rock passed through. The world heated by several degrees, and the oceans turned more acidic and lost much of their oxygen. Trilobites, the old Paleozoic corals and the sea scorpions disappeared for good. Reefs vanished. For millions of years afterward, sea floors and land alike held only a few hardy kinds of animal, though in great numbers.`,
-    more: `The best record is at Meishan in south China, where beds of volcanic ash above and below the extinction level hold crystals of zircon that can be dated by the decay of uranium to lead. They show that the main extinction in the sea took less than about 60,000 years, and perhaps far less. Oxygen isotopes in fossils suggest that tropical seawater warmed by something like 8 to 10 degrees Celsius. On land the Glossopteris forests of the southern continents collapsed, and no coal formed anywhere for about 10 million years, a break known as the coal gap. Among the survivors was Lystrosaurus, a plant eater about the size of a pig, whose fossils dominate Early Triassic rocks from South Africa to Antarctica. Recovery took roughly 5 to 10 million years. The animals that then filled the seas and the land, from corals of the modern kind to the first dinosaurs and the ancestors of mammals, were largely new.`,
-    caveats: [
-      'Estimates of the share of marine species lost range from about 80 percent to 96 percent. The highest figures come from older statistical methods; most recent estimates lie between 80 and 90 percent.',
-      'The link to the Siberian Traps is the consensus view and is supported by precise dating. Exactly how the eruptions killed is still studied: heat, acid oceans, lack of oxygen, poisonous gases and damage to the ozone layer have all been proposed, and the mix probably differed between land and sea.',
-      'Whether the extinctions on land and in the sea happened at the same time is disputed. Some studies of the Karoo Basin in South Africa place the crisis on land slightly earlier.',
-      'The warming of 8 to 10 degrees Celsius is worked out from oxygen isotopes in the tooth-like fossils of conodonts from tropical seas, and carries a large uncertainty.',
-      'Estimates of the original extent of the Siberian Traps, counting lava now buried and rock that cooled underground, range from about 2 million to 7 million square kilometers.',
-      'The figure of about 70 percent for backboned animals on land is much less secure than the figures for the sea, because land fossils of this age are known well from only a few regions.',
-    ],
-    picture: 'A painting. Curtains of lava fountains burn along the horizon under a sky of ash lit red from below, and rivers of lava cross a dark plain. Conifers stand burning in the distance. In the foreground a saber-toothed gorgonopsian and two armored plant eaters stand dark against the fire on dark rock.',
-    vetted: false,
   },
   {
     id: 'late-devonian',
@@ -116,17 +89,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     age: 372,
     rank: 1,
     chapter: 'devonian',
-    plain: `Late in the Devonian, life in the sea went through a drawn-out crisis that came in several pulses. The two sharpest are named for layers of black rock in Germany: the Kellwasser event, about 372 million years ago, and the Hangenberg event, about 359 million years ago, at the very end of the period. In each, dark mud rich in the remains of living things spread across the shallow seas, a sign that the water there had lost its oxygen. The greatest reefs the world had yet seen, built by corals and by sponges called stromatoporoids, collapsed and never returned in that form. Armored fishes, jawless fishes, many trilobites and many of the shelled animals called brachiopods were cut down or wiped out. Life in warm, shallow seas suffered most. By the usual estimate about 70 to 75 percent of the species in the sea were lost over the whole crisis.`,
-    more: `The Devonian was the time when forests first spread over the land, and one leading idea ties the crisis to them. Deep roots broke rock into soil, rivers carried the nutrients released to the sea, and the nutrients fed blooms of algae whose decay used up the oxygen in the water, as happens in polluted lakes and coastal seas today. The burial of so much plant matter also drew carbon dioxide out of the air. There is evidence of cooling, and by the end of the period of glaciers in what is now South America. Other researchers point to huge volcanic eruptions, including the Viluy lavas of Siberia, which are dated close to the Kellwasser event. Some argue that the fall in the variety of life owed as much to a slowdown in the appearance of new species as to a rise in extinctions. The Hangenberg event reshaped the animals with backbones: the armored placoderm fishes vanished entirely, and sharks and ray-finned fishes took their place.`,
-    caveats: [
-      'Whether this was one mass extinction or a series of separate crises is debated. Many researchers now treat the Kellwasser and Hangenberg events separately, and some question whether the Kellwasser event belongs among the five largest extinctions at all.',
-      'The figure of 70 to 75 percent of marine species lost is an estimate for the whole of the Late Devonian, scaled up from counts of larger groups. Published estimates differ.',
-      'The cause is not settled. The spread of forests, volcanic eruptions, cooling and changes in sea level have all been proposed, and several may have acted together.',
-      'The ages of 372 and 359 million years follow the international time scale and are each uncertain by about a million years.',
-      'The place shown below is looked up at 372 million years ago, the time of the Kellwasser event.',
-    ],
-    picture: 'A painting, under water. Sickly green light filters down from the surface onto a pale reef of dome-shaped sponges and corals, while black water rises from below. The dark shape of the armored fish Dunkleosteus hangs above the reef, a small shark passes in the distance, and a straight-shelled nautiloid drifts by.',
-    vetted: false,
   },
   {
     id: 'end-ordovician',
@@ -135,17 +97,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     age: 445,
     rank: 1,
     chapter: 'ordovician',
-    plain: `Near the end of the Ordovician, about 445 million years ago, most kinds of animal in the sea died out in two waves. Almost all life then lived in the sea, much of it in warm, shallow water spread across the continents. The first wave came as a great ice sheet grew over the southern supercontinent Gondwana, which then lay over the South Pole. So much water was locked up as ice that sea level fell by tens of meters. The shallow seas drained, and the tropics cooled. The second wave came as the ice melted and the seas rose again, apparently bringing water poor in oxygen onto the flooded continents. By the usual estimate about 85 percent of the species in the sea were lost, which would make this the second most severe extinction on record. Trilobites, brachiopods, graptolites, conodonts and reef builders were all hit hard. Yet the broad pattern of sea life afterward was much as it had been before.`,
-    more: `The cold phase is named the Hirnantian, after Cwm Hirnant in Wales. Its ice sheet left scratched rock surfaces and beds of ice-carried rubble across what are now the Sahara, Arabia, South Africa and South America. The timing comes from fossils counted bed by bed through rock sections such as those on Anticosti Island in Quebec and in south China, and from shifts in the carbon and oxygen isotopes of limestone and shells, which record the cooling and the upset to the cycle of carbon. What started the ice age is debated. Proposals include the weathering of fresh volcanic rock and of new mountain belts, which draws carbon dioxide out of the air, and the spread of the first land plants. Some researchers also point to spikes of mercury in the rocks as a sign of large volcanic eruptions. Unlike later mass extinctions, this one changed the workings of ecosystems rather little: most major groups survived in reduced variety and rebuilt similar communities within a few million years.`,
-    caveats: [
-      'The figure of about 85 percent of marine species lost is an estimate scaled up from counts of larger groups. Published estimates vary, and some recent analyses give lower values.',
-      'The cause of the second wave is disputed. Water poor in oxygen spreading as the seas rose is the most common explanation, but some researchers argue that cooling and the loss of shallow-sea habitat explain both waves.',
-      'What set off the ice age is not settled. Volcanic eruptions, the weathering of new mountains and the spread of early land plants have all been proposed.',
-      'Estimates of the fall in sea level range from about 50 meters to more than 100 meters.',
-      'Positions of the continents this long ago are uncertain, so the ancient latitude given for the place is approximate.',
-    ],
-    picture: 'A painting. A wide, cold sea floor lies exposed under a gray sky and a weak, low sun, with shrinking pools reflecting the light. A straight-shelled nautiloid, trilobites, lamp shells and collapsed sea lilies lie stranded in the foreground. A wall of ice stands on the horizon.',
-    vetted: false,
   },
 
   // ---- Rank 2: lesser extinctions, youngest first. Each was written from sources checked on 14 November 2026;
@@ -157,52 +108,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     when: 'About 50,000 to 10,000 years ago',
     age: 0.03,
     chapter: 'quaternary',
-    plain: `Fifty thousand years ago every continent except Antarctica had giant animals. Woolly mammoths and woolly rhinoceroses grazed a cold grassland that ran from Spain across Siberia, and the mammoths ranged on into North America. The Americas had mastodons, ground sloths as heavy as elephants, armored glyptodonts the size of small cars and saber-toothed cats. Australia had Diprotodon, a relative of the wombats as big as a rhinoceros, and kangaroos taller than a person. By about 10,000 years ago most of them were gone. Of roughly 150 genera of large mammals, counting those heavier than 44 kilograms, at least 97 had died out. The losses did not come everywhere at once. They fell first in Australia, by about 40,000 years ago. Across northern Europe and Asia they were drawn out over tens of thousands of years. In the Americas they came late and fast, mostly between about 13,000 and 11,500 years ago. On each landmass they followed the arrival of people of our own species, Homo sapiens, and the largest and slowest-breeding animals suffered most. The climate was changing too, as the last ice age waned, and researchers still argue over how much that mattered. But the same animals had come through many earlier swings of climate. The most likely cause is people, chiefly through hunting. The same may be true of our closest relatives. Neanderthals had lived in Europe and western Asia for more than 300,000 years, through several ice ages. They vanish from the record about 40,000 years ago, a few thousand years after our own species settled in Europe. That timing makes our arrival the most likely trigger, though nobody has shown how it worked. Some Neanderthals joined us: people whose ancestors lived outside Africa carry 1 to 3 percent Neanderthal DNA.`,
-    more: `The idea that people were responsible was put most forcefully in 1973 by the American scientist Paul Martin, who called it overkill. The standard count, published in 2004, gives the share of the genera of large mammals lost on each continent: 88 percent in Australia, 83 percent in South America, 72 percent in North America, 36 percent in northern Europe and Asia, and 18 percent in Africa. Three patterns point to people. The losses follow the spread of Homo sapiens out of Africa, and they are lightest in Africa and southern Asia, where large animals had long lived beside earlier kinds of human. They are tied to size: of 57 species of plant eater weighing a metric ton or more, only 11 survived. And nothing like them happened at the end of earlier ice ages. The case for climate is strongest on the northern steppe. People certainly hunted mammoths there: at Kraków Spadzista in Poland a flint spear point is lodged in a mammoth rib, among the bones of more than 100 animals. But hunters and mammoths lived side by side in the north for more than 20,000 years, and studies of ancient DNA conclude that the mammoth and the woolly rhinoceros dwindled as a warmer, wetter climate turned their dry grassland into bog and forest. Computer simulations find that steady hunting was needed to finish them. In North America and Australia, too, a minority of researchers put climate first. On islands the losses came later still, as people reached them: on Madagascar about 1,000 years ago, and in New Zealand about 600 years ago. Other humans disappeared in the same span of time. Denisovans in Asia, and the small-bodied Homo floresiensis of the Indonesian island of Flores, were alive when our species spread across the world, and both drop out of the record around then. Our ancestors met Denisovans, for many living people in Asia and the Pacific carry their DNA. Whether we had a hand in the disappearance of either is suspected but unproven. Homo erectus is a different case: its last known fossils, on Java, are about 110,000 years old, older than any trace of our species there.`,
-    caveats: [
-      'The cause is debated, and this text takes a side. It follows recent worldwide analyses that find people to be the main cause (Sandom and others, 2014; Lemoine and others, 2023; Svenning and others, 2024). Other researchers hold that climate was the main cause in particular regions: Stewart and others (2021) for North America, Wroe and others (2013) for Australia and New Guinea, and Cooper and others (2015) for the northern continents. The standard review of 2004 (Barnosky and others) concluded that people and climate acted together in the north, and many researchers still hold a combined view. For the woolly mammoth and the woolly rhinoceros in particular, studies of ancient DNA give climate the larger part (Lorenzen and others, 2011; Lord and others, 2020; Wang and others, 2021). The simulations that find hunting necessary (Fordham and others, 2022 and 2024) come from one research group.',
-      'Calling this one extinction is a convenience. The losses were spread over tens of thousands of years, fell at different times on different continents, and continued on islands into the last thousand years. Some researchers regard the extinctions of the present day as part of the same event.',
-      'The count of at least 97 of roughly 150 genera, and the percentages for each continent, are for mammals heavier than 44 kilograms and come from Barnosky and others (2004). Northern Europe and Asia there do not include southern Asia. The figure of 11 survivors among 57 species is counted in species, not genera, up to the year 1000, and comes from Svenning and others (2024). The two sets of figures cannot be combined.',
-      'How people killed off the animals is less clear than the timing. Sites where large animals were certainly killed are few; the surest sign is a weapon point lodged in bone, as at Kraków Spadzista, which is about 29,000 to 28,000 years old. Burning of vegetation and other changes to the land are also proposed, with little direct evidence. A proposal that a comet struck about 12,900 years ago is rejected by most specialists (Holliday and others, 2023).',
-      'That the arrival of Homo sapiens brought about the end of the Neanderthals is an inference from timing and from computer models, not something observed. No site shows violence between the two, and no disease has been identified. In a 2021 survey of 216 specialists (Vaesen and others), small population size was rated the most important factor, and the respondents were deeply divided over how much competition with Homo sapiens mattered.',
-      'Neanderthals and Homo sapiens overlapped in Europe for at least 5,000 years, and in the Middle East for far longer. At one cave in France, Grotte Mandrin, Neanderthals returned after an early group of Homo sapiens had gone. The date of about 40,000 years ago is for the end of Neanderthal stone tools across Europe (Higham and others, 2014); claims of later survival in southern Spain are disputed.',
-      'For Denisovans there is no date of extinction. Their youngest known fossil, a rib from the Tibetan Plateau, is dated only to between 48,000 and 32,000 years ago. For Homo floresiensis the last traces, at a single cave, are about 50,000 years old; its discoverers call the part played by Homo sapiens an open question, and a 2025 study argues for drought (Gagan and others).',
-      'The dates given for North America and for Kraków Spadzista are converted from radiocarbon ages and are approximate. When people first reached Australia is disputed: one site has been dated to 65,000 years ago, and that date has been challenged.',
-      'The animals named as examples, and the sizes given for them, are the usual ones in textbooks. They were not checked against a published source for this text.',
-    ],
-    sources: [
-      'Martin, P.S. (1973) The discovery of America. Science 179, 969-974.',
-      'Roberts, R.G. et al. (2001) New ages for the last Australian megafauna: continent-wide extinction about 46,000 years ago. Science 292, 1888-1892.',
-      'Barnosky, A.D., Koch, P.L., Feranec, R.S., Wing, S.L. and Shabel, A.B. (2004) Assessing the causes of Late Pleistocene extinctions on the continents. Science 306, 70-75.',
-      'Wroe, S. et al. (2013) Climate change frames debate over the extinction of megafauna in Sahul (Pleistocene Australia-New Guinea). Proceedings of the National Academy of Sciences 110, 8777-8781.',
-      'Lorenzen, E.D. et al. (2011) Species-specific responses of Late Quaternary megafauna to climate and humans. Nature 479, 359-364.',
-      'Higham, T. et al. (2014) The timing and spatiotemporal patterning of Neanderthal disappearance. Nature 512, 306-309.',
-      'Sandom, C., Faurby, S., Sandel, B. and Svenning, J.-C. (2014) Global late Quaternary megafauna extinctions linked to humans, not climate change. Proceedings of the Royal Society B 281, 20133254.',
-      'Cooper, A. et al. (2015) Abrupt warming events drove Late Pleistocene Holarctic megafaunal turnover. Science 349, 602-606.',
-      'Saltré, F. et al. (2016) Climate change not to blame for late Quaternary megafauna extinctions in Australia. Nature Communications 7, 10511.',
-      'Sutikna, T. et al. (2016) Revised stratigraphy and chronology for Homo floresiensis at Liang Bua in Indonesia. Nature 532, 366-369.',
-      'Wojtal, P. et al. (2019) The earliest direct evidence of mammoth hunting in Central Europe: the Kraków Spadzista site (Poland). Quaternary Science Reviews 213, 162-166.',
-      'Lord, E. et al. (2020) Pre-extinction demographic stability and genomic signatures of adaptation in the woolly rhinoceros. Current Biology 30, 3871-3879.',
-      'Rizal, Y. et al. (2020) Last appearance of Homo erectus at Ngandong, Java, 117,000-108,000 years ago. Nature 577, 381-385.',
-      'Stewart, M., Carleton, W.C. and Groucutt, H.S. (2021) Climate change, not human population growth, correlates with Late Quaternary megafauna declines in North America. Nature Communications 12, 965.',
-      'Vaesen, K., Dusseldorp, G.L. and Brandt, M.J. (2021) An emerging consensus in palaeoanthropology: demography was the main factor responsible for the disappearance of Neanderthals. Scientific Reports 11, 4925.',
-      'Wang, Y. et al. (2021) Late Quaternary dynamics of Arctic biota from ancient environmental genomics. Nature 600, 86-92.',
-      'Fordham, D.A. et al. (2022) Process-explicit models reveal pathway to extinction for woolly mammoth using pattern-oriented validation. Ecology Letters 25, 125-137.',
-      'Lemoine, R.T., Buitenwerf, R. and Svenning, J.-C. (2023) Megafauna extinctions in the late-Quaternary are linked to human range expansion, not climate change. Anthropocene 44, 100403.',
-      'Holliday, V.T. et al. (2023) Comprehensive refutation of the Younger Dryas Impact Hypothesis (YDIH). Earth-Science Reviews 247, 104502.',
-      'Fordham, D.A. et al. (2024) 52,000 years of woolly rhinoceros population dynamics reveal extinction mechanisms. Proceedings of the National Academy of Sciences 121, e2316419121.',
-      'Xia, H. et al. (2024) Middle and Late Pleistocene Denisovan subsistence at Baishiya Karst Cave. Nature 632, 108-113.',
-      'Svenning, J.-C. et al. (2024) The late-Quaternary megafauna extinctions: patterns, causes, ecological consequences and implications for ecosystem management in the Anthropocene. Cambridge Prisms: Extinction 2, e5.',
-      'Gagan, M.K. et al. (2025) Onset of summer aridification and the decline of Homo floresiensis at Liang Bua 61,000 years ago. Communications Earth & Environment 6, 992.',
-    ],
-    picture: "A painting. On a dry, straw-gold grassland under a dark bank of snow cloud, a lone woolly mammoth turns to face three hunters in hooded fur clothing who run at it from the left with spears. A second party of hunters closes in from beyond it on the right, between the mammoth and the rest of its herd, which is walking away toward falling snow on the horizon. A woolly rhinoceros stands far off on the left, and grass, sedge and flowering herbs fill the near ground.",
-    pictureCaveats: [
-      "The hunt is staged. Two parties closing on one mammoth cut off from its herd, and the herd walking away, are imagined. That people hunted mammoths is not: at Kraków Spadzista in Poland a flint spear point is lodged in a mammoth rib.",
-      "The picture shows the cold steppe of northern Europe and Asia about 30,000 years ago, because the evidence of mammoth hunting is best there. It is also the region where the part people played in the extinctions is least certain. Hunters and mammoths lived side by side there for more than 20,000 years, and most studies give the changing climate the larger part in the end of the woolly mammoth and the woolly rhinoceros. The case against people is stronger in Australia and the Americas, which the picture does not show.",
-      "The hooded fur clothing is inferred from bone needles, from beads in burials and from ivory figurines, and little of it can be seen in figures drawn dark against the light. No dog, bow or spear-thrower is shown, because none is known from that time and place, and no fire, because nothing shows that fire was used in the hunt.",
-      "The low sun behind the viewer, the bank of snow cloud and the snow falling on the horizon are the painter's choices.",
-    ],
-    vetted: false,
   },
   {
     id: 'cenomanian-turonian',
@@ -211,30 +116,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     when: 'About 94 million years ago',
     age: 94,
     chapter: 'late-cretaceous',
-    plain: `About 94 million years ago, in the Late Cretaceous, the world was a hothouse. There was no ice at the poles, and the sea stood so high that shallow seas covered much of Europe and split North America in two. Then, for about half a million years, large parts of the ocean lost their oxygen at depth, and black mud rich in the remains of plankton settled on sea floors around the world. Geologists call it Oceanic Anoxic Event 2. The losses that came with it were uneven. The ichthyosaurs, dolphin-shaped reptiles that had swum the seas for about 157 million years, disappeared for good. The reefs built by rudists, large horn-shaped clams, collapsed across the tropics, though rudists themselves recovered. Many ammonites, and the broad flat clams called inoceramids, were replaced by new kinds. By the usual estimates about a quarter of the genera of sea animals were lost. That makes this a small extinction beside the five great ones, and some researchers think even that figure is too high.`,
-    more: `The event is named for the two slices of Cretaceous time whose boundary it straddles. Most of the losses fall in the last half-million years of the older one, the Cenomanian. Near Gubbio in Italy its mark is a band of black shale about a meter thick, cutting through pale limestone. The trigger is thought to have been a burst of volcanic eruptions on the sea floor, in the Caribbean or the high Arctic, traced by a shift in the isotopes of the metal osmium in the muds. The eruptions added carbon dioxide and nutrients to an ocean that was already warm; plankton bloomed, and their decay used up the oxygen below. Whether the lack of oxygen did the killing is less clear. Ammonites began to decline before the black muds appear. The ichthyosaurs had been dwindling for millions of years, and a 2016 study tied their end to a long spell of unstable climate. A bed-by-bed study of the chalk of England and France found that most of the animals that vanish there had moved away as the sea deepened, and concluded that much of the apparent extinction is produced by a change in the kind of rock preserved. A worldwide count of fossil mollusks in 2019 nonetheless found losses well above the usual rate.`,
-    caveats: [
-      'How large this extinction was, and whether it deserves the name, is seriously disputed. Gale and others (2000) concluded from the chalk of England and France that the event there is largely an effect of how the rocks were laid down. Freymueller and others (2019), counting mollusks worldwide, found losses significantly above the normal rate.',
-      'The figure of about a quarter of marine genera lost (25 to 27 percent) goes back to compilations by Sepkoski and Raup. It was taken from later papers that quote it and was not traced to its origin. Regional figures run much higher: 79 percent of the larger invertebrate species in the inland sea of North America, by one count.',
-      'The ichthyosaurs did not die out at a stroke. Fischer and others (2016) found a major loss several million years earlier, and a final disappearance by the end of the Cenomanian or just after.',
-      'Pliosaurs, the large short-necked sea reptiles, are sometimes listed among the victims. Their last known fossils are a few million years younger than the event.',
-      'The thickness and colors given for the black layer at Gubbio are as commonly described and were not checked against a published source.',
-      'The age of the boundary, 93.9 million years, is from a 2012 dating study. Older papers use 93.55 million years.',
-    ],
-    sources: [
-      'Schlanger, S.O., Arthur, M.A., Jenkyns, H.C. and Scholle, P.A. (1987) The Cenomanian-Turonian Oceanic Anoxic Event, I. Stratigraphy and distribution of organic carbon-rich beds and the marine carbon-isotope excursion. Geological Society, London, Special Publications 26, 371-399.',
-      'Gale, A.S. et al. (2000) Marine biodiversity through the Late Cenomanian-Early Turonian: palaeoceanographic controls and sequence stratigraphic biases. Journal of the Geological Society 157, 745-757.',
-      'Turgeon, S.C. and Creaser, R.A. (2008) Cretaceous oceanic anoxic event 2 triggered by a massive magmatic episode. Nature 454, 323-326.',
-      'Meyers, S.R. et al. (2012) Intercalibration of radioisotopic and astrochronologic time scales for the Cenomanian-Turonian boundary interval, Western Interior Basin, USA. Geology 40, 7-10.',
-      'Fischer, V., Bardet, N., Benson, R.B.J., Arkhangelsky, M.S. and Friedman, M. (2016) Extinction of fish-shaped marine reptiles associated with reduced evolutionary rates and global environmental volatility. Nature Communications 7, 10825.',
-      'Freymueller, N.A., Moore, J.R. and Myers, C.E. (2019) An analysis of the impacts of Cretaceous oceanic anoxic events on global molluscan diversity dynamics. Paleobiology 45, 280-295.',
-    ],
-    picture: "A painting. A flat, calm, jade-green tropical sea at a pink and violet dusk, with a towering thundercloud hiding the low sun and long rust-red streaks of plankton bloom running across the water toward the horizon. In the middle distance an ichthyosaur leaps low out of the water, dark against the light on the sea, while two long-winged pterosaurs glide high overhead. Along the bottom, clumps of rudist clams stand in the clear shallows, most of each one dim and green under the water, with only their dull bone-colored tips breaking the surface.",
-    pictureCaveats: [
-      "The single leaping ichthyosaur stands for the last of its kind. It is a symbol, not a recorded moment, and the drawing is of the dolphin-shaped ichthyosaurs of the Jurassic, not of the particular kinds that lived last.",
-      "Rudists grew under water. Showing the tips of the thicket breaking a calm surface, the plankton bloom as red streaks, and the colors of the sky and sea are the painter's choices.",
-    ],
-    vetted: false,
   },
   {
     id: 'toarcian',
@@ -243,32 +124,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     when: 'About 183 million years ago',
     age: 183,
     chapter: 'jurassic',
-    plain: `About 183 million years ago, early in the Jurassic, the southern supercontinent Gondwana was starting to break apart, and lava flooded out across what are now southern Africa and Antarctica. The eruptions, called the Karoo and the Ferrar, released carbon dioxide, and the world warmed quickly. In shallow seas, above all those that then covered much of Europe, the lower waters lost their oxygen. Black, finely layered mud built up on a still sea floor where almost nothing could live. Animals of the sea floor fared worst: clams, snails, lamp shells and their neighbors. Many ammonites and squid-like belemnites died out too. In the sunlit upper water life went on, and what sank into the black mud was preserved in rare detail. The Posidonia Shale of southern Germany is famous for complete skeletons of ichthyosaurs, and for colonies of sea lilies that hung from floating logs. By one estimate about a quarter of the genera of sea animals were lost worldwide.`,
-    more: `Hugh Jenkyns described the black shales as the product of a worldwide event in 1988, and in 1995 Crispin Little and Michael Benton showed that the extinction was not confined to Europe. It came in two steps: one at the start of the Toarcian, the slice of time for which it is named, and a larger one about a million years later, when the black muds spread. Beds of volcanic ash in Argentina, and the lavas themselves, have been dated by the decay of uranium to lead in crystals of zircon, and the ages match: the Ferrar eruptions were under way by about 182.8 million years ago, as the second step began. Rocks of that time carry a sharp shift in carbon isotopes, the mark of a vast release of carbon. How much of it came from the eruptions, and how much from coal and other deposits baked by the rising magma, is debated. The best-studied record is on the coast of Yorkshire in England, where about 60 percent of all species of sea animals disappear, and 87 percent of those of the sea floor. Afterward the floor there was paved with a few kinds of small, thin-shelled clam that could tolerate low oxygen. A varied community took about seven million years to return.`,
-    caveats: [
-      'The figure of about a quarter of marine genera lost worldwide (26 percent) is quoted from a 2024 study that takes it from earlier work; the original calculation was not traced. The much larger figures of 60 and 87 percent are for Yorkshire alone.',
-      'The most severe losses, and the classic black shales, are in northwestern Europe. Some researchers (McArthur and others, 2008) argue that the lack of oxygen there reflects enclosed local basins more than the state of the world ocean.',
-      'The extinction was drawn out. Raised rates of extinction lasted through several million years, with most of the losses early in the Toarcian.',
-      'Estimates of how long the main disturbance of the carbon cycle lasted range from about 300,000 to 900,000 years.',
-      'The date of the start of the Toarcian differs by about half a million years between the international time scale of 2020 (184.2 million years ago) and a 2022 dating study (183.7).',
-      'Published estimates of how much the world warmed vary widely, so no figure is given.',
-      'The details of the Posidonia Shale given here (complete ichthyosaurs, sea lilies on floating logs) are well known but were not checked against a published source for this text.',
-    ],
-    sources: [
-      'Jenkyns, H.C. (1988) The early Toarcian (Jurassic) anoxic event: stratigraphic, sedimentary and geochemical evidence. American Journal of Science 288, 101-151.',
-      'Little, C.T.S. and Benton, M.J. (1995) Early Jurassic mass extinction: a global long-term event. Geology 23, 495-498.',
-      'McArthur, J.M., Algeo, T.J., van de Schootbrugge, B., Li, Q. and Howarth, R.J. (2008) Basinal restriction, black shales, Re-Os dating, and the Early Toarcian (Jurassic) oceanic anoxic event. Paleoceanography 23, PA4217.',
-      'Caswell, B.A., Coe, A.L. and Cohen, A.S. (2009) New range data for marine invertebrate species across the early Toarcian (Early Jurassic) mass extinction. Journal of the Geological Society 166, 859-872.',
-      'Burgess, S.D., Bowring, S.A., Fleming, T.H. and Elliot, D.H. (2015) High-precision geochronology links the Ferrar large igneous province with early-Jurassic ocean anoxia and biotic crisis. Earth and Planetary Science Letters 415, 90-99.',
-      'Al-Suwaidi, A.H. et al. (2022) New age constraints on the Lower Jurassic Pliensbachian-Toarcian Boundary at Chacay Melehue (Neuquén Basin, Argentina). Scientific Reports 12, 4975.',
-      'Dunhill, A.M. et al. (2024) Extinction cascades, community collapse, and recovery across a Mesozoic hyperthermal event. Nature Communications 15, 8599.',
-    ],
-    picture: "A painting. Under water in a warm brown sea, a great dead drift log lies dark along the sunlit surface, and sea lilies hang beneath it on long stems with their golden crowns downward, like chandeliers. An ichthyosaur swims in the shafts of light past the log's broken end, toward three belemnites, with two ammonites and schools of small fish nearby. Below them the water darkens through amber and olive-brown to a black, flat, completely empty sea floor.",
-    pictureCaveats: [
-      "The sea lilies are drawn from the site's general sea lily, with stems much shorter in proportion to the log than those of the fossils. The glow around their crowns is a painter's effect.",
-      "The level at which the lit water gives way to the dark is drawn more sharply than a real sea would show, and the ichthyosaur hunting the belemnites is an imagined moment.",
-    ],
-    vetted: false,
   },
   {
     id: 'carnian',
@@ -277,29 +132,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     when: 'About 234 to 232 million years ago',
     age: 233,
     chapter: 'triassic',
-    plain: `About 234 million years ago, in the Late Triassic, it began to rain. Much of the supercontinent Pangaea had been dry for millions of years. Then, for a million years or more, the climate of the lower latitudes turned humid. Rivers spread sand and mud over what had been dry plains and salt flats, and in the shallow seas the building of limestone platforms stalled. Geologists call the interval the Carnian Pluvial Episode; pluvial means rainy. It was a time of extinction. By one estimate about a third of the genera of sea animals were lost, among them many ammonoids, sea lilies and the eel-like conodonts. On land, plant eaters such as the beaked rhynchosaurs and the tusked dicynodonts were cut back. It was also a beginning. Dinosaurs, until then few, became varied and common in its wake. The first reefs of modern corals, new families of conifers and the first large deposits of amber date from the same time.`,
-    more: `Michael Simms and Alastair Ruffell proposed the episode in 1989, from a band of river sandstone and dark mudstone that interrupts drier rocks across Europe. The idea was challenged, and then largely ignored for twenty years, until shifts in carbon isotopes showed that the carbon cycle of the whole planet had been disturbed at the same time. In the Dolomites of northern Italy the change can be seen in the cliffs, where pale reef limestone gives way to a band of mud and sand washed from the land. Fossil trackways there record the turnover among land animals. Before the episode, 80 to 100 percent of the tracks were made by relatives of crocodiles. Just after it about 40 percent are dinosaur tracks, and later more than 90 percent. The leading explanation is a burst of volcanic eruptions, the Wrangellia basalts, now part of Alaska, Yukon and British Columbia, whose carbon dioxide warmed the climate and strengthened the rains. The dates are not yet precise enough to prove the link. Dinosaurs did not originate in the episode, and they did not come to dominate the land until after the extinction at the end of the Triassic, some 30 million years later.`,
-    caveats: [
-      'The figure of about a third of marine genera lost is the only worldwide estimate found. It comes from a 2020 review (Dal Corso and others), whose authors warn that uneven collecting of fossils may exaggerate the losses for some groups.',
-      'Whether the wet episode was worldwide is debated. The evidence is strong in Europe and China and less clear in South America, Antarctica and Australia. An early critique (Visscher and others, 1994) rejected a change of climate in Europe altogether.',
-      'The link to the Wrangellia eruptions is the leading hypothesis and is not proven. The 2020 review says that the volcanic trigger can only be guessed at until the lavas are better dated.',
-      'The track counts come from one region, the Dolomites of Italy (Bernardi and others, 2018), and the dating of land animals around the episode is loose.',
-      'Estimates of how long the episode lasted range from about 1.2 to 1.7 million years.',
-      'The statement that dinosaurs came to dominate only after the end of the Triassic is the standard account and was not checked against a published source for this text.',
-    ],
-    sources: [
-      'Simms, M.J. and Ruffell, A.H. (1989) Synchroneity of climatic change and extinctions in the Late Triassic. Geology 17, 265-268.',
-      'Visscher, H., Van Houte, M., Brugman, W.A. and Poort, R.J. (1994) Rejection of a Carnian (Late Triassic) "pluvial event" in Europe. Review of Palaeobotany and Palynology 83, 217-226.',
-      'Dal Corso, J. et al. (2012) Discovery of a major negative carbon-isotope spike in the Carnian (Late Triassic) linked to the eruption of Wrangellia flood basalts. Geology 40, 79-82.',
-      'Bernardi, M., Gianolla, P., Petti, F.M., Mietto, P. and Benton, M.J. (2018) Dinosaur diversification linked with the Carnian Pluvial Episode. Nature Communications 9, 1499.',
-      'Dal Corso, J. et al. (2020) Extinction and dawn of the modern world in the Carnian (Late Triassic). Science Advances 6, eaba0099.',
-    ],
-    picture: "A painting. Heavy rain slants across a brown river in flood, which runs toward the viewer between dark, soaked conifer forests; far off, the cloud has broken and one band of cold silver light lies low on the horizon and down the water. On the wet mud of the near bank a small, slender two-legged dinosaur walks into the rain, dark against the shining river. Across the water a dicynodont and a rhynchosaur stand hunched and gray in the downpour, and a phytosaur lies low in the river.",
-    pictureCaveats: [
-      "The break in the cloud and its path of silver light on the water are the painter's invention. The forest is drawn as one kind of conifer, which simplifies the real mix of conifers and other plants, and no resin or amber is shown.",
-      "The dinosaur, the dicynodont, the rhynchosaur and the phytosaur all lived at the time of the episode, but they are not known from one place together, and what they are doing is imagined.",
-    ],
-    vetted: false,
   },
   {
     id: 'capitanian',
@@ -308,29 +140,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     when: 'About 262 to 260 million years ago',
     age: 260,
     chapter: 'permian',
-    plain: `About eight million years before the great dying that ended the Permian, there was an earlier crisis. It is named for the Capitanian, the slice of time in which it fell, and it is clearest on land. In the Karoo Basin of South Africa, the rocks of a broad river plain hold the bones of dinocephalians: heavy, thick-skulled relatives of the ancestors of mammals, which had been the largest animals on land. About 260 million years ago they vanished, together with the big armored plant eaters that lived beside them. By one estimate the Karoo lost about three-quarters of its kinds of four-legged animal. Above that level the rocks hold few fossils, and then great numbers of one small, tusked, burrowing plant eater, Diictodon. In the warm seas of what is now south China, the fusulinids, single-celled animals whose shells built whole beds of limestone, were cut back hard, along with lime-secreting algae. The leading suspect is a vast outpouring of lava in southwest China, the Emeishan Traps.`,
-    more: `The crisis was recognized in 1994, when counts of fossil sea animals showed that the losses late in the Permian fell into two separate episodes. In south China, limestones full of fusulinids lie directly beneath and between the first Emeishan lavas, and the fusulinids and algae disappear where the eruptions begin. Those first eruptions broke out through shallow sea water and were explosive. How large the losses in the sea were is disputed. Older counts gave 58 percent of the genera of marine invertebrates, and a 2016 estimate about a third. A study in 2009 found no sudden peak at all, only a long decline in which new kinds of animal stopped appearing. On land the evidence is firmer. A bed of volcanic ash in the Karoo, dated by the decay of uranium to lead in crystals of zircon, places the main loss of animals at about 260.3 million years ago. The losses in the seas of south China appear to be older, at about 262 million years, so the crises on land and in the sea may have been separate events more than a million years apart. Fossil plants in China were hit as well. How the eruptions killed is not known: cooling, loss of oxygen in the sea and falling sea level have all been proposed.`,
-    caveats: [
-      'How severe the extinction was in the sea is disputed. Estimates run from 58 percent of the genera of marine invertebrates to about a third, and Clapham and others (2009) found a gradual decline with no distinct extinction. Others rank the event with the five great extinctions.',
-      'The losses in the sea (about 262 million years ago) and on land (about 260 million years ago) may not have been a single event. The place shown is looked up at 260 million years ago.',
-      'The figure of about three-quarters of four-legged animals lost (74 to 80 percent of genera) is for the Karoo Basin of South Africa alone (Day and Rubidge, 2021). Its authors caution that part of the gap in the record may reflect how thoroughly the rocks have been searched.',
-      'The link to the Emeishan Traps eruptions is well supported in the sea, where the two are found in the same rock sections. On land it rests only on the closeness of the dates.',
-      'Until 2015 the loss of the dinocephalians was thought to be several million years older.',
-    ],
-    sources: [
-      'Stanley, S.M. and Yang, X. (1994) A double mass extinction at the end of the Paleozoic Era. Science 266, 1340-1344.',
-      'Clapham, M.E., Shen, S. and Bottjer, D.J. (2009) The double mass extinction revisited: reassessing the severity, selectivity, and causes of the end-Guadalupian biotic crisis (Late Permian). Paleobiology 35, 32-50.',
-      'Wignall, P.B. et al. (2009) Volcanism, mass extinction, and carbon isotope fluctuations in the Middle Permian of China. Science 324, 1179-1182.',
-      'Bond, D.P.G. et al. (2010) The Middle Permian (Capitanian) mass extinction on land and in the oceans. Earth-Science Reviews 102, 100-116.',
-      'Day, M.O. et al. (2015) When and how did the terrestrial mid-Permian mass extinction occur? Evidence from the tetrapod record of the Karoo Basin, South Africa. Proceedings of the Royal Society B 282, 20150834.',
-      'Day, M.O. and Rubidge, B.S. (2021) The Late Capitanian Mass Extinction of Terrestrial Vertebrates in the Karoo Basin of South Africa. Frontiers in Earth Science 9, 631198.',
-    ],
-    picture: "A painting. Under a pale gray sky, a small white sun with a broad hazy ring hangs over a wide straw-colored river plain, where four heavy, thick-skulled Moschops stand beside a shallow braided river, one of them wading, with two armored pareiasaurs farther off. Sparse Glossopteris trees stand along the far bank. In the lower right a small tusked dicynodont stands on a bank beside the dark mouth of its burrow.",
-    pictureCaveats: [
-      "The veil of haze dimming the sun, and the ring around it, are a painter's device. The eruptions were in what is now China, and no evidence shows what the sky looked like over southern Africa.",
-      "Moschops stands for the dinocephalians as a group, and the dicynodont for the small burrower Diictodon, which is drawn about twice its true size so that it can be seen. The grouping of the animals in one view, and the burrow in the river bank, are imagined.",
-    ],
-    vetted: false,
   },
   {
     id: 'rainforest-collapse',
@@ -339,28 +148,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     when: 'About 307 to 305 million years ago',
     age: 306,
     chapter: 'late-carboniferous',
-    plain: `For millions of years in the Late Carboniferous, swamp forests covered the wet lowlands along the equator, across what are now North America and Europe. Their peat became coal. The tallest trees were not trees in the modern sense but giant relatives of today's small club mosses: scale trees, with pole-like trunks 30 meters or more high and bark patterned like snakeskin. About 307 to 305 million years ago, as the climate of the tropics turned drier and more seasonal, these forests broke up. In the coal basins of North America the scale trees vanished. By one estimate about two-thirds of the plant species of the peat swamps there were lost. Tree ferns took over the swamps that remained, and the drier ground between them was colonized by open woodland of early conifers and their relatives. It was above all a crisis of plants. What it meant for the amphibians, early reptiles and giant insects of the coal forests is disputed.`,
-    more: `The change is read from fossil pollen and spores, and from coal balls: lumps of peat turned to stone inside coal seams, in which plant tissues are preserved in fine detail. Across the coalfields of the United States, the spores of the scale trees disappear at the same level in the rocks. In Illinois, just above that level, geologists have found the stumps of a forest of conifer relatives that had moved onto the lowland. The collapse came in steps and it was regional. Coal swamps lingered in parts of Europe, and in China forests of the same kind lasted into the Permian. The cause is generally agreed to be climate. The world was in an ice age, with ice sheets on the southern continents growing and shrinking, and the swings between wet and dry in the tropics appear to have grown more extreme. What the breakup meant for animals is less clear. A 2010 study proposed that it split amphibians into isolated populations and gave an advantage to the early reptiles and other animals that laid their eggs on land. A larger analysis in 2018 found that most of that pattern could be explained by where, and how thoroughly, fossils have been collected.`,
-    caveats: [
-      'The name overstates what happened. The swamp forests broke up in steps over a million years or more, in North America and Europe, and persisted in China into the Permian. Whether the change should be called a collapse, or an extinction event, is disputed.',
-      'The figure of about two-thirds of peat-swamp plant species lost is for the coal swamps of North America, from a 1996 study by DiMichele and Phillips. It was taken from a summary of that study. A later paper quotes the same source for a higher figure, 87 percent of the tree species, and the two were not reconciled.',
-      'Whether the breakup of the forests drove changes among amphibians and early reptiles is disputed. Sahney and others (2010) proposed that it did. Dunne and others (2018) found that the pattern largely reflects uneven collecting of fossils.',
-      'Published dates range from about 307 to about 305 million years ago, because the change came in steps.',
-      'The height given for the scale trees is the usual textbook figure and was not checked against a published source for this text.',
-    ],
-    sources: [
-      'Phillips, T.L. and Peppers, R.A. (1984) Changing patterns of Pennsylvanian coal-swamp vegetation and implications of climatic control on coal occurrence. International Journal of Coal Geology 3, 205-255.',
-      'Sahney, S., Benton, M.J. and Falcon-Lang, H.J. (2010) Rainforest collapse triggered Carboniferous tetrapod diversification in Euramerica. Geology 38, 1079-1082.',
-      'Falcon-Lang, H.J., Nelson, W.J., Heckel, P.H., DiMichele, W.A. and Elrick, S.D. (2018) New insights on the stepwise collapse of the Carboniferous Coal Forests: evidence from cyclothems and coniferopsid tree-stumps near the Desmoinesian-Missourian boundary in Peoria County, Illinois, USA. Palaeogeography, Palaeoclimatology, Palaeoecology 490, 375-392.',
-      "Dunne, E.M. et al. (2018) Diversity change during the rise of tetrapods and the impact of the 'Carboniferous rainforest collapse'. Proceedings of the Royal Society B 285, 20172730.",
-    ],
-    picture: "A painting. A dried-out swamp bed of cracked mud under a low golden sun, with a fallen scale tree lying across it, a small early reptile on the trunk and a large amphibian at the edge of the last shallow puddle. On the left a few tall scale trees still stand; in a hollow in the middle distance a dark green clump of tree ferns and giant horsetails crowds round a last pool. On the dry red ground to the right stand early conifers and their relatives, and a giant dragonfly-like insect crosses the glow of the sun.",
-    pictureCaveats: [
-      "The old forest, the green refuge and the new dry woodland are set side by side in one view, to show a change that took a million years or more and happened in steps.",
-      "The small reptile on the trunk is drawn several times larger than life so that it can be seen: the real animal was about 20 centimeters long. The amphibian is also drawn large for its distance.",
-      "The low sun, the dust in the air and the red of the dry ground are the painter's choices.",
-    ],
-    vetted: false,
   },
   {
     id: 'lau',
@@ -369,31 +156,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     when: 'About 424 million years ago',
     age: 424,
     chapter: 'silurian',
-    plain: `About 424 million years ago, late in the Silurian, life in the sea went through a short, sharp crisis. It is named for Lau, a parish on the Swedish island of Gotland, where the rocks record it best. The setting was a warm, shallow tropical sea, home to small spiny fishes called acanthodians. Among the first to suffer were the conodonts: tiny eel-like animals known mostly from their tooth-like parts, whose more elaborate kinds all disappeared. On Gotland about two-thirds of the kinds of fish were lost, and for a time jawless, scale-covered fishes took the place of the spiny jawed ones. In deeper water the floating colonies called graptolites were cut down. By one estimate about 23 percent of the genera of sea animals died out. That is small beside the five great extinctions, but its mark on the sea floor was large. For a while, mats and mounds built by microbes spread across it, a sight more typical of far older seas.`,
-    more: `Lennart Jeppsson and Richard Aldridge defined the event in 2000 from the conodonts of Gotland. Two beds of volcanic ash in Ukraine, dated by the decay of uranium to lead in crystals of zircon, bracket it between about 424.1 and 422.9 million years ago. The order of events has been worked out from the chemistry of the rocks. First, water poor in oxygen spread through the seas, and the extinctions began among animals of the sea floor and swimmers, reaching the plankton later. Only then came one of the largest shifts in the carbon isotopes of seawater in the past 540 million years, a sign that vast amounts of organic matter were being buried. Oxygen isotopes in conodonts, and a fall in sea level seen on several continents, point to cooling. Some researchers propose that ice grew near the South Pole, though the evidence for it is indirect. On Gotland, pale sand spread over the limestone platform as the sea fell. Microbial mats, pebbles of torn-up lime mud and grains coated with microbial crusts became common, which suggests that grazing and burrowing animals had thinned out. What set the whole sequence off is not known.`,
-    caveats: [
-      'The figure of about 23 percent of genera lost is quoted at second hand (by Bowman and others, 2019, from a 2017 review), and how it was first worked out was not traced. The study that described the changes on the sea floor (Calner, 2005) called this a minor event in terms of the number of species lost.',
-      'The figure of two-thirds of fish lost comes from Gotland alone (Eriksson and others, 2009).',
-      'Older time scales, and some reference works, date the event to about 420 million years ago. The date of about 424 million years used here comes from volcanic ash beds dated in 2015.',
-      'The cause is not settled. Loss of oxygen, cooling and a fall in sea level are all recorded, but what began the sequence is debated. The proposed ice age rests on isotopes and sea level, not on deposits left by ice.',
-      'Whether the spread of microbial mats shows that grazing animals had died back, or reflects a change in the chemistry of seawater, is disputed.',
-      'Positions of the continents this long ago are uncertain, so the ancient latitude given for the place is approximate.',
-    ],
-    sources: [
-      'Jeppsson, L. and Aldridge, R.J. (2000) Ludlow (late Silurian) oceanic episodes and events. Journal of the Geological Society 157, 1137-1148.',
-      'Calner, M. (2005) A Late Silurian extinction event and anachronistic period. Geology 33, 305-308.',
-      'Eriksson, M.E., Nilsson, E.K. and Jeppsson, L. (2009) Vertebrate extinctions and reorganizations during the Late Silurian Lau Event. Geology 37, 739-742.',
-      'Cramer, B.D., Schmitz, M.D., Huff, W.D. and Bergström, S.M. (2015) High-precision U-Pb zircon age constraints on the duration of rapid biogeochemical events during the Ludlow Epoch (Silurian Period). Journal of the Geological Society 172, 157-160.',
-      'Bowman, C.N. et al. (2019) Linking the progressive expansion of reducing conditions to a stepwise mass extinction event in the late Silurian oceans. Geology 47, 968-972.',
-    ],
-    picture: "A painting. A very shallow, sunlit, aquamarine sea seen from under water: pale gold sand has spread over a limestone floor and half-buried a low reef of dome-shaped sponges and corals. Dark olive microbial mats lie in torn patches along the ripples of the sand, and a few low mounds built by microbes (stromatolites) grow up from them. A shoal of thelodonts, jawless fishes covered in small scales, sweeps across the middle of the picture, two spiny acanthodian fishes hang back at the left edge, and a sea scorpion walks over the sand in the foreground.",
-    pictureCaveats: [
-      "The fishes are drawn after Phlebolepis, a thelodont known from whole fossils, which lived shortly before the event. The thelodonts that took over on Gotland afterward (Thelodus and Paralogania) are known only from their scales, so their shape is inferred. Their coloring, and the single loose shoal, are invented.",
-      "The color of the mats is taken from living microbial mats; the rocks do not record it. Their extent and layout are invented, the wrinkles in the sand beside them are drawn far larger than real wrinkle marks, and each mound follows the site's general drawing of a stromatolite. The knobbly lumps called oncoids, the best recorded microbial structures in these rocks, are not shown.",
-      "The picture compresses time. On Gotland the mats and mounds are commonest in the rocks laid down during the event, and the thelodonts in the rocks just above them. A reef still standing, the mats, the mounds and the shoal are shown here in one view.",
-      "The reef being buried upright where it grew, and the sea scorpion and its size, are imagined.",
-    ],
-    vetted: false,
   },
   {
     id: 'sinsk',
@@ -402,29 +164,6 @@ export const EXTINCTIONS: TimelineEvent[] = [
     when: 'About 513 million years ago',
     age: 513,
     chapter: 'cambrian',
-    plain: `About 513 million years ago, early in the Cambrian, the first reefs built by animals collapsed. Their builders were archaeocyaths: sponges with cup-shaped skeletons of lime, a few centimeters across, which grew in crowds on warm, shallow sea floors and were bound into mounds by crusts of microbes. Around them lived trilobites, small cone-shelled animals called hyoliths, and a host of tiny spiny and plated creatures. Then water with little or no oxygen spread across the shallow tropical seas. On the Siberian Platform, where the record is best, the limestones give way to black, paper-thin layers of shale with no burrows in them: the Sinsk Formation, for which the event is named. The archaeocyaths were all but wiped out, and many of the small shelly animals went with them. Trilobites and lamp shells came through and went on to flourish. It is often called the first mass extinction of animal life, though it was smaller than any of the five great ones.`,
-    more: `The event was named in 1996 by Andrey Zhuravlev and Rachel Wood, who tied the losses to the spread of oxygen-poor water. Its date is bracketed by dated beds of volcanic ash: it falls between about 514.5 and 511.9 million years ago. Estimates of the losses differ, and measure different things. One recent study puts the worldwide fall in the number of genera at about 45 percent. Another counts the skeleton-bearing species known from Siberia falling from 312 to 127. What starved the seas of oxygen is debated. The first proposal was blooms of plankton fed by a surge of nutrients. Others point to warming from great eruptions in northern Australia, the Kalkarindji lavas, though some dating places those too late. A 2024 study of rocks in Antarctica proposed that mountain building along the edge of the southern supercontinent Gondwana drowned the reefs. There the dead reef is capped by a dark crust, and buried first under black mud and then under sand and gravel. A second blow, a fall in sea level, followed within a few million years, and most of the remaining archaeocyaths were gone by about 510 million years ago. The variety of animal life did not regain its earlier level until the Ordovician.`,
-    caveats: [
-      'The Sinsk event is sometimes called the end-Botomian extinction. The name misleads: the Botomian is a division of time used in Siberia, and the event fell early in it, not at its end.',
-      'Whether this was one sharp, worldwide event is disputed. Most counts of the species lost come from Siberia and are not corrected for how thoroughly each layer has been searched, and some archaeocyaths lived on elsewhere after the reefs collapsed.',
-      'The figures for the losses differ: about 45 percent of genera worldwide in one study (Myrow and others, 2024), and more than 60 percent of animal species in another (Murphy and others, 2025, quoting earlier work).',
-      'The cause of the loss of oxygen is not settled. Blooms of plankton, volcanic warming and mountain building have each been proposed.',
-      'The date is known only to within about a million years either way, and how long the oxygen-poor conditions lasted is not known.',
-      'Positions of the continents this long ago are very uncertain, so the ancient latitude given for the place is approximate.',
-    ],
-    sources: [
-      'Zhuravlev, A.Yu. and Wood, R.A. (1996) Anoxia as the cause of the mid-Early Cambrian (Botomian) extinction event. Geology 24, 311-314.',
-      'Jourdan, F. et al. (2014) High-precision dating of the Kalkarindji large igneous province, Australia, and synchrony with the Early-Middle Cambrian (Stage 4-5) extinction. Geology 42, 543-546.',
-      'Myrow, P.M. et al. (2024) Tectonic trigger to the first major extinction of the Phanerozoic: the early Cambrian Sinsk event. Science Advances 10, eadl3452.',
-      'Murphy, A., Penny, A., Zhuravlev, A. and Wood, R. (2025) Changes in metazoan functional diversity across the Cambrian Radiation and the first Phanerozoic mass extinction: the Cambrian Sinsk Event. Proceedings of the Royal Society B 292, 20250968.',
-    ],
-    picture: "A painting. Under water, a shaft of pale light slants down from the upper left onto low reef mounds crowded with the rose, coral and cream cups of archaeocyaths, the cup-shaped reef sponges, with an eocrinoid on its stalk and trilobites on the sand between them. From the right and from the distance a bank of indigo and violet-black water is creeping over the sea floor. The farther mounds are already dark shapes inside it, and high above a small dark Anomalocaris swims away toward the light.",
-    pictureCaveats: [
-      "Water without oxygen does not look dark. The bank of dark water creeping across the sea floor is a painter's device for something that could not have been seen.",
-      "The colors of the living archaeocyaths are not known; the reds are borrowed from the color of the Siberian limestone. The cups are drawn larger than life so that their shape can be seen: real ones were a few centimeters across. The crusts of microbes that bound the mounds are not shown.",
-      "What the animals are doing is imagined.",
-    ],
-    vetted: false,
   },
 ];
 
