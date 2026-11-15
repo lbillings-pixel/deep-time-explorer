@@ -91,7 +91,7 @@ export function localSentences(c: ChapterResult): string[] {
     const events = c.mountains.map((m) => m.event.name).join(' and the ');
     const tie = c.mountains.some((m) => m.unit)
       ? 'from rock mapped here that formed deep underground and is old enough to have been here while the mountains were built'
-      : 'from the high ground that the present-day map shows here, in a range that is still rising';
+      : 'from the high ground that rises within 10 km of this spot today, in a range that is still rising';
     out.push(`No rock at this spot records the surface at this time. The setting comes from published work on the region (the ${events}) and ${tie}.`);
   } else if (c.tier === 3) {
     const parts: string[] = [];

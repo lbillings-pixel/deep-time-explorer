@@ -10,6 +10,8 @@ const steps = [
   'build-paleodem.mjs',
   'build-plates.mjs',
   'build-provinces.mjs',
+  // After the provinces, which it reads.
+  'build-heights.mjs',
   // The world map and the six continental maps whose licences allow redistribution
   // (credits.html lists the terms of each). Africa (190) and South America (1087) do not.
   'build-rockgrid.mjs --sources=154,2,7,11,147,551,556',

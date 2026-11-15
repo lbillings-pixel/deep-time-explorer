@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
+import { highestNear } from '../src/data/heights';
 import { provinceAt } from '../src/data/provinces';
+import { HIGH_GROUND } from '../src/match/match';
 import { MOUNTAIN_BUILDING } from '../src/match/events-all';
 import { tectonicsAt } from '../src/match/tectonics';
 import { nodeRead } from './helpers';
@@ -243,5 +245,35 @@ describe('the mountain-building events', () => {
     // Every event is probed from inside at least once.
     const probed = new Set(PLACES.flatMap(([, , , has]) => has));
     expect(MOUNTAIN_BUILDING.map((e) => e.id).filter((id) => !probed.has(id))).toEqual([]);
+  });
+});
+describe('high ground near a spot, in the belts that are still rising', () => {
+  // Towns in a range, and towns on the lowland that the same event's outline takes in or borders.
+  const HIGH: [string, number, number][] = [
+    ['Zermatt', 46.02, 7.75],
+    ['Kathmandu', 27.7, 85.32],
+    ['Cusco', -13.53, -71.97],
+    ['Bogotá', 4.71, -74.07],
+    ['Shiraz', 29.59, 52.58],
+    ['Queenstown, New Zealand', -45.03, 168.66],
+    ['Yushan, Taiwan', 23.47, 120.96],
+    ['Mount Hagen, New Guinea', -5.86, 144.23],
+  ];
+  const LOW: [string, number, number][] = [
+    ['Lima', -12.05, -77.04],
+    ['Barranquilla', 10.97, -74.8],
+    ['Maracaibo', 10.65, -71.65],
+    ['Antofagasta', -23.65, -70.4],
+    ['Delhi', 28.61, 77.21],
+  ];
+
+  it('tells the range from the lowland', async () => {
+    for (const [name, lat, lng] of HIGH) expect(await highestNear(nodeRead, { lat, lng }), name).toBeGreaterThanOrEqual(HIGH_GROUND);
+    for (const [name, lat, lng] of LOW) expect(await highestNear(nodeRead, { lat, lng }), name).toBeLessThan(HIGH_GROUND);
+  });
+
+  it('is not known away from those belts', async () => {
+    expect(await highestNear(nodeRead, { lat: 39.74, lng: -104.99 })).toBeNull(); // Denver
+    expect(await highestNear(nodeRead, { lat: 51.5, lng: -0.12 })).toBeNull(); // London
   });
 });

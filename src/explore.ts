@@ -7,6 +7,7 @@ import { type ColumnLayer, loadColumn } from './data/columns';
 import { loadFossilSites } from './data/fossils';
 import { PROVINCE_SOURCE, provinceAt } from './data/provinces';
 import { type ApiMapUnit, loadDefs, unitsFromApi, unitsFromGrid } from './data/rock';
+import { HEIGHT_SOURCE, highestNear } from './data/heights';
 import type { Source } from './data/sources';
 import { CHAPTERS, RECONSTRUCTION_LIMIT } from './match/chapters';
 import { type MajorEvent, eventsAt } from './match/events';
@@ -171,9 +172,11 @@ export async function explore(read: ReadData, point: LatLng, liveMapUnits: (p: L
   const tectonics = tectonicsAt(TECTONIC_EVENTS, point, province.status === 'fulfilled' ? (province.value?.number ?? null) : null).sort((a, b) => a.old - b.old);
   if (tectonics.length > 0) sources.push(PROVINCE_SOURCE);
 
-  // The height of the spot today, from the same maps (the one for the present).
-  const heightNow = dem.status === 'fulfilled' ? terrainAt(dem.value, 0, point).metres : null;
+  // Inside a belt that is still rising, the highest ground near the spot tells the range from the lowland beside it.
+  // If the grid cannot be read, the spot simply goes without that evidence.
+  const heightNow = tectonics.some((e) => e.kind === 'mountains' && e.young === 0) ? await highestNear(read, point).catch(() => null) : null;
   const timeline = matchTimeline(units, sites, paleo, eventsAt(events, point), tectonics, heightNow);
+  if (timeline.some((c) => c.mountains.some((m) => m.metres !== null))) sources.push(HEIGHT_SOURCE);
   for (const e of new Set(timeline.flatMap((c) => c.events))) sources.push({ key: `event:${e.name}`, text: `${e.name}: ${e.source}` });
   return { point, timeline, sources, notices, column, layers: markHere(columnLayers, units), detailedMap, mapUnits: units.filter((u) => u.origin === 'here').length, fossilSites: sites.length, extinctions, tectonics, globe };
 }

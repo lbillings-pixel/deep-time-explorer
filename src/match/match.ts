@@ -149,12 +149,12 @@ function majorityTerrain(steps: Paleo['terrain']): Terrain {
 const sedimentary = (u: RockUnit) => u.liths.some((l) => l.class === 'sedimentary');
 
 /** `events` and `tectonics` are the major events and the tectonic events whose extent covers the location. */
-/** Ground at least this high on the present-day map, in meters, counts as part of a range that is still rising. */
+/** A spot with ground at least this high within 10 km of it, in meters, counts as part of a range that is still rising. */
 export const HIGH_GROUND = 1000;
 /** High ground today speaks for mountains no further back than this, in Ma: the start of the Neogene. */
 const HIGH_GROUND_REACH = 23.04;
 
-/** `heightNow` is the height of the spot on the present-day map, in meters, or null if the map could not be read. */
+/** `heightNow` is the highest ground within 10 km of the spot today, in meters (src/data/heights.ts), or null where that is not known. */
 export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilSite[], paleo: Paleo | null, events: MajorEvent[] = [], tectonics: TectonicEvent[] = [], heightNow: number | null = null): ChapterResult {
   const length = chapter.old - chapter.young;
   // Share of the chapter that an item covers; an instant still counts a little.
@@ -254,7 +254,7 @@ export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilS
     score: share(event.old, event.young),
     evidence: unit
       ? `${event.name} in this region; ${unit.name}, mapped here, formed underground and is old enough to have been here at the time`
-      : `${event.name} in this region, still going on; the present-day map shows high ground here (about ${metres!.toLocaleString('en')} meters, on a grid of about 100 km)`,
+      : `${event.name} in this region, still going on; ground rises to about ${metres!.toLocaleString('en')} meters within 10 km of this spot today`,
   }));
 
   const ladder: Environment[][] = [
