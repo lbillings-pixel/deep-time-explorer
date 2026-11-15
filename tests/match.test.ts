@@ -124,9 +124,16 @@ describe('rock that does not record the surface', () => {
     const inRegion = matchChapter(chapter('permian'), [gneiss, seaNearby], [], map('land'), [], [belt]);
     expect(inRegion.environments.map((e) => e.type)).toEqual(['mountains', 'shelf-sea']);
     expect(inRegion.tier).toBe(3);
-    // A river recorded by fossil sites at the spot is evidence of the spot itself, and stays first.
-    const here = matchChapter(chapter('permian'), [gneiss], [site({})], map('land'), [], [belt]);
-    expect(here.environments.map((e) => e.type)).toEqual(['river-plain', 'mountains']);
+    // Fossil sites a few kilometers from deep rock in a rising range record the ground beside the range, so they follow the mountains.
+    const beside = matchChapter(chapter('permian'), [gneiss], [site({})], map('land'), [], [belt]);
+    expect(beside.environments.map((e) => e.type)).toEqual(['mountains', 'river-plain']);
+    expect(beside.tier).toBe(3);
+    // Without the range, the same sites are evidence of the spot.
+    expect(matchChapter(chapter('permian'), [gneiss], [site({})], map('land')).environments[0]).toMatchObject({ type: 'river-plain', tier: 1 });
+    // Rock layers confirmed at the spot itself stay first, range or no range.
+    const sand = unit({ liths: [lith('sandstone', 'siliciclastic')] });
+    const layers = unit({ origin: 'column', envs: ['fluvial indet.'], liths: [lith('sandstone', 'siliciclastic')] });
+    expect(matchChapter(chapter('permian'), [gneiss, sand, layers], [], map('land'), [], [belt]).environments[0]).toMatchObject({ type: 'river-plain', tier: 1 });
     // Rock younger than the event was not there to be lifted.
     const young = unit({ old: 100, young: 90, liths: [lith('gneiss', 'metamorphic', 'metamorphic')] });
     expect(matchChapter(chapter('permian'), [young], [], map('land'), [], [belt]).mountains).toEqual([]);

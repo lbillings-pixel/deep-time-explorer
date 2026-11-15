@@ -278,10 +278,14 @@ export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilS
       : `${event.name} in this region, still going on; ground rises to about ${metres!.toLocaleString('en')} meters within 10 km of this spot today`,
   }));
 
+  // Where the rock at the spot formed underground and mountains were being built on it, a fossil site a few kilometers
+  // away lies across the range front: it records the lowland or the sea beside the mountains, not this spot. Such sites
+  // are weighed with the evidence from the region. Rock layers confirmed at the spot itself still come first.
+  const besideRange = mountains.some((m) => m.state === 'building' && m.unit !== null);
   const ladder: Environment[][] = [
-    rank([...fromUnits(columnHere), ...fromSites(sitesNear, `within ${NEAR_KM} km`)], 1),
+    rank([...fromUnits(columnHere), ...(besideRange ? [] : fromSites(sitesNear, `within ${NEAR_KM} km`))], 1),
     rank(fromRockType, 2),
-    [...rank(fromMountains, 3), ...rank([...fromUnits(rocksRegion), ...fromSites(sitesRegion, `${NEAR_KM} to ${REGION_KM} km away`), ...fromWorn], 3)],
+    [...rank(fromMountains, 3), ...rank([...fromUnits(rocksRegion), ...fromSites(sitesRegion, `${NEAR_KM} to ${REGION_KM} km away`), ...(besideRange ? fromSites(sitesNear, `within ${NEAR_KM} km, beside the range`) : []), ...fromWorn], 3)],
   ];
   const environments: Environment[] = [];
   for (const rung of ladder) for (const e of rung) if (!environments.some((x) => x.type === e.type)) environments.push(e);

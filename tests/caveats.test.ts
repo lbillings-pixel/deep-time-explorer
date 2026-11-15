@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { CHAPTERS } from '../src/match/chapters';
-import { HEIGHT_LINE_CAVEAT, HEIGHT_REACH_CAVEAT, WORN_CAVEAT, WORN_SPAN_CAVEAT, WORN_TO_PRESENT_CAVEAT } from '../src/match/mountain-caveats';
+import { BESIDE_CAVEAT, HEIGHT_LINE_CAVEAT, HEIGHT_REACH_CAVEAT, WORN_CAVEAT, WORN_SPAN_CAVEAT, WORN_TO_PRESENT_CAVEAT } from '../src/match/mountain-caveats';
 import { TECTONIC_EVENTS } from '../src/match/tectonic-events';
 import { GENERAL_CAVEATS, GROUPS } from '../src/scenes/whitelist';
 import { STORIES } from '../src/stories/all';
@@ -58,7 +58,7 @@ describe('caveats', () => {
   it('for mountains: the rules of thumb behind them are written for visitors, and say that they are this site\'s own', () => {
     const bad: string[] = [];
     const own = TECTONIC_EVENTS.flatMap((e) => (e.wornCaveat ? [e.wornCaveat] : []));
-    for (const text of [HEIGHT_LINE_CAVEAT, HEIGHT_REACH_CAVEAT, WORN_CAVEAT, WORN_SPAN_CAVEAT, WORN_TO_PRESENT_CAVEAT, ...own]) for (const p of problems(text)) bad.push(`${p}: ${text.slice(0, 70)}`);
+    for (const text of [BESIDE_CAVEAT, HEIGHT_LINE_CAVEAT, HEIGHT_REACH_CAVEAT, WORN_CAVEAT, WORN_SPAN_CAVEAT, WORN_TO_PRESENT_CAVEAT, ...own]) for (const p of problems(text)) bad.push(`${p}: ${text.slice(0, 70)}`);
     expect(bad).toEqual([]);
     expect(HEIGHT_LINE_CAVEAT).toMatch(/1,000 meters within 10 km/);
     for (const text of [HEIGHT_LINE_CAVEAT, WORN_SPAN_CAVEAT]) expect(text).toMatch(/this site's own/);

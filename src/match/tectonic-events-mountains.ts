@@ -123,12 +123,15 @@ export const MOUNTAIN_BUILDING: TectonicEvent[] = [
     // No province outlines the old uplifts: the map's Southern Rocky Mountains take in the basins between them (Aspen, Vail, Durango),
     // and the Uncompahgre Plateau shares a province with its own basin (Moab). So boxes, drawn tight on ground where the old rock
     // of the uplifts is at the surface today: the northern Front Range, Pikes Peak, the Uncompahgre Plateau in two steps, the Black Canyon.
+    // Compared with the map of uplifts and basins in Kluth (1986), as redrawn in course notes of the University of Colorado: all five
+    // lie inside its Front Range and Uncompahgre uplifts. The second Uncompahgre box was cut back from 38.3 to 38.5 degrees north,
+    // to keep it off the Paradox basin side of the uplift's south-western edge (Nucla, Naturita).
     provinces: [],
     boxes: [
       [39.5, -105.9, 40.8, -105.4],
       [38.7, -105.3, 38.9, -104.98],
       [38.85, -108.9, 39.15, -108.6],
-      [38.3, -108.6, 38.85, -108.15],
+      [38.5, -108.6, 38.85, -108.15],
       [38.4, -107.85, 38.65, -107.2],
     ],
     // The highlands sank and were buried in the Early Permian, directly after the building.
