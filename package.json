@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "author": "Lee Billings",
+  "repository": "github:lbillings-pixel/deep-time-explorer",
   "type": "module",
   "scripts": {
     "dev": "vite",
