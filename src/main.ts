@@ -172,7 +172,13 @@ function factList(c: ChapterResult): HTMLElement {
   }
   for (const e of c.events) fact('Major event', `${e.name}, ${ageRange(e.old, e.young)}. ${e.summary}`);
   for (const m of c.mountains) {
-    fact('Mountain building in the region', `${m.event.name}, ${ageRange(m.event.old, m.event.young)}. ${m.unit.name}, mapped at this spot, formed underground and is old enough to have been here while those mountains were built. Whether it was squeezed and heated then, or only lifted, no date measured at this spot shows.`);
+    fact(
+      'Mountain building in the region',
+      `${m.event.name}, ${ageRange(m.event.old, m.event.young)}. ` +
+        (m.unit
+          ? `${m.unit.name}, mapped at this spot, formed underground and is old enough to have been here while those mountains were built. Whether it was squeezed and heated then, or only lifted, no date measured at this spot shows.`
+          : `The mountain building is still going on, and the present-day map shows high ground at this spot (about ${m.metres!.toLocaleString('en')} meters, on a grid of about 100 km). That places the spot in the range today. How long it has stood high, no evidence at this spot shows.`),
+    );
   }
   if (c.rocksRegion.length > 0) fact('Rock of this age in the region', units(c.rocksRegion.slice(0, 8)), c.rocksRegion.length > 8 ? `and ${c.rocksRegion.length - 8} more` : null);
   if (c.looselyDated.length > 0) {
@@ -634,7 +640,8 @@ function tectonicBody(e: TectonicEvent, text: TectonicText, x: Exploration, glob
       { class: 'story' },
       h('p', { class: 'local' }, 'This spot lies inside the region that published work gives for this event. ', local),
       h('p', {}, text.plain),
-      deep && h('p', {}, `Rock that formed deep underground is mapped at this spot (${deep.unit.name}), and it is old enough to have been here while these mountains were built. Whether it was squeezed and heated then, or only lifted, no date measured at this spot shows.`),
+      deep?.unit && h('p', {}, `Rock that formed deep underground is mapped at this spot (${deep.unit.name}), and it is old enough to have been here while these mountains were built. Whether it was squeezed and heated then, or only lifted, no date measured at this spot shows.`),
+      deep && !deep.unit && h('p', {}, 'These mountains are still being built, and the present-day map shows high ground at this spot, which places it in the range today. How long this spot has stood high, no evidence here shows.'),
     ),
     globe && then ? onGlobe(globe, then.age, 'Show this time on the globe') : null,
     h(

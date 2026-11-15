@@ -86,9 +86,13 @@ export function localSentences(c: ChapterResult): string[] {
   } else if (c.tier === 2) {
     out.push(`The setting is read from the kind of rock found here: ${env.evidence.slice(0, 2).join('; ')}.`);
   } else if (env.type === 'mountains') {
-    // Mountains are never read from rock of the chapter's own age: they come from a published event and from deep rock at the spot.
+    // Mountains are never read from rock of the chapter's own age: they come from a published event and from deep rock at the
+    // spot or, for an event still going on, from high ground at the spot today.
     const events = c.mountains.map((m) => m.event.name).join(' and the ');
-    out.push(`No rock at this spot records the surface at this time. The setting comes from published work on the region (the ${events}) and from rock mapped here that formed deep underground and is old enough to have been here while the mountains were built.`);
+    const tie = c.mountains.some((m) => m.unit)
+      ? 'from rock mapped here that formed deep underground and is old enough to have been here while the mountains were built'
+      : 'from the high ground that the present-day map shows here, in a range that is still rising';
+    out.push(`No rock at this spot records the surface at this time. The setting comes from published work on the region (the ${events}) and ${tie}.`);
   } else if (c.tier === 3) {
     const parts: string[] = [];
     if (c.rocksRegion.length > 0) parts.push(`rock recorded in the region (${unitNames(c.rocksRegion)})`);

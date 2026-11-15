@@ -115,7 +115,7 @@ export function pictureCaveats(st: Stage): string[] {
   if (p.paleolatitude === null) out.push('The ancient latitude of this spot is not known for this time, so the height of the sun and the light are a neutral choice.');
   if (p.environment === 'mountains') {
     out.push(
-      "Rock now at the surface here formed deep inside a mountain belt, which shows that mountains once stood above this spot. It says nothing of their height, their shape or whether they carried snow: all of that in the picture is the artist's choice.",
+      "Mountains are shown because published work places this spot in a region where mountains were being built at this time, and the evidence listed with this chapter ties the spot to them. Nothing records their height, their shape or whether they carried snow: all of that in the picture is the artist's choice.",
     );
     if (['Precambrian', 'Cambrian', 'Ordovician', 'Silurian'].includes(p.chapter)) {
       out.push(

@@ -171,7 +171,9 @@ export async function explore(read: ReadData, point: LatLng, liveMapUnits: (p: L
   const tectonics = tectonicsAt(TECTONIC_EVENTS, point, province.status === 'fulfilled' ? (province.value?.number ?? null) : null).sort((a, b) => a.old - b.old);
   if (tectonics.length > 0) sources.push(PROVINCE_SOURCE);
 
-  const timeline = matchTimeline(units, sites, paleo, eventsAt(events, point), tectonics);
+  // The height of the spot today, from the same maps (the one for the present).
+  const heightNow = dem.status === 'fulfilled' ? terrainAt(dem.value, 0, point).metres : null;
+  const timeline = matchTimeline(units, sites, paleo, eventsAt(events, point), tectonics, heightNow);
   for (const e of new Set(timeline.flatMap((c) => c.events))) sources.push({ key: `event:${e.name}`, text: `${e.name}: ${e.source}` });
   return { point, timeline, sources, notices, column, layers: markHere(columnLayers, units), detailedMap, mapUnits: units.filter((u) => u.origin === 'here').length, fossilSites: sites.length, extinctions, tectonics, globe };
 }

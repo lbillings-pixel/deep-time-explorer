@@ -132,6 +132,20 @@ describe('rock that does not record the surface', () => {
     expect(matchChapter(chapter('permian'), [young], [], map('land'), [], [belt]).mountains).toEqual([]);
   });
 
+  it('in a belt still rising, high ground today gives mountains without deep rock, but only in the youngest chapters', () => {
+    const rising = { id: 'test-rising', name: 'Test mountain building', kind: 'mountains' as const, old: 100, young: 0, provinces: [], boxes: [] };
+    const at = (id: string, height: number | null, belt = rising) => matchChapter(chapter(id), [], [], map('land'), [], [belt], height);
+    expect(at('quaternary', 2400).environments[0]).toMatchObject({ type: 'mountains', tier: 3 });
+    expect(at('neogene', 2400).mountains).toMatchObject([{ unit: null, metres: 2400 }]);
+    // Height today says nothing of the Paleogene or earlier.
+    expect(at('paleogene', 2400).mountains).toEqual([]);
+    // The lowland that the event's outline also takes in, and a spot whose height is not known.
+    expect(at('quaternary', 520).mountains).toEqual([]);
+    expect(at('quaternary', null).mountains).toEqual([]);
+    // A belt whose building has ended must show its deep rock.
+    expect(at('neogene', 2400, { ...rising, young: 10 }).mountains).toEqual([]);
+  });
+
   it('lava is volcanic land only where the regional map shows land', () => {
     const lava = unit({ liths: [lith('basalt', 'volcanic', 'igneous')] });
     expect(matchChapter(chapter('permian'), [lava], [], map('land')).environments[0]!.type).toBe('volcanic-land');

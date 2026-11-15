@@ -87,7 +87,11 @@ export interface ChapterResult {
    * Mountain building in the region during this chapter, where rock that formed underground is mapped at the point and is
    * old enough to have been caught up in it. `unit` is the oldest such rock.
    */
-  mountains: { event: TectonicEvent; unit: RockUnit }[];
+  /**
+   * The mountain-building events that give this chapter its mountains, each with what ties the spot to it: rock mapped
+   * here that formed underground (`unit`), or, for an event still going on, high ground here today (`metres`).
+   */
+  mountains: { event: TectonicEvent; unit: RockUnit | null; metres: number | null }[];
   sitesNear: FossilSite[];
   sitesRegion: FossilSite[];
   paleo: Paleo | null;
@@ -145,7 +149,13 @@ function majorityTerrain(steps: Paleo['terrain']): Terrain {
 const sedimentary = (u: RockUnit) => u.liths.some((l) => l.class === 'sedimentary');
 
 /** `events` and `tectonics` are the major events and the tectonic events whose extent covers the location. */
-export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilSite[], paleo: Paleo | null, events: MajorEvent[] = [], tectonics: TectonicEvent[] = []): ChapterResult {
+/** Ground at least this high on the present-day map, in meters, counts as part of a range that is still rising. */
+export const HIGH_GROUND = 1000;
+/** High ground today speaks for mountains no further back than this, in Ma: the start of the Neogene. */
+const HIGH_GROUND_REACH = 23.04;
+
+/** `heightNow` is the height of the spot on the present-day map, in meters, or null if the map could not be read. */
+export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilSite[], paleo: Paleo | null, events: MajorEvent[] = [], tectonics: TectonicEvent[] = [], heightNow: number | null = null): ChapterResult {
   const length = chapter.old - chapter.young;
   // Share of the chapter that an item covers; an instant still counts a little.
   const share = (old: number, young: number) => Math.max(overlap(chapter, old, young) / length, 0.01);
@@ -228,17 +238,23 @@ export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilS
   for (const event of tectonics) {
     if (event.kind !== 'mountains' || !inChapter(chapter, event.old, event.young)) continue;
     const unit = deepHere.find((u) => u.old >= event.young);
-    if (unit) mountains.push({ event, unit });
+    if (unit) mountains.push({ event, unit, metres: null });
+    // A belt that is still rising has not yet been worn down to its deep rock everywhere, so much of the range fails the
+    // test above. There, high ground at the spot today shows that the spot is in the range and not on the lowland the
+    // event's outline also takes in. It is evidence of the present, so it is trusted only for the youngest chapters.
+    else if (event.young === 0 && heightNow !== null && heightNow >= HIGH_GROUND && chapter.old <= HIGH_GROUND_REACH) mountains.push({ event, unit: null, metres: heightNow });
   }
   // That is evidence from the region, and it ranks with it: rock or fossils that record a setting at the spot come first.
   // Among the evidence from the region, mountains lead: the event names this ground, while rock recorded elsewhere in the
   // region (a sea, a river plain) is more likely the lowland beside the range than the range itself.
-  const fromMountains: Candidate[] = mountains.map(({ event, unit }) => ({
+  const fromMountains: Candidate[] = mountains.map(({ event, unit, metres }) => ({
     type: 'mountains',
     specific: true,
     ...clip(event.old, event.young),
     score: share(event.old, event.young),
-    evidence: `${event.name} in this region; ${unit.name}, mapped here, formed underground and is old enough to have been here at the time`,
+    evidence: unit
+      ? `${event.name} in this region; ${unit.name}, mapped here, formed underground and is old enough to have been here at the time`
+      : `${event.name} in this region, still going on; the present-day map shows high ground here (about ${metres!.toLocaleString('en')} meters, on a grid of about 100 km)`,
   }));
 
   const ladder: Environment[][] = [
@@ -281,6 +297,6 @@ export function matchChapter(chapter: Chapter, units: RockUnit[], sites: FossilS
   return { chapter, tier, environments, notes, rocksHere: [...rocksHere, ...columnHere], rocksRegion, looselyDated, underground, events: eventsUsed, mountains, sitesNear, sitesRegion, paleo };
 }
 
-export function matchTimeline(units: RockUnit[], sites: FossilSite[], paleo: (Paleo | null)[], events: MajorEvent[] = [], tectonics: TectonicEvent[] = []): ChapterResult[] {
-  return CHAPTERS.map((chapter, i) => matchChapter(chapter, units, sites, paleo[i] ?? null, events, tectonics));
+export function matchTimeline(units: RockUnit[], sites: FossilSite[], paleo: (Paleo | null)[], events: MajorEvent[] = [], tectonics: TectonicEvent[] = [], heightNow: number | null = null): ChapterResult[] {
+  return CHAPTERS.map((chapter, i) => matchChapter(chapter, units, sites, paleo[i] ?? null, events, tectonics, heightNow));
 }
