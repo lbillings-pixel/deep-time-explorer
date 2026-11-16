@@ -3,12 +3,14 @@ import { CHAPTER_NAMES, type ChapterName } from '../src/match/chapters';
 import { ENV_LABEL, type EnvType } from '../src/match/taxonomy';
 import { makeRng } from '../src/scenes/draw';
 import type { PartDef } from '../src/scenes/part';
-import { PARTS } from '../src/scenes/parts';
+import { ALL_GROUPS as GROUPS, ALL_PARTS as PARTS, ALL_PERMITS as PERMITS, PAINTING_PARTS } from '../src/scenes/all-parts';
+import { PARTS as SCENE_PARTS } from '../src/scenes/parts';
 import { GROUP_RANGE, type Climate, type Region, regionsIn, span } from '../src/scenes/permit';
 import { regionOf } from '../src/scenes/region';
-import { composeScene, partSvg } from '../src/scenes/scene';
+import { partSvg } from '../src/scenes/part-card';
+import { composeScene } from '../src/scenes/scene';
 import { listedAs } from '../src/scenes/stage';
-import { GROUPS, PERMITS } from '../src/scenes/whitelist';
+import { GROUPS as SCENE_GROUPS, PERMITS as SCENE_PERMITS } from '../src/scenes/whitelist';
 
 const ENVS = Object.keys(ENV_LABEL) as EnvType[];
 const CENOZOIC: ChapterName[] = ['Paleogene', 'Neogene', 'Quaternary'];
@@ -22,9 +24,19 @@ describe('the whitelist', () => {
     expect(ids.filter((id) => !PARTS[id])).toEqual([]);
     expect(Object.keys(PARTS).filter((id) => !ids.includes(id))).toEqual([]);
     // No drawing is defined twice across the group files.
-    const files = import.meta.glob<{ PARTS?: Record<string, PartDef> }>('../src/scenes/parts/*.ts', { eager: true });
-    const perFile = Object.entries(files).flatMap(([file, m]) => (file.endsWith('index.ts') || !m.PARTS ? [] : Object.keys(m.PARTS)));
+    const files = import.meta.glob<{ PARTS?: Record<string, PartDef>; PAINTING_PARTS?: Record<string, PartDef> }>('../src/scenes/parts/*.ts', { eager: true });
+    const perFile = Object.entries(files).flatMap(([file, m]) => (file.endsWith('index.ts') ? [] : [...Object.keys(m.PARTS ?? {}), ...Object.keys(m.PAINTING_PARTS ?? {})]));
     expect(perFile.filter((id, i) => perFile.indexOf(id) !== i)).toEqual([]);
+  });
+
+  it('keeps the parts made only for the painted pictures out of the scene script', () => {
+    // The scene script takes PARTS, PERMITS and GROUPS; everything listed there must be drawable in a scene,
+    // and everything kept apart must be for the paintings alone.
+    expect(SCENE_PERMITS.filter((p) => p.paintingsOnly).map((p) => p.id)).toEqual([]);
+    expect(PERMITS.filter((p) => p.paintingsOnly && SCENE_PARTS[p.id]).map((p) => p.id)).toEqual([]);
+    expect(Object.keys(PAINTING_PARTS).filter((id) => !PERMITS.find((p) => p.id === id)?.paintingsOnly)).toEqual([]);
+    expect(Object.keys(SCENE_PARTS).filter((id) => !SCENE_PERMITS.some((p) => p.id === id))).toEqual([]);
+    expect(SCENE_GROUPS.flatMap((g) => g.permits).length).toBe(SCENE_PERMITS.length);
   });
 
   it('gives every entry a name, a reason, and at least one scene and chapter', () => {

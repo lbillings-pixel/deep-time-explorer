@@ -494,7 +494,6 @@ export const PARTS: Record<string, PartDef> = {
   macrauchenia: { role: 'walker', w: 172, h: 134, anchor: 'base', draw: macrauchenia },
   notoungulate: { role: 'walker', w: 214, h: 108, anchor: 'base', draw: notoungulate },
   terrorbird: { role: 'walker', w: 160, h: 132, anchor: 'base', draw: terrorbird },
-  titanis: { role: 'walker', w: 160, h: 132, anchor: 'base', draw: terrorbird },
   marsupial: { role: 'critter', w: 100, h: 40, anchor: 'base', draw: marsupial },
   marsupialnorth: { role: 'critter', w: 100, h: 40, anchor: 'base', draw: marsupial },
   marsupialantarctic: { role: 'critter', w: 100, h: 40, anchor: 'base', draw: marsupial },
@@ -503,4 +502,9 @@ export const PARTS: Record<string, PartDef> = {
   thylacoleo: { role: 'walker', w: 152, h: 85, anchor: 'base', draw: thylacoleo },
   dromornithid: { role: 'walker', w: 154, h: 132, anchor: 'base', draw: dromornithid },
   moa: { role: 'walker', w: 164, h: 110, anchor: 'base', draw: moa },
+};
+
+/** Drawn only in the painted pictures (tools/extinctions), never in a chapter scene. */
+export const PAINTING_PARTS: Record<string, PartDef> = {
+  titanis: { role: 'walker', w: 160, h: 132, anchor: 'base', draw: terrorbird },
 };

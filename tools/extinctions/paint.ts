@@ -26,8 +26,7 @@
 
 import type { ChapterName } from '../../src/match/chapters';
 import { type Rng, clamp, group, lerp, makeRng, mix, n, subSeed } from '../../src/scenes/draw';
-import { PARTS } from '../../src/scenes/parts';
-import { PERMITS } from '../../src/scenes/whitelist';
+import { ALL_PARTS as PARTS, ALL_PERMITS as PERMITS } from '../../src/scenes/all-parts';
 
 export const W = 1600;
 export const H = 900;

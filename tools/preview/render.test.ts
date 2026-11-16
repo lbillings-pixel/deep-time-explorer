@@ -46,8 +46,11 @@ it.skipIf(!process.env.PREVIEW)('render a preview page', async () => {
   };
 
   if (spec.mode === 'parts' || spec.mode === 'part') {
-    const { PARTS } = (await import(`../../src/scenes/parts/${spec.group}.ts`)) as { PARTS: Record<string, PartDef> };
-    const { PERMITS } = (await import(`../../src/scenes/whitelist/${spec.group}.ts`)) as { PERMITS: Permit[] };
+    // A group file may hold scene parts, parts for the painted pictures only, or both.
+    const partsFile = (await import(`../../src/scenes/parts/${spec.group}.ts`)) as { PARTS?: Record<string, PartDef>; PAINTING_PARTS?: Record<string, PartDef> };
+    const permitsFile = (await import(`../../src/scenes/whitelist/${spec.group}.ts`)) as { PERMITS?: Permit[]; PAINTING_PERMITS?: Permit[] };
+    const PARTS = { ...partsFile.PARTS, ...partsFile.PAINTING_PARTS };
+    const PERMITS = [...(permitsFile.PERMITS ?? []), ...(permitsFile.PAINTING_PERMITS ?? [])];
     const nameOf = (id: string) => PERMITS.find((p) => p.id === id)?.name ?? 'NO WHITELIST ENTRY';
     if (spec.mode === 'part') {
       const def = PARTS[spec.id!];

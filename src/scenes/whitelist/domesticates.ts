@@ -7,7 +7,7 @@
 import type { PartCaveat, Permit } from '../permit';
 
 /** What a visitor should know before trusting these drawings: guesses, simplifications and points specialists dispute. */
-export const CAVEATS: PartCaveat[] = [
+export const PAINTING_CAVEATS: PartCaveat[] = [
   { parts: [], text: 'The crops and domestic animals appear only in the painted pictures of human history, never in the scenes of a place. Each drawing is a general picture of an early domestic form, not of any breed or variety, living or ancient. The coat and plumage colors are invented, and so are the exact shapes of horns, ears and tails.' },
   { parts: [], text: 'Each painted scene shows only the crops and animals reported for its own site and date, so a drawing in this group is right for some of the scenes and wrong for others. The zebu, for example, belongs only to the Indus city, and the maize only to La Venta.' },
   { parts: ['cattle', 'zebu', 'donkey', 'dog', 'goat'], text: 'For cattle at Ur, Giza and Athens, for the zebu, for the donkey, and for the dog and the goat outside the sites named in their entries, the works relied on are standard ones that were not re-read when the pictures were planned. Those animals are shown on the strength of what the works are usually cited for.' },
@@ -20,7 +20,7 @@ export const CAVEATS: PartCaveat[] = [
   { parts: ['donkey'], text: 'The donkey is drawn gray with a dark stripe across the shoulders, as many living donkeys are. Its color at any of the sites is not known.' },
 ];
 
-export const PERMITS: Permit[] = [
+export const PAINTING_PERMITS: Permit[] = [
   {
     id: 'cereal',
     name: 'Wheat or barley',

@@ -14,7 +14,6 @@ import { ice } from './ice';
 import { lake } from './lake';
 import { land } from './land';
 import { mountains } from './mountains';
-import { PARTS } from './parts';
 import { reef } from './reef';
 import { riverPlain } from './river-plain';
 import { shelfSea } from './shelf-sea';
@@ -184,15 +183,4 @@ export function renderScene(p: SceneParams): SVGSVGElement {
   const holder = document.createElement('div');
   holder.innerHTML = composeScene(p).svg;
   return holder.firstElementChild as SVGSVGElement;
-}
-
-/** One part drawn alone on a plain ground, for checking. Returns SVG markup, or '' for an unknown id. */
-export function partSvg(id: string): string {
-  const def = PARTS[id];
-  const permit = PERMITS.find((x) => x.id === id);
-  if (!def || !permit) return '';
-  const pad = 14;
-  const top = def.anchor === 'base' ? -def.h - pad : -def.h / 2 - pad;
-  const body = def.draw({ rng: makeRng(11), tone: (c) => c, detail: true, sun: 1 });
-  return `<svg xmlns="${SVG_NS}" viewBox="${-def.w / 2 - pad} ${top} ${def.w + pad * 2} ${def.h + pad * 2}" role="img" aria-label="${esc(permit.name)}">${body}</svg>`;
 }

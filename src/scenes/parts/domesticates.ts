@@ -591,7 +591,8 @@ function chicken(c: PartCtx): string {
   return out;
 }
 
-export const PARTS: Record<string, PartDef> = {
+/** Drawn only in the painted pictures (tools/extinctions), never in a chapter scene. */
+export const PAINTING_PARTS: Record<string, PartDef> = {
   cereal: { role: 'ground', w: 100, h: 74, anchor: 'base', draw: cereal },
   maize: { role: 'understory', w: 150, h: 164, anchor: 'base', draw: maize },
   banana: { role: 'understory', w: 200, h: 164, anchor: 'base', draw: banana },

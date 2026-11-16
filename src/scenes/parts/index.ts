@@ -1,4 +1,6 @@
-// Every part, from every group file.
+// Every part the scenes may draw, from every group file. The parts made only for the painted pictures
+// (./people.ts, ./domesticates.ts, Titanis) are left out so that the scene script does not carry them;
+// ../all-parts.ts adds them back for the painting tools, the workbench and the tests.
 
 import type { PartDef } from '../part';
 import { PARTS as floraPaleozoic } from './flora-paleozoic';
@@ -20,7 +22,6 @@ import { PARTS as marineCenozoic } from './marine-cenozoic';
 import { PARTS as marineCommon } from './marine-common';
 import { PARTS as freshwater } from './freshwater';
 import { PARTS as primates } from './primates';
-import { PARTS as domesticates } from './domesticates';
 
 export const PARTS: Record<string, PartDef> = {
   ...floraPaleozoic,
@@ -42,5 +43,4 @@ export const PARTS: Record<string, PartDef> = {
   ...marineCommon,
   ...freshwater,
   ...primates,
-  ...domesticates,
 };

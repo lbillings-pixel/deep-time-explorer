@@ -6,11 +6,12 @@ import './page.css';
 import './motion.css';
 import { CHAPTER_NAMES, type ChapterName } from '../match/chapters';
 import { ENV_LABEL, type EnvType } from '../match/taxonomy';
-import { PARTS } from './parts';
+import { ALL_GROUPS as GROUPS, ALL_PARTS as PARTS, ALL_PERMITS as PERMITS } from './all-parts';
 import { type Climate, type Permit, type Region, kindOf } from './permit';
 import { REGION_NAME } from './region';
-import { type SceneParams, composeScene, fitLayers, partSvg, renderScene } from './scene';
-import { GENERAL_CAVEATS, GROUPS, PERMITS } from './whitelist';
+import { partSvg } from './part-card';
+import { type SceneParams, composeScene, fitLayers, renderScene } from './scene';
+import { GENERAL_CAVEATS } from './whitelist';
 
 const ENVS = Object.keys(ENV_LABEL) as EnvType[];
 const CLIMATES: Climate[] = ['neutral', 'wet', 'dry', 'cold'];

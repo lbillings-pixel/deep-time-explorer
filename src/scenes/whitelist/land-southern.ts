@@ -105,17 +105,6 @@ export const PERMITS: Permit[] = [
     basis: 'Flightless, hook-beaked running birds up to 3 metres tall were among the top predators of South America through the Paleogene and Neogene.',
   },
   {
-    id: 'titanis',
-    name: 'Terror bird (Titanis)',
-    group: 'bird',
-    scenes: [],
-    paintingsOnly: true,
-    chapters: ['Quaternary'],
-    regions: ['north-america'],
-    matches: [],
-    basis: 'Titanis, the one terror bird known to have gone north, is recorded in Texas about 5 million years ago and in Florida from about 2.2 to 1.8 million years ago, in the earliest Quaternary. It is drawn only in the painting of the interchange between the Americas.',
-  },
-  {
     id: 'marsupial',
     name: 'Opossum-like marsupial',
     group: 'mammal',
@@ -194,5 +183,20 @@ export const PERMITS: Permit[] = [
     regions: ['new-zealand'],
     matches: ['Dinornis', 'Pachyornis', 'Emeus', 'Euryapteryx', 'Anomalopteryx', 'Megalapteryx'],
     basis: 'Moa were wingless browsing birds found only in New Zealand, hunted to extinction about 600 years ago.',
+  },
+];
+
+/** Drawn only in the painted pictures, never in a chapter scene. */
+export const PAINTING_PERMITS: Permit[] = [
+  {
+    id: 'titanis',
+    name: 'Terror bird (Titanis)',
+    group: 'bird',
+    scenes: [],
+    paintingsOnly: true,
+    chapters: ['Quaternary'],
+    regions: ['north-america'],
+    matches: [],
+    basis: 'Titanis, the one terror bird known to have gone north, is recorded in Texas about 5 million years ago and in Florida from about 2.2 to 1.8 million years ago, in the earliest Quaternary. It is drawn only in the painting of the interchange between the Americas.',
   },
 ];

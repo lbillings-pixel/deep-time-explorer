@@ -3,7 +3,9 @@
 // ============================================================================
 // The whitelist decides which plants and animals a scene may show, where and when.
 // A part is never drawn outside the scenes and chapters listed for it.
-// The entries are in one file per group, beside this one; this file gathers them.
+// The entries are in one file per group, beside this one; this file gathers those the scenes may draw.
+// The painting-only groups (./people.ts, ./domesticates.ts) and Titanis are left out so that the scene
+// script does not carry them; ../all-parts.ts adds them back for the painting tools, the workbench and the tests.
 
 import type { PartCaveat, Permit } from '../permit';
 import * as floraPaleozoic from './flora-paleozoic';
@@ -25,7 +27,6 @@ import * as marineCenozoic from './marine-cenozoic';
 import * as marineCommon from './marine-common';
 import * as freshwater from './freshwater';
 import * as primates from './primates';
-import * as domesticates from './domesticates';
 
 export interface WhitelistGroup {
   id: string;
@@ -54,7 +55,6 @@ export const GROUPS: WhitelistGroup[] = [
   { id: 'marine-common', title: 'Sea animals that span many chapters', permits: marineCommon.PERMITS, caveats: marineCommon.CAVEATS },
   { id: 'freshwater', title: 'Life in rivers and lakes', permits: freshwater.PERMITS, caveats: freshwater.CAVEATS },
   { id: 'primates', title: 'Monkeys, apes and the human family', permits: primates.PERMITS, caveats: primates.CAVEATS },
-  { id: 'domesticates', title: 'Crops and domestic animals, drawn only in the painted pictures', permits: domesticates.PERMITS, caveats: domesticates.CAVEATS },
 ];
 
 /** Caveats that apply to every picture. */
