@@ -1,7 +1,7 @@
 // The Huronian glaciations, about 2.45 to 2.22 billion years ago: the first great ice ages known.
 //
 // The starkest of the ice pictures: a tall wall of blue-white ice cliffs running away along a black-blue open sea
-// under a blank white sky. Nothing alive anywhere (there is no cast). A tilted iceberg in front shows its dirty old
+// under a clear, deep blue sky. Nothing alive anywhere (there is no cast). A tilted iceberg in front shows its dirty old
 // base, full of stones and grit, and is dropping them into the water: those dropped stones are the evidence in the
 // rocks. Far off on the right, a line of steam where lava meets the ice, with the one faint warm note at its foot.
 //
@@ -17,7 +17,8 @@ const DEEP = '#0b2036'; // black-blue open sea
 const STEEL = '#3d627f'; // far water, ice in shadow
 const GLACIER = '#2f7fb0'; // the blue inside the ice: clefts, the notch at the waterline
 const ICE = '#93c3de'; // ice faces
-const CLOUD = '#c3d0d9'; // the gray of the white sky
+const ZENITH = '#1d4c8c'; // the clear sky overhead
+const CLOUD = '#c3d0d9'; // the pale sky at the horizon, and the haze of distance
 const SNOW = '#f5f8fa'; // white
 const GRIT = '#17212d'; // rock and dirt frozen into the ice: blue-black, not brown
 const WARM = '#f2b184'; // the glow where lava meets ice
@@ -75,14 +76,10 @@ export function paint(): string {
 
   // ---- 1. The light, as colour functions ---------------------------------------------------
   const skyN = noise2(p.seed + 1, 700, 3);
-  /** The sky: white, a little grayer high up and over the cliffs so that their snow-capped edge shows, whitest low on the right. */
+  /** The sky: clear, cold and dry, so a deep blue overhead, paling only near the horizon; a little deeper on the left, over the cliffs. */
   const sky = (x: number, y: number): string => {
-    const up = clamp(1 - y / HZ, 0, 1);
-    const left = clamp(1 - x / 1500, 0, 1);
-    const t = clamp(0.05 + 0.3 * up ** 0.8 + 0.26 * left + 0.12 * skyN(x, y * 3), 0, 1);
-    // A grayer bank low on the far right, behind the steam, or white steam would not show on a white sky.
-    const bank = clamp((x - 1230) / 300, 0, 1) * clamp(1 - Math.abs(y - (HZ - 70)) / 190, 0, 1) ** 1.3 * 0.72;
-    return mix(SNOW, mix(CLOUD, STEEL, 0.1), clamp(t + bank, 0, 1));
+    const t = clamp(y / HZ + 0.08 * skyN(x, y * 3) - 0.1 * clamp(1 - x / 1500, 0, 1) * (1 - y / HZ), 0, 1);
+    return ramp(t, [[0, ZENITH], [0.45, mix(ZENITH, CLOUD, 0.42)], [0.8, mix(ZENITH, CLOUD, 0.8)], [1, mix(CLOUD, SNOW, 0.45)]]);
   };
 
   // The wall of ice: tallest at the left edge, running away to the horizon at XV, and on as a low line beyond.
@@ -136,7 +133,7 @@ export function paint(): string {
     const [u, v] = water(x, y);
     return swellN(u * 0.5, v) * 0.7 + chopN(u * 0.6, v) * 0.3;
   };
-  /** Open water: black-blue, a little lighter far off; long swells that catch the white sky; the cliffs mirrored and broken below their foot. */
+  /** Open water: black-blue, a little lighter far off; long swells that catch the sky; the cliffs mirrored and broken below their foot. */
   const sea = (x: number, y: number): string => {
     const s = clamp((y - HZ) / (H - HZ), 0, 1);
     let c = ramp(s, [[0, mix(STEEL, CLOUD, 0.22)], [0.05, mix(STEEL, DEEP, 0.35)], [0.28, DEEP], [1, mix(DEEP, INK, 0.75)]]);
@@ -251,7 +248,7 @@ export function paint(): string {
   );
   // Light off the sky on the backs of the swells.
   p.add(
-    p.strokes({ seed: 'swell-light', count: 5000, box: [-60, HZ + 4, W + 120, H - HZ + 40], where: (x, y) => (inSea(x, y) ? clamp(swell(x, y) * 2.6 - 0.7, 0, 1) * 0.6 : 0), flow: tilt, wander: 3, color: (_x, _y, r) => vary(mix(STEEL, ICE, r.range(0.2, 0.6)), r, 0.04), len: [30, 110], width: [2, 4.5], opacity: [0.2, 0.5], size: persp, shape: 'lens', bend: 0.05 }),
+    p.strokes({ seed: 'swell-light', count: 5000, box: [-60, HZ + 4, W + 120, H - HZ + 40], where: (x, y) => (inSea(x, y) ? clamp(swell(x, y) * 2.6 - 0.7, 0, 1) * 0.6 : 0), flow: tilt, wander: 3, color: (_x, _y, r) => vary(mix(mix(STEEL, ZENITH, 0.3), ICE, r.range(0.2, 0.6)), r, 0.04), len: [30, 110], width: [2, 4.5], opacity: [0.2, 0.5], size: persp, shape: 'lens', bend: 0.05 }),
   );
 
   // Brash ice at the foot of the cliffs and loose on the water.

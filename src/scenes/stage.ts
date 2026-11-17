@@ -67,7 +67,7 @@ function rampN(x: number, stops: [number, number][]): number {
 const UNKNOWN_LATITUDE = 40;
 
 /** Ancient latitude sets the light: the higher the latitude, the lower and warmer the sun. */
-function lightFor(lat: number | null, climate: Climate): Light {
+function lightFor(lat: number | null, climate: Climate, chapter: ChapterName): Light {
   const elev = clamp(90 - Math.abs(lat ?? UNKNOWN_LATITUDE), 4, 90);
   let skyTop = ramp(elev, [
     [4, '#6d7fae'],
@@ -90,6 +90,11 @@ function lightFor(lat: number | null, climate: Climate): Light {
   } else if (climate === 'cold') {
     skyTop = mix(skyTop, '#b4c8de', 0.45);
     skyLow = mix(skyLow, '#eef4f8', 0.5);
+  }
+  if (chapter === 'Precambrian') {
+    // A faint orange haze: before there was much oxygen, methane may at times have made a haze of hydrocarbons in the air.
+    skyTop = mix(skyTop, '#a88f7c', 0.14);
+    skyLow = mix(skyLow, '#f0bf8c', 0.2);
   }
   return {
     elev,
@@ -185,7 +190,7 @@ export class Stage {
     readonly p: SceneParams,
     readonly uid: string,
   ) {
-    this.light = lightFor(p.paleolatitude, p.climate);
+    this.light = lightFor(p.paleolatitude, p.climate, p.chapter);
     this.haze = this.light.skyLow;
     // "Dyoros (Dyoros)|Strophomenata" counts as both the genus Dyoros and the class Strophomenata.
     const names = new Set((p.localOrganisms ?? []).flatMap((s) => s.split('|').map((part) => part.trim().split(' ')[0]!.toLowerCase())));

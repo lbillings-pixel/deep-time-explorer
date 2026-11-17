@@ -128,6 +128,11 @@ export function pictureCaveats(st: Stage): string[] {
       out.push('Life in mountains leaves almost no fossils, because high ground wears away instead of being buried. The few plants and animals shown are ones known from lower ground at the time.');
     }
   }
+  if (p.chapter === 'Precambrian' && p.environment !== 'deep-sea' && p.environment !== 'shelf-sea') {
+    out.push(
+      'The faint orange in the sky is a guess. Before oxygen built up in the air, methane may at times have made a thin haze of hydrocarbons; the rocks point to episodes of it between about 2.7 and 2.5 billion years ago. What color the sky was at other times in the Precambrian is not known.',
+    );
+  }
   out.push(GENERAL_CAVEATS.colors, GENERAL_CAVEATS.motion);
   if (p.environment === 'desert' && p.climate === 'cold') out.push(GENERAL_CAVEATS.frost);
   // Caveats on a part in the picture, then those on the whole of a group that has a part in the picture.

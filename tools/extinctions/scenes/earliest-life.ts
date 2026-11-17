@@ -4,8 +4,8 @@
 //
 // A calm, low, close picture: ranks of pale cream mounds with dark living tops
 // standing in a few centimeters of clear green water, under a bare black and
-// rust-brown volcanic shore with far columns of hot-spring steam. A clear
-// morning, the light low from the left. No Moon, no meteors, nothing else alive.
+// rust-brown volcanic shore with far columns of hot-spring steam. A hazy
+// orange morning, the light low from the left. No Moon, no meteors, nothing else alive.
 //
 // Built in the order of the worked example (end-cretaceous.ts): light as colour
 // functions, a lay-in, brushwork far to near, figures, then the air.
@@ -19,8 +19,8 @@ const CHAPTER = 'Precambrian';
 const INK = '#14171a'; // black volcanic rock
 const RUST = '#74412a'; // weathered lava and ash
 const GREEN = '#2b6d5a'; // the shallows
-const ZENITH = '#5a96c6'; // the sky overhead
-const SKY = '#9cc4dc'; // the sky lower down
+const ZENITH = '#a3a49a'; // the sky overhead, dulled by haze
+const SKY = '#d8b28a'; // the sky lower down: an orange haze of hydrocarbons
 const CREAM = '#f3e7c2'; // the mounds in the light
 const MAT = '#1f2a1b'; // living microbial mat
 
@@ -76,7 +76,7 @@ export function paint(): string {
     const k = clamp((y - farY(x)) / 70, 0, 1);
     let c = mix(mix(INK, RUST, 0.4), mix(RUST, CREAM, 0.14), clamp(0.3 + facing * 0.5 + rockN(x, y * 3) * 0.5, 0, 1));
     c = mix(c, INK, 0.45 * k);
-    return mix(c, mix(SKY, '#ffffff', 0.3), 0.2); // the air between
+    return mix(c, mix(SKY, '#ffffff', 0.3), 0.36); // the hazy air between
   };
   const nearColor = (x: number, y: number): string => {
     const k = clamp((y - nearY(x)) / 26, 0, 1);

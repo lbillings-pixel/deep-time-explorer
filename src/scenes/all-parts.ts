@@ -9,19 +9,27 @@ import { PARTS } from './parts';
 import { PAINTING_PARTS as domesticateParts } from './parts/domesticates';
 import { PAINTING_PARTS as southernParts } from './parts/land-southern';
 import { PAINTING_PARTS as peopleParts } from './parts/people';
+import { PAINTING_PARTS as reefParts } from './parts/stromatolite-reef';
 import { GROUPS, type WhitelistGroup } from './whitelist';
 import * as domesticates from './whitelist/domesticates';
 import { PAINTING_PERMITS as southernPermits } from './whitelist/land-southern';
+import * as marineEarly from './whitelist/marine-early-paleozoic';
 import * as people from './whitelist/people';
 
 /** The parts drawn only in the painted pictures. */
-export const PAINTING_PARTS: Record<string, PartDef> = { ...southernParts, ...peopleParts, ...domesticateParts };
+export const PAINTING_PARTS: Record<string, PartDef> = { ...southernParts, ...reefParts, ...peopleParts, ...domesticateParts };
 
 export const ALL_PARTS: Record<string, PartDef> = { ...PARTS, ...PAINTING_PARTS };
 
-/** Every group with every entry: the scene groups, Titanis added to its own, then the two painting-only groups. */
+/** Every group with every entry: the scene groups, Titanis and the stromatolite reef added to their own, then the two painting-only groups. */
 export const ALL_GROUPS: WhitelistGroup[] = [
-  ...GROUPS.map((g) => (g.id === 'land-southern' ? { ...g, permits: [...g.permits, ...southernPermits] } : g)),
+  ...GROUPS.map((g) =>
+    g.id === 'land-southern'
+      ? { ...g, permits: [...g.permits, ...southernPermits] }
+      : g.id === 'marine-early-paleozoic'
+        ? { ...g, permits: [...g.permits, ...marineEarly.PAINTING_PERMITS], caveats: [...g.caveats, ...marineEarly.PAINTING_CAVEATS] }
+        : g,
+  ),
   { id: 'people', title: 'People, drawn only in the painted pictures', permits: people.PAINTING_PERMITS, caveats: people.PAINTING_CAVEATS },
   { id: 'domesticates', title: 'Crops and domestic animals, drawn only in the painted pictures', permits: domesticates.PAINTING_PERMITS, caveats: domesticates.PAINTING_CAVEATS },
 ];

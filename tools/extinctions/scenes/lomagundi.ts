@@ -10,7 +10,8 @@
 // Built in the order of the worked example (end-cretaceous.ts): light as colour
 // functions, a lay-in, brushwork far to near, figures, then the air.
 
-import { type Rng, clamp, mix, path, ramp } from '../../../src/scenes/draw';
+import { type Rng, clamp, lerp, makeRng, mix, path, ramp } from '../../../src/scenes/draw';
+import { type ReefShape, halfWidth, reefShape } from '../../../src/scenes/parts/stromatolite-reef';
 import { H, Painting, type Pt, W, figure, groundPlane, lum, noise1, noise2, smooth, vary } from '../paint';
 
 const CHAPTER = 'Precambrian';
@@ -46,15 +47,10 @@ const ease = (t: number) => {
   return k * k * (3 - 2 * k);
 };
 
-/** The three mounds of the `stromatolite` part, front one first: [centre x, width, height] in part units. */
-const MOUNDS: [number, number, number][] = [
-  [1, 28, 31],
-  [29, 20, 17],
-  [-27, 22, 21],
-];
-
-/** One placed copy of the part. */
-interface Mound {
+/** One reef as placed: the drawing's seed, its shape, and where it stands. */
+interface Placed {
+  seed: number;
+  shape: ReefShape;
   x: number;
   y: number;
   s: number;
@@ -62,13 +58,11 @@ interface Mound {
   pale: number;
 }
 
-/** A reef: a heap of the part, built up tier on tier. */
+/** Where a reef stands, as wanted: its foot, the height it reaches, roughly how wide, and how near. */
 interface Reef {
   x: number;
   base: number;
   top: number;
-  s: number;
-  tiers: number;
   wide: number;
   /** 0 far, 1 middle, 2 near. */
   layer: number;
@@ -273,99 +267,111 @@ export function paint(): string {
   );
 
   // ---- 7. The reefs --------------------------------------------------------------------------------
-  // Every mound is the library part, repainted; a reef is a heap of them, tier on tier.
+  // Each reef is one drawing of a stromatolite reef: a mound of crowded columns that branch as they grow. Every reef
+  // has its own seed, so no two are alike; the seed is chosen for a shape near the height and width wanted here.
   const REEFS: Reef[] = [
-    { x: 300, base: 668, top: 585, s: 1.7, tiers: 2, wide: 3, layer: 0 },
-    { x: 545, base: 662, top: 340, s: 2.0, tiers: 8, wide: 2, layer: 0 },
-    { x: 830, base: 656, top: 545, s: 1.5, tiers: 3, wide: 4, layer: 0 },
-    { x: 1010, base: 664, top: 470, s: 1.6, tiers: 5, wide: 1, layer: 0 },
-    { x: 1330, base: 660, top: 345, s: 1.9, tiers: 8, wide: 2, layer: 0 },
-    { x: 1560, base: 664, top: 560, s: 1.7, tiers: 3, wide: 2, layer: 0 },
-    { x: 120, base: 748, top: 338, s: 3.3, tiers: 7, wide: 2, layer: 1 },
-    { x: 650, base: 742, top: 640, s: 2.8, tiers: 2, wide: 2, layer: 1 },
-    { x: 1500, base: 748, top: 500, s: 3.2, tiers: 4, wide: 2, layer: 1 },
-    { x: 390, base: 846, top: 690, s: 5.0, tiers: 2, wide: 2, layer: 2 },
-    { x: 1150, base: 852, top: 328, s: 4.6, tiers: 7, wide: 2, layer: 2 },
-    { x: -30, base: 876, top: 640, s: 5.6, tiers: 3, wide: 1, layer: 2 },
-    { x: 1620, base: 880, top: 720, s: 5.6, tiers: 2, wide: 1, layer: 2 },
-    { x: 800, base: 868, top: 760, s: 4.0, tiers: 1, wide: 1, layer: 2 },
+    { x: 300, base: 668, top: 585, wide: 170, layer: 0 },
+    { x: 560, base: 662, top: 336, wide: 330, layer: 0 },
+    { x: 430, base: 666, top: 612, wide: 100, layer: 0 },
+    { x: 830, base: 656, top: 545, wide: 220, layer: 0 },
+    { x: 1010, base: 664, top: 520, wide: 170, layer: 0 },
+    { x: 1190, base: 662, top: 596, wide: 110, layer: 0 },
+    { x: 1350, base: 660, top: 346, wide: 350, layer: 0 },
+    { x: 1560, base: 664, top: 560, wide: 160, layer: 0 },
+    { x: 130, base: 748, top: 470, wide: 380, layer: 1 },
+    { x: 650, base: 742, top: 640, wide: 220, layer: 1 },
+    { x: 920, base: 744, top: 660, wide: 150, layer: 1 },
+    { x: 1520, base: 748, top: 540, wide: 300, layer: 1 },
+    { x: 390, base: 846, top: 690, wide: 380, layer: 2 },
+    { x: 1130, base: 852, top: 560, wide: 440, layer: 2 },
+    { x: -30, base: 876, top: 640, wide: 330, layer: 2 },
+    { x: 1620, base: 880, top: 720, wide: 330, layer: 2 },
+    { x: 800, base: 868, top: 760, wide: 230, layer: 2 },
   ];
   const rr = p.sub('reefs');
-  /** The mounds of a reef in drawing order: the top tier first, the bottom tier in front. */
-  const build = (reef: Reef): Mound[] => {
-    const out: Mound[] = [];
-    const rise = reef.tiers > 1 ? (reef.base - reef.top - 31 * reef.s * 0.8) / (reef.tiers - 1) : 0;
-    let lean = 0;
-    for (let k = reef.tiers - 1; k >= 0; k--) {
-      const f = reef.tiers > 1 ? k / (reef.tiers - 1) : 0;
-      const count = Math.max(1, Math.round(reef.wide + (1 - reef.wide) * f + rr.range(-0.4, 0.4)));
-      const s = reef.s * (1 - 0.22 * f);
-      lean += rr.range(-8, 8) * reef.s;
-      for (let i = 0; i < count; i++) {
-        const off = (i - (count - 1) / 2) * 50 * s * rr.range(0.85, 1.1);
-        out.push({ x: reef.x + off + lean * f + rr.range(-5, 5) * s, y: reef.base - rise * k + rr.range(-3, 3) * s, s: s * rr.range(0.82, 1.14), flip: rr.chance(0.5), pale: rr.range(0.85, 1.05) });
-      }
+  /** Places a reef: the seed whose shape comes nearest the height-to-width wanted, scaled to the height wanted. */
+  const place = (reef: Reef, i: number): Placed => {
+    const want = (reef.base - reef.top) / reef.wide;
+    let best = { seed: 0, miss: Infinity, shape: reefShape(makeRng(0)) };
+    for (let seed = 100 * (i + 1); seed < 100 * (i + 1) + 60; seed++) {
+      const shape = reefShape(makeRng(seed));
+      const miss = Math.abs(Math.log(shape.height / shape.width / want));
+      if (miss < best.miss) best = { seed, miss, shape };
     }
-    return out;
+    return { seed: best.seed, shape: best.shape, x: reef.x, y: reef.base, s: (reef.base - reef.top) / best.shape.height, flip: rr.chance(0.5), pale: rr.range(0.88, 1.04) };
   };
 
-  const SHADE = mix(mix(CREAM, '#8a7a44', 0.6), DEEP, 0.3);
-  const capN = noise2(p.seed + 12, 34, 2);
-  /** The colour of a reef at a point: cream toward the sun, olive shade, living mat on every crown; bleached and salt-crusted above the water. */
-  const reefColor = (group: Mound[]) => (x: number, y: number, r: Rng): string => {
-    for (let i = group.length - 1; i >= 0; i--) {
-      const m = group[i]!;
-      const lx = ((x - m.x) / m.s) * (m.flip ? -1 : 1);
-      const up = (m.y - y) / m.s;
-      if (Math.abs(lx) > 46 || up < -2 || up > 34) continue;
-      for (const [cx, w, h] of MOUNDS) {
-        const dx = lx - cx;
-        const edge = Math.abs(dx) / (w / 2);
-        if (edge > 1.05 || up > h * (1 - edge ** 3.2) + 1.5) continue;
-        const k = clamp(up / h, 0, 1);
-        const side = (dx / (w / 2)) * (m.flip ? -1 : 1); // -1: the left of the dome, toward the sun
-        const lit = clamp(0.42 - side * 0.5 + (k - 0.45) * 0.75, 0, 1);
-        const dry = y < WL;
-        let c = mix(SHADE, mix(CREAM, '#ffffff', dry ? 0.35 : 0), ease(lit) * clamp(m.pale, 0, 1));
-        // Each dome darkens toward its foot, where the next one stands in front of it.
-        c = mix(c, mix(SHADE, DEEP, 0.45), (1 - k) ** 1.6 * 0.6);
-        // Layers.
-        c = mix(c, mix(SHADE, OLIVE_DARK, 0.3), clamp(Math.sin(up * 1.2 + dx * 0.1) * 1.5 - 0.55, 0, 1) * 0.26);
-        // The living crown.
-        const cap = 0.74 + 0.06 * Math.cos((dx / w) * Math.PI * 2) + capN(x, y) * 0.14;
-        if (k > cap) c = dry ? mix(OLIVE_DARK, OLIVE, ease(lit) * 0.5) : mix(OLIVE_DARK, mix(OLIVE, CREAM, 0.12), ease(lit) * 0.8);
-        // The water between us and the reef.
-        if (!dry) c = mix(c, water(x, y), 0.06 + 0.16 * clamp((y - WL) / (H - WL), 0, 1));
-        return vary(c, r, 0.018);
+  const SHADE = mix(mix(CREAM, '#8a7a44', 0.62), DEEP, 0.2);
+  const GAP = mix(mix(SHADE, DEEP, 0.55), OLIVE_DARK, 0.3);
+  /** The colour of a reef at a point: each column cream toward the sun and olive in shade, finely layered, its crown dark with living mat; dark sediment in the gaps; bleached and salt-crusted above the water. */
+  const reefColor = (m: Placed) => (x: number, y: number, r: Rng): string => {
+    const lx = ((x - m.x) / m.s) * (m.flip ? -1 : 1);
+    const up = (m.y - y) / m.s;
+    const cols = m.shape.columns;
+    for (let i = cols.length - 1; i >= 0; i--) {
+      const c = cols[i]!;
+      if (up < c.ub - 1 || up > c.ut + c.cap + 1) continue;
+      let cx = c.xt;
+      let hw: number;
+      let crown = 0;
+      if (up <= c.ut) {
+        const t = clamp((up - c.ub) / Math.max(1, c.ut - c.ub), 0, 1);
+        cx = lerp(c.xb, c.xt, t);
+        hw = halfWidth(c, t);
+      } else {
+        const q = (up - c.ut) / Math.max(0.5, c.cap);
+        if (c.cap <= 0 || q > 1) continue;
+        hw = halfWidth(c, 1) * Math.sqrt(1 - q * q);
+        crown = q;
       }
+      if (Math.abs(lx - cx) > hw + 0.8) continue;
+      const side = clamp((lx - cx) / Math.max(1, hw), -1, 1) * (m.flip ? -1 : 1); // -1: the side toward the sun
+      const k = clamp(up / m.shape.height, 0, 1);
+      const lit = clamp(0.72 - side * 0.62 + (k - 0.45) * 0.4, 0, 1);
+      const dry = y < WL;
+      let col = mix(SHADE, mix(CREAM, '#ffffff', dry ? 0.35 : 0), ease(lit) * clamp(m.pale, 0, 1));
+      // Darker low on each column, where its neighbours crowd it, and low on the reef.
+      const t = clamp((up - c.ub) / Math.max(1, c.ut - c.ub), 0, 1);
+      col = mix(col, mix(SHADE, DEEP, 0.45), (1 - t) ** 2 * 0.3 + (1 - k) ** 2 * 0.25);
+      // The seams between columns: each column rounds away into shadow at its edges.
+      col = mix(col, mix(SHADE, OLIVE_DARK, 0.45), clamp((Math.abs(side) - 0.8) / 0.2, 0, 1) ** 1.5 * (side > 0 ? 0.6 : 0.3));
+      // Layers, arched upward across the column.
+      const arch = up - halfWidth(c, t) * 0.35 * (1 - side * side);
+      col = mix(col, mix(SHADE, OLIVE_DARK, 0.3), clamp(Math.sin(arch * 2.2) * 1.5 - 0.55, 0, 1) * 0.15);
+      // The living crown.
+      if (crown > (c.front ? 0.45 : 0.18)) col = dry ? mix(OLIVE_DARK, OLIVE, ease(lit) * 0.5) : mix(OLIVE_DARK, mix(OLIVE, CREAM, 0.12), ease(lit) * 0.8);
+      // The water between us and the reef.
+      if (!dry) col = mix(col, water(x, y), 0.05 + 0.1 * clamp((y - WL) / (H - WL), 0, 1));
+      return vary(col, r, 0.018);
     }
-    return vary(SHADE, r, 0.03);
+    return vary(y < WL ? mix(GAP, SALT_SHADE, 0.3) : GAP, r, 0.03);
   };
-  /** The part's own three colours, mapped onto the picture's: mat, body, layers. */
-  const reefTone = (hex: string) => (lum(hex) < 0.45 ? mix(SHADE, OLIVE_DARK, 0.5) : lum(hex) > 0.6 ? mix(SHADE, OLIVE_DARK, 0.25) : mix(SHADE, CREAM, 0.55));
+  /** The part's own colours, mapped onto the picture's: gaps and mat dark, body and layers pale. */
+  const reefTone = (hex: string) => (lum(hex) < 0.3 ? GAP : lum(hex) < 0.45 ? mix(SHADE, OLIVE_DARK, 0.2) : lum(hex) > 0.6 ? mix(SHADE, CREAM, 0.4) : mix(SHADE, CREAM, 0.55));
   const sunlight = mix(CREAM, '#ffffff', 0.6);
-  const paintReef = (group: Mound[], seed: string) => {
-    const s = Math.max(...group.map((m) => m.s));
-    return p.painted(group.map((m) => figure('stromatolite', CHAPTER, { x: m.x, y: m.y, scale: m.s, flip: m.flip, tone: reefTone, detail: m.s > 1.4, lightFrom: 'left' })).join(''), {
-      seed,
-      color: reefColor(group),
+  const paintReef = (m: Placed, label: string) => {
+    const s = m.s;
+    return p.painted(figure('stromatolite-reef', CHAPTER, { x: m.x, y: m.y, scale: s, flip: m.flip, seed: m.seed, tone: reefTone, detail: s > 1.4, lightFrom: 'left' }), {
+      seed: label,
+      color: reefColor(m),
       density: s > 2.4 ? 3.4 : 2,
       flow: 0,
       wander: 16,
       bend: 0.16,
-      len: [Math.max(3, 1.3 * s), Math.max(5, 3 * s)],
-      width: [Math.max(1.6, 0.8 * s), Math.max(2.6, 1.6 * s)],
+      len: [Math.max(3, 1.4 * s), Math.max(5, 3.2 * s)],
+      width: [Math.max(1.6, 0.9 * s), Math.max(2.6, 1.9 * s)],
       shape: 'line',
-      edge: { wobble: clamp(0.5 + s * 0.7, 0.6, 3.4), size: clamp(18 * s, 12, 80), bristle: clamp(0.3 + s * 0.22, 0.3, 1.1), soft: clamp(0.25 + s * 0.1, 0.3, 0.7) },
+      edge: { wobble: clamp(0.5 + s * 0.5, 0.6, 2.6), size: clamp(14 * s, 12, 60), bristle: clamp(0.3 + s * 0.2, 0.3, 1), soft: clamp(0.25 + s * 0.08, 0.3, 0.6) },
       air: { color: field, width: clamp(0.9 * s, 0.8, 3.5), strength: 0.24 },
-      light: { toLight: TO_LIGHT, color: sunlight, width: clamp(1.2 * s, 1, 5.5), strength: 0.6, broken: 0.35, turn: 0.3 },
+      light: { toLight: TO_LIGHT, color: sunlight, width: clamp(1.1 * s, 1, 5), strength: 0.6, broken: 0.35, turn: 0.3 },
     });
   };
   /** A veil of water over everything already painted below the waterline: distance. */
   const veil = (opacity: number) => path(`M-140,${WL}H${W + 140}V${H + 140}H-140Z`, p.linear([[0, mix(SHALLOW, TEAL, 0.5), opacity], [0.5, mix(TEAL, DEEP, 0.45), opacity], [1, DEEP, opacity * 0.5]], 0, WL, 0, H));
+  const placed = REEFS.map(place);
   for (const layer of [0, 1, 2]) {
     REEFS.forEach((reef, i) => {
-      if (reef.layer === layer) p.add(paintReef(build(reef), `reef${i}`));
+      if (reef.layer === layer) p.add(paintReef(placed[i]!, `reef${i}`));
     });
     if (layer === 0) p.add(veil(0.6));
     if (layer === 1) p.add(veil(0.24));

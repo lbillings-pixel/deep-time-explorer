@@ -4,7 +4,7 @@
 // The whitelist decides which plants and animals a scene may show, where and when.
 // A part is never drawn outside the scenes and chapters listed for it.
 // The entries are in one file per group, beside this one; this file gathers those the scenes may draw.
-// The painting-only groups (./people.ts, ./domesticates.ts) and Titanis are left out so that the scene
+// The painting-only groups (./people.ts, ./domesticates.ts), Titanis and the stromatolite reef are left out so that the scene
 // script does not carry them; ../all-parts.ts adds them back for the painting tools, the workbench and the tests.
 
 import type { PartCaveat, Permit } from '../permit';

@@ -16,7 +16,7 @@ import { H, Painting, type Pt, W, duotone, figure, groundPlane, noise1, noise2, 
 const CHAPTER = 'Precambrian';
 
 // ---- the palette ------------------------------------------------------------------------------
-const ZENITH = '#1f4788'; // the high tropical sky
+const ZENITH = '#1a3f84'; // the high tropical sky
 const AIR = '#bcd3df'; // the sky at the horizon, and the haze
 const SNOW = '#f1f3ee'; // clean ice in the sun
 const ICE = '#8fb6cf'; // blue ice, and ice in shadow
@@ -60,7 +60,8 @@ export function paint(): string {
   /** The sky: deep blue overhead, pale at the horizon; dark and brown under the ash. */
   const sky = (x: number, y: number): string => {
     const t = clamp(y / HZ, 0, 1);
-    let c = ramp(t, [[0, ZENITH], [0.45, mix(ZENITH, AIR, 0.38)], [0.82, mix(ZENITH, AIR, 0.8)], [1, mix(AIR, WARM, 0.12)]]);
+    // Cold, dry air: a deep blue that pales only close to the horizon.
+    let c = ramp(t, [[0, ZENITH], [0.5, mix(ZENITH, AIR, 0.28)], [0.85, mix(ZENITH, AIR, 0.68)], [1, mix(AIR, WARM, 0.1)]]);
     c = mix(c, mix(ASH, GRIT, 0.3), veil(x, y) * 0.42 * (1 - 0.35 * t));
     return c;
   };
@@ -333,18 +334,84 @@ export function paint(): string {
   // Steam where the heat meets the ice, at the cone's foot: low and white.
   p.add(p.puffs({ seed: 'steam', spine: [[VX - 230, HZ - 4, 18], [VX - 180, HZ - 24, 28], [VX - 150, HZ - 56, 34], [VX - 164, HZ - 96, 32]], count: 54, dark: mix(ICE, GRIT, 0.3), mid: mix(AIR, SNOW, 0.5), light: SNOW, toLight: [-0.6, -0.8], lightOpacity: 0.6, soft: 5 }));
 
-  // The nearer range, on the right: bare, brown and hard-lit.
-  const nearN = noise1(p.seed + 12, 150, 4);
-  const nearTop = (x: number) => HZ + 12 - ease((x - 1130) / 420) ** 0.9 * (128 + 150 * Math.abs(nearN(x)) + 40 * clamp((x - 1300) / 300, 0, 1));
+  // The nearer range, on the right: bare, brown and hard-lit. A few summits with hollowed flanks, and spurs and gullies
+  // running down and out from each, so the light falls on planes: lit on the faces turned to the sun on the left,
+  // cool shadow on the others, a skirt of scree along the foot.
+  const PEAKS: [number, number, number][] = [
+    // [x, height above the foot, half-width]
+    [1226, 88, 120],
+    [1318, 142, 190],
+    [1404, 172, 150],
+    [1500, 214, 230],
+    [1596, 268, 210],
+    [1720, 232, 260],
+  ];
   const nearBase = (x: number) => HZ + 12 + 12 * clamp((x - 1130) / 470, 0, 1);
+  const tent = ([px, h, w]: [number, number, number], x: number) => h * clamp(1 - Math.abs(x - px) / w, 0, 1) ** 1.25;
+  const crestN = noise1(p.seed + 30, 30, 3);
+  /** The body of the range, which the summits stand on: the cols between them stay high. */
+  const body = (x: number) => 120 * ease((x - 1140) / 360) * clamp(1 - (x - 1500) / 900, 0, 1);
+  const lift = (x: number) => Math.max(body(x), ...PEAKS.map((pk) => tent(pk, x)));
+  const nearTop = (x: number) => {
+    const l = lift(x);
+    return nearBase(x) - l - (4 + 6 * crestN(x)) * clamp(l / 40, 0, 1);
+  };
+  /** How much each summit slants its main ridge as it comes down toward us: picture units sideways per unit down. */
+  const LEAN = [-0.3, 0.35, -0.15, 0.4, -0.2, 0.25];
+  /** Each summit as a wedge: a main ridge running down from it, a face falling away on either side. */
+  const wedge = (i: number, x: number, y: number) => {
+    const [px, h] = PEAKS[i]!;
+    const sy = nearBase(px) - h;
+    return 1.3 * h - 0.95 * Math.abs(x - px - LEAN[i]! * Math.max(0, y - sy));
+  };
+  /** The summit a point falls from: the wedge that stands out furthest there. */
+  const owner = (x: number, y: number) => PEAKS.reduce((best, _pk, i) => (wedge(i, x, y) > wedge(best, x, y) ? i : best), 0);
+  const spurN = noise1(p.seed + 31, 0.24, 3);
+  const bendN = noise1(p.seed + 32, 90, 2);
+  /** How far a point stands out toward us: the wedge of its summit, plus smaller spurs that fan out and down from the summit. */
+  const relief = (x: number, y: number): number => {
+    const i = owner(x, y);
+    const [px, h] = PEAKS[i]!;
+    const sy = nearBase(px) - h;
+    const dist = Math.hypot(x - px, y - sy);
+    const angle = Math.atan2(x - px, Math.max(1, y - sy)) + 0.12 * bendN(dist + px);
+    const spur = 1 - Math.abs(spurN(angle + px * 0.01));
+    return wedge(i, x, y) + 40 * spur ** 2 * clamp(dist / 60, 0, 1);
+  };
+  const LIGHT: [number, number, number] = [-0.66, -0.42, 0.62];
+  const bedN = noise2(p.seed + 33, 40, 2);
+  /** Bare rock lit by the plane it lies on; scree along the foot; a little air. */
+  const mountain = (x: number, y: number): string => {
+    const gx = (relief(x + 3, y) - relief(x - 3, y)) / 6;
+    const gy = (relief(x, y + 3) - relief(x, y - 3)) / 6;
+    const len = Math.hypot(gx, gy, 1);
+    const lambert = (-gx * LIGHT[0] - gy * LIGHT[1] + LIGHT[2]) / len;
+    const lit = ease(clamp(lambert * 1.8 - 0.42, 0, 1));
+    const sun = mix(mix(ROCK, WARM, 0.2), ROCK, clamp((y - nearTop(x)) / 220, 0, 1) * 0.5);
+    const shade = mix(UMBER, ZENITH, 0.2);
+    let c = mix(shade, sun, lit);
+    // Faint beds dipping to the right.
+    c = mix(c, mix(c, UMBER, 0.5), clamp(Math.sin((y - x * 0.32) / 7 + bedN(x, y) * 3) * 2 - 1.2, 0, 1) * 0.3);
+    // The scree at the foot: paler, duller, and lit more evenly.
+    const scree = clamp(1 - (nearBase(x) - y) / 34, 0, 1) ** 1.5;
+    c = mix(c, mix(mix(GRIT, ROCK, 0.4), mix(UMBER, GRIT, 0.4), 1 - lit * 0.7), scree * 0.7);
+    return mix(c, AIR, 0.08);
+  };
+  /** Strokes run down the fall line, out from the summit above. */
+  const fall = (x: number, y: number) => {
+    const [px, h] = PEAKS[owner(x, y)]!;
+    return (Math.atan2(y - (nearBase(px) - h), x - px) * 180) / Math.PI;
+  };
+  const inRange = (x: number, y: number) => y > nearTop(x) + 3 && y < nearBase(x) - 1;
   p.add(
     p.rim(
       p.rough(
-        path(under(nearTop, 1120, W + 140, 10, nearBase), UMBER) +
-          p.strokes({ seed: 'near', count: 3600, box: [1120, HZ - 300, W - 1060, 330], where: (x, y) => y > nearTop(x) + 4 && y < nearBase(x) - 1, flow: (x, y) => (faceN((x + (y - HZ) * 0.75) / 58, y / 120 + x / 500) > -0.08 ? 118 : 60), wander: 10, color: (x, y, r) => vary(rock(x, y, nearTop(x), 0.1), r, 0.035), len: [16, 46], width: [6, 13], opacity: [0.6, 0.95] }),
-        { wobble: 2.5, size: 36, bristle: 1.5, seed: 9 },
+        path(under(nearTop, 1120, W + 140, 6, nearBase), mix(ROCK, UMBER, 0.55)) +
+          p.strokes({ seed: 'near', count: 5200, box: [1120, HZ - 300, W - 1060, 330], where: inRange, flow: fall, wander: 8, color: (x, y, r) => vary(mountain(x, y), r, 0.03), len: [14, 40], width: [5, 11], opacity: [0.65, 0.95] }) +
+          p.strokes({ seed: 'near-fine', count: 2600, box: [1120, HZ - 300, W - 1060, 330], where: inRange, flow: fall, wander: 5, color: (x, y, r) => vary(mountain(x, y), r, 0.02), len: [8, 20], width: [3, 6], opacity: [0.6, 0.9] }),
+        { wobble: 1.6, size: 30, bristle: 1.2, seed: 9 },
       ),
-      { toLight: [-0.6, -1], color: mix(WARM, SNOW, 0.3), width: 2.5, soft: 0.9, strength: 0.8, broken: 0.4 },
+      { toLight: [-0.6, -1], color: mix(WARM, SNOW, 0.3), width: 2.2, soft: 0.9, strength: 0.7, broken: 0.45 },
     ),
   );
 

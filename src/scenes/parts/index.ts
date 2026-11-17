@@ -1,5 +1,5 @@
 // Every part the scenes may draw, from every group file. The parts made only for the painted pictures
-// (./people.ts, ./domesticates.ts, Titanis) are left out so that the scene script does not carry them;
+// (./people.ts, ./domesticates.ts, Titanis, ./stromatolite-reef.ts) are left out so that the scene script does not carry them;
 // ../all-parts.ts adds them back for the painting tools, the workbench and the tests.
 
 import type { PartDef } from '../part';

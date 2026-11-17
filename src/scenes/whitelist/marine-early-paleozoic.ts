@@ -304,3 +304,24 @@ export const PERMITS: Permit[] = [
     basis: 'Two-lobed furrows with scratch marks, ploughed by trilobites feeding in sand; very common in Cambrian and Ordovician sandstones.',
   },
 ];
+
+/** Drawn only in the painted pictures, never in a chapter scene. The drawing is in ../parts/stromatolite-reef.ts. */
+export const PAINTING_PERMITS: Permit[] = [
+  {
+    id: 'stromatolite-reef',
+    name: 'Stromatolite reef',
+    group: 'microbe',
+    scenes: [],
+    paintingsOnly: true,
+    chapters: ['Precambrian'],
+    matches: [],
+    basis: 'Mounds built of crowded, branching columns of stromatolite are found in Proterozoic carbonate rocks around the world. Drawn only in the painting of the Lomagundi-Jatuli excursion.',
+  },
+];
+
+export const PAINTING_CAVEATS: PartCaveat[] = [
+  {
+    parts: ['stromatolite-reef'],
+    text: 'The reef is drawn as a mound of branching columns, a common form of stromatolite reef in rocks of this age. Its size, the width and spacing of its columns and the way they branch are generalized, not taken from any one outcrop.',
+  },
+];
