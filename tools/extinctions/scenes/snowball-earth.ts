@@ -339,12 +339,12 @@ export function paint(): string {
   // cool shadow on the others, a skirt of scree along the foot.
   const PEAKS: [number, number, number][] = [
     // [x, height above the foot, half-width]
-    [1226, 88, 120],
-    [1318, 142, 190],
-    [1404, 172, 150],
-    [1500, 214, 230],
-    [1596, 268, 210],
-    [1720, 232, 260],
+    [1220, 96, 120],
+    [1286, 150, 170],
+    [1398, 126, 150],
+    [1458, 222, 230],
+    [1602, 268, 210],
+    [1704, 204, 260],
   ];
   const nearBase = (x: number) => HZ + 12 + 12 * clamp((x - 1130) / 470, 0, 1);
   const tent = ([px, h, w]: [number, number, number], x: number) => h * clamp(1 - Math.abs(x - px) / w, 0, 1) ** 1.25;

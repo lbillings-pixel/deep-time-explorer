@@ -315,13 +315,13 @@ export const PAINTING_PERMITS: Permit[] = [
     paintingsOnly: true,
     chapters: ['Precambrian'],
     matches: [],
-    basis: 'Mounds built of crowded, branching columns of stromatolite are found in Proterozoic carbonate rocks around the world. Drawn only in the painting of the Lomagundi-Jatuli excursion.',
+    basis: 'Mounds built of crowded, branching columns of stromatolite are known from Proterozoic carbonate rocks. Drawn only in the painting of the Lomagundi-Jatuli excursion.',
   },
 ];
 
 export const PAINTING_CAVEATS: PartCaveat[] = [
   {
     parts: ['stromatolite-reef'],
-    text: 'The reef is drawn as a mound of branching columns, a common form of stromatolite reef in rocks of this age. Its size, the width and spacing of its columns and the way they branch are generalized, not taken from any one outcrop.',
+    text: 'The reef is drawn as a mound of branching columns, one of the forms stromatolites took in the Proterozoic. Its size, the width and spacing of its columns and the way they branch are generalized, not taken from any one outcrop.',
   },
 ];

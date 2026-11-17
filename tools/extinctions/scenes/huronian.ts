@@ -277,7 +277,7 @@ export function paint(): string {
       const k = clamp((y - top) / Math.max(8, b.wl - top), 0, 1);
       const xa = clamp(x - 14 * b.k, x0 + 1, x1 - 1);
       const xb = clamp(x + 14 * b.k, x0 + 1, x1 - 1);
-      // The light is the whiter sky low on the right: a slope that falls to the right is lit, one that falls to the left is in shadow.
+      // The light comes from low on the right: a slope that falls to the right is lit, one that falls to the left is in shadow.
       const lit = clamp(0.5 + (((topOf(b.poly, xb) ?? top) - (topOf(b.poly, xa) ?? top)) / Math.max(1, xb - xa)) * 1.3, 0, 1);
       const f = bergFace(x / (38 * b.k) + 7, y / (150 * b.k));
       const facing = clamp(f * 2.6 + 0.1 + 0.5 * lit, 0, 1);

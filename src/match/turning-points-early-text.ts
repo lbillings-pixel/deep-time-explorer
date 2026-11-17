@@ -57,7 +57,7 @@ export const TEXT: Record<string, EventText> = {
     pictureCaveats: [
       "The crowded lagoon overstates what the evidence proves. The chemical signal may record coastal waters only, not a flourishing of life across the world.",
       "The view above and below the water at once is the painter's device, and so is the mud shown as one clean black layer.",
-      "The reefs are drawn as mounds of branching columns, a common form of stromatolite in rocks of this age. Their shapes are not taken from any outcrop, and the colors of the reefs, the mats and the water are convention.",
+      "The reefs are drawn as mounds of branching columns, one of the forms stromatolites took in the Proterozoic. Their shapes are not taken from any outcrop of this age, and the colors of the reefs, the mats and the water are convention.",
       "The red hills are a general picture of red rock. They are not the setting of the salt beds of Karelia, which date from about the end of this time.",
     ],
     vetted: false,
@@ -87,7 +87,7 @@ export const TEXT: Record<string, EventText> = {
     pictureCaveats: [
       "Fire and ice share one view. The floods of lava erupted at about the same time in what is now South Africa, and nothing shows that they met a front of ice like this one.",
       "The wall of ice running to the horizon suggests a wholly white planet. That is inferred for one of these ice ages only.",
-      "The clear, deep blue sky is the painter's choice. Cold air holds little water vapor, and so less of the moist haze that pales the sky today, but the rocks record nothing of the weather.",
+      "The clear, deep blue sky is the painter's choice. Cold air holds less water vapor, which may have meant less of the moist haze that pales a sky, but nothing in the rocks records the weather.",
       "The shapes of the cliffs and icebergs, and the stone caught as it falls, are borrowed from glaciers of today. The rocks record only the stones lying in layered mud.",
     ],
     vetted: false,
