@@ -23,7 +23,7 @@ import { type ChapterResult, type RockUnit, TIER_LABEL, type Tier } from './matc
 import { mountainCaveats, wornDown } from './match/mountain-caveats';
 import { ENV_LABEL, readLiths } from './match/taxonomy';
 import { KIND_LABEL, REGION_CAVEAT, type TectonicEvent, type TectonicText, chapterOf } from './match/tectonics';
-import { type Place, parseCoordinates, searchOnline, searchShipped } from './places';
+import { type Place, parseCoordinates, randomShipped, searchOnline, searchShipped } from './places';
 import { sceneParams } from './scenes/inputs';
 import { showFullScreen } from './fullscreen';
 import { onSetting, openSettings, setSetting, settings } from './settings';
@@ -902,6 +902,18 @@ pickButton.addEventListener('click', async () => {
   } catch {
     pickerMaps = undefined;
     statusBox.textContent = 'The globe could not be loaded. You can still enter a latitude and longitude, such as 64.13, -21.9.';
+  }
+});
+
+// Any town of 5,000 people or more, from the list shipped with the site.
+document.querySelector('#random')!.addEventListener('click', async () => {
+  closePicker();
+  choices.replaceChildren();
+  statusBox.textContent = 'Choosing a place…';
+  try {
+    void show(await randomShipped(browserRead));
+  } catch {
+    statusBox.textContent = 'The place list could not be loaded. You can still enter a latitude and longitude, such as 64.13, -21.9.';
   }
 });
 

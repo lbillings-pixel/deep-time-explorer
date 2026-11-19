@@ -24,22 +24,34 @@ export function parseCoordinates(text: string): Place | null {
   return { label: `${lat}, ${lng}`, lat, lng };
 }
 
-/** Up to eight places from the shipped list whose name starts with the query, best known first. */
-export async function searchShipped(read: ReadData, query: string): Promise<Place[]> {
+function loadShipped(read: ReadData): Promise<PlaceRow[]> {
   if (!shipped) {
     shipped = readJson<{ places: PlaceRow[] }>(read, 'places.json.gz').then((f) => f.places);
     // A failed download is forgotten, so that the next search tries again.
     shipped.catch(() => (shipped = undefined));
   }
+  return shipped;
+}
+
+const toPlace = ([name, , region, country, lat, lng]: PlaceRow): Place => ({ label: [name, region, country].filter(Boolean).join(', '), lat, lng });
+
+/** Up to eight places from the shipped list whose name starts with the query, best known first. */
+export async function searchShipped(read: ReadData, query: string): Promise<Place[]> {
   const q = fold(query);
   const out: Place[] = [];
-  for (const [name, ascii, region, country, lat, lng] of await shipped) {
-    if (fold(name).startsWith(q) || fold(ascii).startsWith(q)) {
-      out.push({ label: [name, region, country].filter(Boolean).join(', '), lat, lng });
+  for (const row of await loadShipped(read)) {
+    if (fold(row[0]).startsWith(q) || fold(row[1]).startsWith(q)) {
+      out.push(toPlace(row));
       if (out.length === 8) break;
     }
   }
   return out;
+}
+
+/** Any one town from the shipped list, every town equally likely: always on land, and always with a name. */
+export async function randomShipped(read: ReadData, random: () => number = Math.random): Promise<Place> {
+  const rows = await loadShipped(read);
+  return toPlace(rows[Math.floor(random() * rows.length)]!);
 }
 
 interface OpenMeteoResult {

@@ -103,6 +103,7 @@ button {
 
 #locate,
 #pick,
+#random,
 .choices button {
   background: var(--card);
   color: var(--accent);
