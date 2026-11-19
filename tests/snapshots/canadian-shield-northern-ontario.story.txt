@@ -43,4 +43,4 @@ Cambrian | Land, setting unknown | neutral | north-america
   Drawn (* = recorded nearby): landcrust
 Precambrian | Open shelf sea | neutral | north-america
   No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Unnamed, Unnamed ultrabasics and Unnamed sediments and 1 more).
-  Drawn (* = recorded nearby): stromatolite, seamat
+  Drawn (* = recorded nearby): stromatolite-wavy, seamat, stromatolite

@@ -15,6 +15,7 @@ import { PARTS as landQuaternary } from './land-quaternary';
 import { PARTS as landSouthern } from './land-southern';
 import { PARTS as landSmall } from './land-small';
 import { PARTS as marineEarlyPaleozoic } from './marine-early-paleozoic';
+import { PARTS as stromatoliteForms } from './stromatolite-forms';
 import { PARTS as marineLatePaleozoic } from './marine-late-paleozoic';
 import { PARTS as fishPaleozoic } from './fish-paleozoic';
 import { PARTS as marineMesozoic } from './marine-mesozoic';
@@ -36,6 +37,7 @@ export const PARTS: Record<string, PartDef> = {
   ...landSouthern,
   ...landSmall,
   ...marineEarlyPaleozoic,
+  ...stromatoliteForms,
   ...marineLatePaleozoic,
   ...fishPaleozoic,
   ...marineMesozoic,

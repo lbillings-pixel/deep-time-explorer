@@ -43,4 +43,4 @@ Cambrian | Open shelf sea | neutral | north-america | water 0.80
   Drawn (* = recorded nearby): anomalocaris, agnostid, conodont, marrella, glasssponge, eocrinoid, stromatolite, trilobite*, spinytrilobite, cruziana, burrows, sponge, seamat
 Precambrian | Warm shallow sea | neutral | north-america
   Rock of this age is recorded here (Granite, granitic pegmatite, and aplite and Early Proterozoic metavolcanic rocks), and 22 fossil sites of this age lie within 25 km. Fossils of this age found within 25 km include Leiosphaeridia, Microlepidopalla, Lanulatisphaera and Culcitulisphaera.
-  Drawn (* = recorded nearby): stromatolite, seamat
+  Drawn (* = recorded nearby): stromatolite-cone, stromatolite, stromatolite-wavy, seamat
