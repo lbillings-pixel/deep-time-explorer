@@ -25,7 +25,7 @@ Permian | Land, setting unknown | neutral | antarctica
   Drawn (* = recorded nearby): voltzia, dicynodont, hylonomus, trigonotarbid, walchia, glossopteris, cordaites, treefern, mosscushion, fern, palaeodictyopteran
 Late Carboniferous | Deep water (basin or slope) | neutral | antarctica
   No rock of this age is recorded here. Broad maps of the ancient world show deep sea in this area, and the picture rests on that alone. At the time, this spot lay about 77° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): stethacanthus, palaeoniscoid, goniatite, glasssponge, trilobite, conulariid
+  Drawn (* = recorded nearby): stethacanthus, palaeoniscoid, goniatite, glasssponge, trilobite, conulariid, clam, seasnail, burrows
 Early Carboniferous | Land, setting unknown | neutral | antarctica
   No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 66° south of the equator. Positions this old are uncertain.
   Drawn (* = recorded nearby): lepidodendron, trigonotarbid, fern

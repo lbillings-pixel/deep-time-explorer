@@ -10,10 +10,10 @@ Paleogene | Warm shallow sea | neutral | india
   Drawn (* = recorded nearby): seabird, pelagornis, seacow, basilosaurus, fishschool, seaturtle, seafan, oysterbank, stonycoral, tablecoral, crab, seaurchin, seaweed, horseshoecrab, seastar
 Late Cretaceous | Open shelf sea | neutral | india | water 0.84
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 29° south of the equator.
-  Drawn (* = recorded nearby): plesiosaur, mosasaur, fishschool, heteromorph, nautiloid, jellyfish, seaturtle, isocrinid, glasssponge, oysterbank, crab, horseshoecrab, seafan, seapen
+  Drawn (* = recorded nearby): plesiosaur, mosasaur, fishschool, heteromorph, nautiloid, jellyfish, seaturtle, isocrinid, glasssponge, oysterbank, crab, horseshoecrab, brittlestar, burrows, seafan, seapen
 Early Cretaceous | Open shelf sea | neutral | india | water 0.64
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 40° south of the equator.
-  Drawn (* = recorded nearby): plesiosaur, marinecroc, seaturtle, lepidotes, nautiloid, coelacanth, heteromorph, isocrinid, glasssponge, oysterbank, crab, horseshoecrab
+  Drawn (* = recorded nearby): plesiosaur, marinecroc, seaturtle, lepidotes, nautiloid, coelacanth, heteromorph, isocrinid, glasssponge, oysterbank, crab, horseshoecrab, brittlestar, burrows
 Jurassic | Land, setting unknown | neutral | india
   No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 26° south of the equator.
   Drawn (* = recorded nearby): araucaria, stegosaur, allosaur, lizard, millipede, ginkgo, cycad, bennettite, cheirolepid, mesotreefern, clubmoss, fern, mosscushion, rhamphorhynchus
@@ -31,13 +31,13 @@ Early Carboniferous | Land, setting unknown | neutral | india
   Drawn (* = recorded nearby): lepidodendron, trigonotarbid, fern
 Devonian | Open shelf sea | neutral | india | water 0.42
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 44° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): stethacanthus, orthocone, bothriolepis, jellyfish, coelacanth, acanthodian, graptolite, lacebryozoan, blastoid, tabulate, eurypterid, trilobite, cruziana, crinoid, glasssponge, colonialrugose
+  Drawn (* = recorded nearby): stethacanthus, orthocone, bothriolepis, jellyfish, coelacanth, acanthodian, graptolite, lacebryozoan, blastoid, tabulate, eurypterid, trilobite, cruziana, clam, crinoid, glasssponge, colonialrugose
 Silurian | Open shelf sea | neutral | india | water 0.33
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 32° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): orthocone, pterygotus, graptolite, acanthodian, thelodont, jellyfish, jawlessfish, glasssponge, crinoid, tabulate, eurypterid, trilobite, cruziana
+  Drawn (* = recorded nearby): orthocone, pterygotus, graptolite, acanthodian, thelodont, jellyfish, jawlessfish, glasssponge, crinoid, tabulate, eurypterid, trilobite, cruziana, seastar
 Ordovician | Open shelf sea | neutral | india | water 0.60
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 20° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): orthocone, conodont, jellyfish, graptolite, agnostid, eocrinoid, glasssponge, tabulate, eurypterid, trilobite, cruziana, crinoid
+  Drawn (* = recorded nearby): orthocone, conodont, jellyfish, graptolite, agnostid, eocrinoid, glasssponge, tabulate, eurypterid, trilobite, cruziana, seastar, crinoid
 Cambrian | Open shelf sea | neutral | india | water 0.64
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 11° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): anomalocaris, conodont, jellyfish, agnostid, marrella, glasssponge, eocrinoid, stromatolite, spinytrilobite, trilobite, cruziana
+  Drawn (* = recorded nearby): anomalocaris, conodont, jellyfish, agnostid, marrella, glasssponge, eocrinoid, stromatolite, spinytrilobite, trilobite, cruziana, sponge

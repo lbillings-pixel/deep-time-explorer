@@ -25,7 +25,7 @@ Permian | Lake | neutral | south-america
   Drawn (* = recorded nearby): glossopteris*, calamites, fern, sphenophyllum, horsetail, cordaites*, voltzia, pareiasaur, track5, waterweed, coelacanth, lungfish, mesosaurus, lobefin, mussel, hylonomus, amphibian, trigonotarbid, mayfly, palaeodictyopteran
 Late Carboniferous | Open shelf sea | neutral | south-america
   No rock of this age is confirmed at this exact spot. The setting comes from 4 fossil sites 25 to 100 km away. At the time, this spot lay about 52° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Narkemina (an insect), Irajanarkemina (an insect), Proedischia (an insect) and Pintopinna (an insect).
-  Drawn (* = recorded nearby): stethacanthus, coelacanth, palaeoniscoid, acanthodian, nautiloid, goniatite, glasssponge, archimedes, tabulate, trilobite, horseshoecrab, lacebryozoan, brachiopod, seastar, blastoid, crinoid, colonialrugose
+  Drawn (* = recorded nearby): stethacanthus, coelacanth, palaeoniscoid, acanthodian, nautiloid, goniatite, glasssponge, archimedes, tabulate, trilobite, horseshoecrab, lacebryozoan, brachiopod, seastar, productid, blastoid, crinoid, colonialrugose
 Early Carboniferous | Land, setting unknown | neutral | south-america
   No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 65° south of the equator. Positions this old are uncertain.
   Drawn (* = recorded nearby): lepidodendron, arthropleura, fern

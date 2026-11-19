@@ -7,16 +7,16 @@ Neogene | Shoreline | neutral | europe
   Drawn (* = recorded nearby): pine, palm, grass, shrub, reed, seaweed, barnacles, seasnail, seastar, seagrass, clam, horseshoecrab, crab, seal, oysterbank, lizard, seabird
 Paleogene | Open shelf sea | neutral | europe | water 0.15
   Rock of this age is recorded here (Eocene claystone and Cenozoic sedimentary rocks), and 56 fossil sites of this age lie within 25 km. At the time, this spot lay about 48° north of the equator. Fossils of this age found within 25 km include Eutrephoceras (a nautilus relative), Euciphoceras, Carcharias (a shark) and Otodus (a shark).
-  Drawn (* = recorded nearby): shark*, tuna*, nautiloid*, ray*, seaturtle, fishschool, seapen*, isocrinid*, oysterbank*, lobster*, crab*, burrows*, seasnail*, seafan, glasssponge
+  Drawn (* = recorded nearby): shark*, tuna*, nautiloid*, ray*, seaturtle, fishschool, seapen*, isocrinid*, oysterbank*, lobster*, crab*, burrows*, seasnail*, seastar*, clam*, seafan, glasssponge
 Late Cretaceous | Open shelf sea | neutral | europe | water 0.10
   16 fossil sites of this age lie within 25 km. At the time, this spot lay about 42° north of the equator. Fossils of this age found within 25 km include Cretirhynchia (a lamp shell), Dercetis, Elasmostoma (a sponge) and Pharetrospongia (a sponge).
-  Drawn (* = recorded nearby): xiphactinus, seaturtle, hesperornis, heteromorph, squid, glasssponge*, seapen, oysterbank, lobster, brittlestar*, brachiopod*, isocrinid, seafan
+  Drawn (* = recorded nearby): xiphactinus, seaturtle, hesperornis, heteromorph, squid, glasssponge*, seapen, oysterbank, lobster, brittlestar*, brachiopod*, seaurchin, isocrinid, seafan
 Early Cretaceous | Warm shallow sea | neutral | europe | water 0.60
   No rock of this age is confirmed at this exact spot. The setting comes from 370 fossil sites 25 to 100 km away. At the time, this spot lay about 41° north of the equator. Fossils of this age found within 100 km include Iguanodon (a plant-eating dinosaur), Cretiscalpellum (a barnacle), Arcuatoscalpellum (a barnacle) and Pycnolepas (a barnacle).
   Drawn (* = recorded nearby): ornithocheirid, ammonite, hybodont, fishschool, seaturtle, oysterbank, stonycoral, clam, sponge, horseshoecrab, seaweed
 Jurassic | Open shelf sea | neutral | europe | water 0.10
   No rock of this age is confirmed at this exact spot. The setting comes from 213 fossil sites 25 to 100 km away. At the time, this spot lay about 40° north of the equator. Fossils of this age found within 100 km include Modiolus (a clam or other bivalve), Protocardia (a clam or other bivalve), Paracidaris (a sea urchin) and Isastrea (a coral).
-  Drawn (* = recorded nearby): leedsichthys, fishschool, belemnite, nautiloid, ammonite, isocrinid, crinoid, oysterbank, horseshoecrab, seaurchin, burrows, glasssponge, spongemound
+  Drawn (* = recorded nearby): leedsichthys, fishschool, belemnite, nautiloid, ammonite, isocrinid, crinoid, oysterbank, horseshoecrab, seaurchin, burrows, sponge, glasssponge, spongemound
 Triassic | Land, setting unknown | neutral | europe
   No rock of this age is confirmed at this exact spot. The setting comes from 2 fossil sites 25 to 100 km away. At the time, this spot lay about 28° north of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Hirmeriella, Equisetites (a fern or horsetail), Classopollis (a conifer pollen grain) and Schizoneura (a fern or horsetail).
   Drawn (* = recorded nearby): voltzia, dicynodont, cynodont, cheirolepid, bennettite, ginkgo, cycad, clubmoss, fern, pleuromeia, mosscushion, rhamphorhynchus
@@ -28,16 +28,16 @@ Late Carboniferous | Land, setting unknown | neutral | europe
   Drawn (* = recorded nearby): lepidodendron, edaphosaurus, hylonomus, walchia, medullosa, cordaites, treefern, fern, mosscushion, palaeodictyopteran
 Early Carboniferous | Open shelf sea | neutral | europe | water 0.50
   No rock of this age is confirmed at this exact spot. The setting comes from 2 fossil sites 25 to 100 km away. At the time, this spot lay about 9° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Isogramma, Euphemites (a snail), Bellerophon (a snail) and Waagenella (a snail).
-  Drawn (* = recorded nearby): cladoselache, conodont, coelacanth, jellyfish, acanthodian, lacebryozoan, glasssponge, colonialrugose, trilobite, clam, bryozoan, crinoid, archimedes, blastoid, tabulate
+  Drawn (* = recorded nearby): cladoselache, conodont, coelacanth, jellyfish, acanthodian, lacebryozoan, glasssponge, colonialrugose, trilobite, clam, bryozoan, sponge, crinoid, archimedes, blastoid, tabulate
 Devonian | Open shelf sea | neutral | europe | water 0.47
   No rock of this age is confirmed at this exact spot. The setting comes from 2 fossil sites 25 to 100 km away. At the time, this spot lay about 26° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Trileites, Biharisporites, Heliosporites and Cystosporites.
-  Drawn (* = recorded nearby): orthocone, acanthodian, jawlessfish, palaeoniscoid, conodont, glasssponge, blastoid, colonialrugose, eurypterid, cruziana, clam, bryozoan, lacebryozoan, crinoid, tabulate
+  Drawn (* = recorded nearby): orthocone, acanthodian, jawlessfish, palaeoniscoid, conodont, glasssponge, blastoid, colonialrugose, eurypterid, cruziana, clam, bryozoan, sponge, lacebryozoan, crinoid, tabulate
 Silurian | Land, setting unknown | neutral | europe
   No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 26° south of the equator. Positions this old are uncertain.
   Drawn (* = recorded nearby): prototaxites, landcrust, liverwortmat, cooksonia
 Ordovician | Open shelf sea | neutral | europe
   No rock of this age is confirmed at this exact spot. The setting comes from 1 fossil site 25 to 100 km away. At the time, this spot lay about 62° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Tretaspis (a trilobite).
-  Drawn (* = recorded nearby): orthocone, graptolite, agnostid, conodont, jellyfish, glasssponge, crinoid, tabulate, eurypterid, cruziana, brittlestar, burrows, eocrinoid
+  Drawn (* = recorded nearby): orthocone, graptolite, agnostid, conodont, jellyfish, glasssponge, crinoid, tabulate, eurypterid, cruziana, brittlestar, burrows, bryozoan, eocrinoid
 Cambrian | Land, setting unknown | neutral | europe
   No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 88° south of the equator. Positions this old are uncertain.
   Drawn (* = recorded nearby): landcrust

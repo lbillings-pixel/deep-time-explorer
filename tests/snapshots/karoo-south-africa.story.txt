@@ -25,7 +25,7 @@ Permian | River plain | neutral | africa
   Drawn (* = recorded nearby): voltzia, glossopteris, gorgonopsian*, dicynodont*, amphibian, track5, walchia, treefern, cordaites, calamites, fern, horsetail, sphenophyllum, palaeodictyopteran
 Late Carboniferous | Open shelf sea | neutral | africa | water 0.93
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 65° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): stethacanthus, goniatite, jellyfish, conodont, archimedes, lacebryozoan, tabulate, trilobite, horseshoecrab, crinoid, seasnail, blastoid, glasssponge, colonialrugose
+  Drawn (* = recorded nearby): stethacanthus, goniatite, jellyfish, conodont, archimedes, lacebryozoan, tabulate, trilobite, horseshoecrab, crinoid, seasnail, burrows, brachiopod, blastoid, glasssponge, colonialrugose
 Early Carboniferous | Shoreline | neutral | africa
   No rock of this age is confirmed at this exact spot. The setting comes from 1 fossil site 25 to 100 km away. At the time, this spot lay about 77° south of the equator. Positions this old are uncertain. Fossils of this age found within 100 km include Cyrtoctenus.
   Drawn (* = recorded nearby): clam, seastar, seaweed, seasnail, burrows
@@ -37,7 +37,7 @@ Silurian | Open shelf sea | neutral | africa | water 0.88
   Drawn (* = recorded nearby): pterygotus, orthocone, graptolite, thelodont, acanthodian, crinoid, glasssponge, tabulate, trilobite, eurypterid, cruziana, seasnail
 Ordovician | Deep water (basin or slope) | neutral | africa
   No rock of this age is recorded here. Broad maps of the ancient world show deep sea in this area, and the picture rests on that alone. At the time, this spot lay about 26° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): orthocone, conodont, agnostid, jellyfish, eocrinoid, trilobite, glasssponge, seastar, brachiopod, seasnail
+  Drawn (* = recorded nearby): orthocone, conodont, agnostid, jellyfish, eocrinoid, trilobite, glasssponge, seastar, brachiopod, seasnail, clam
 Cambrian | Open shelf sea | neutral | africa | water 0.48
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 31° south of the equator. Positions this old are uncertain.
   Drawn (* = recorded nearby): anomalocaris, conodont, marrella, jellyfish, eocrinoid, glasssponge, stromatolite, trilobite, spinytrilobite, cruziana, seamat

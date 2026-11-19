@@ -10,10 +10,10 @@ Paleogene | River plain | neutral | africa
   Drawn (* = recorded nearby): broadleaf, arsinoitherium*, waterlily, magnolia, mesotreefern, palm, cycad, clubmoss, fern, horsetail, wildflowers, reed, shrub, bird*, butterfly
 Late Cretaceous | Open shelf sea | neutral | africa | water 0.80
   No rock of this age is confirmed at this exact spot. The setting comes from 17 fossil sites 25 to 100 km away. At the time, this spot lay about 11° north of the equator. Fossils of this age found within 100 km include Durania (a clam or other bivalve), Anomoeodus (a ray-finned fish), Discorbis (a shelled single-celled organism) and Ceriopora (a moss animal).
-  Drawn (* = recorded nearby): shark, ichthyosaur, ray, seaturtle, ammonite, isocrinid, seapen, oysterbank, lobster, horseshoecrab, seafan, sponge, glasssponge
+  Drawn (* = recorded nearby): shark, ichthyosaur, ray, seaturtle, ammonite, isocrinid, seapen, oysterbank, lobster, horseshoecrab, seafan, sponge, brachiopod, inoceramid, glasssponge
 Early Cretaceous | Open shelf sea | neutral | africa | water 0.60
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 6° north of the equator.
-  Drawn (* = recorded nearby): shark, ichthyosaur, lepidotes, seaturtle, belemnite, isocrinid, glasssponge, oysterbank, lobster, horseshoecrab, sponge
+  Drawn (* = recorded nearby): shark, ichthyosaur, lepidotes, seaturtle, belemnite, isocrinid, glasssponge, oysterbank, lobster, horseshoecrab, sponge, brachiopod, inoceramid
 Jurassic | Land, setting unknown | neutral | africa
   No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 10° north of the equator.
   Drawn (* = recorded nearby): araucaria, stegosaur, earlymammal, mesotreefern, ginkgo, cheirolepid, bennettite, cycad, fern, mosscushion, clubmoss, pterodactyl, rhamphorhynchus
@@ -28,7 +28,7 @@ Late Carboniferous | Land, setting unknown | neutral | africa
   Drawn (* = recorded nearby): lepidodendron, hylonomus, cordaites, walchia, treefern, fern, mosscushion, palaeodictyopteran
 Early Carboniferous | Open shelf sea | neutral | africa | water 0.25
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 36° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): cladoselache, stethacanthus, conodont, nautiloid, goniatite, glasssponge, archimedes, colonialrugose, trilobite, lacebryozoan, brachiopod, crinoid, blastoid, tabulate
+  Drawn (* = recorded nearby): cladoselache, stethacanthus, conodont, nautiloid, goniatite, glasssponge, archimedes, colonialrugose, trilobite, lacebryozoan, brachiopod, bryozoan, clam, crinoid, blastoid, tabulate
 Devonian | Open shelf sea | neutral | africa | water 0.68
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 47° south of the equator. Positions this old are uncertain.
   Drawn (* = recorded nearby): dunkleosteus, orthocone, bothriolepis, jellyfish, jawlessfish, lacebryozoan, glasssponge, colonialrugose, trilobite, eurypterid, cruziana, crinoid, brachiopod, blastoid, tabulate

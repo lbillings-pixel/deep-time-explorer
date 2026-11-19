@@ -25,22 +25,22 @@ Permian | Warm shallow sea | neutral | north-america | water 0.57
   Drawn (* = recorded nearby): hybodont, nautiloid, blastoid, lacebryozoan, archimedes, colonialrugose, phylloidalgae, crinoid, tabulate, spongereef, trilobite*, bryozoan*, productid*, horseshoecrab, clam*
 Late Carboniferous | Open shelf sea | neutral | north-america | water 0.80
   1 fossil site of this age lies within 25 km. At the time, this spot lay about 5° north of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Psephodus (a shark, ray or relative).
-  Drawn (* = recorded nearby): stethacanthus, coelacanth, nautiloid, jellyfish, acanthodian, lacebryozoan, blastoid, tabulate, trilobite, horseshoecrab, sponge, seastar, glasssponge, crinoid, archimedes, colonialrugose
+  Drawn (* = recorded nearby): stethacanthus, coelacanth, nautiloid, jellyfish, acanthodian, lacebryozoan, blastoid, tabulate, trilobite, horseshoecrab, sponge, seastar, bryozoan, glasssponge, crinoid, archimedes, colonialrugose
 Early Carboniferous | Open shelf sea | neutral | north-america | water 0.87
   1 fossil site of this age lies within 25 km. At the time, this spot lay about 2° south of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Psephodus (a shark, ray or relative).
-  Drawn (* = recorded nearby): stethacanthus, cladoselache, coelacanth, nautiloid, jellyfish, acanthodian, lacebryozoan, blastoid, tabulate, trilobite, seasnail, burrows, glasssponge, crinoid, archimedes, colonialrugose
+  Drawn (* = recorded nearby): stethacanthus, cladoselache, coelacanth, nautiloid, jellyfish, acanthodian, lacebryozoan, blastoid, tabulate, trilobite, seasnail, burrows, bryozoan, glasssponge, crinoid, archimedes, colonialrugose
 Devonian | Open shelf sea | neutral | north-america | water 0.80
   No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Temple Butte Limestone). At the time, this spot lay about 26° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): orthocone, pterygotus, acanthodian, coelacanth, bothriolepis, goniatite, blastoid, lacebryozoan, tabulate, trilobite, eurypterid, cruziana, seasnail, burrows, crinoid, glasssponge, colonialrugose
+  Drawn (* = recorded nearby): orthocone, pterygotus, acanthodian, coelacanth, bothriolepis, goniatite, blastoid, lacebryozoan, tabulate, trilobite, eurypterid, cruziana, seasnail, burrows, bryozoan, crinoid, glasssponge, colonialrugose
 Silurian | Open shelf sea | neutral | north-america | water 0.80
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 9° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): pterygotus, orthocone, jawlessfish, thelodont, acanthodian, conodont, glasssponge, crinoid, tabulate, trilobite, eurypterid, cruziana, bryozoan, burrows
+  Drawn (* = recorded nearby): pterygotus, orthocone, jawlessfish, thelodont, acanthodian, conodont, glasssponge, crinoid, tabulate, trilobite, eurypterid, cruziana, bryozoan, burrows, seasnail
 Ordovician | Open shelf sea | neutral | north-america | water 0.80
   No rock of this age is recorded here. Broad maps of the ancient world show a shallow sea in this area, and the picture rests on that alone. At the time, this spot lay about 7° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): orthocone, graptolite, conodont, agnostid, eocrinoid, glasssponge, tabulate, trilobite, eurypterid, cruziana, bryozoan, burrows, crinoid
+  Drawn (* = recorded nearby): orthocone, graptolite, conodont, agnostid, eocrinoid, glasssponge, tabulate, trilobite, eurypterid, cruziana, bryozoan, burrows, seasnail, crinoid
 Cambrian | Open shelf sea | neutral | north-america | water 0.80
   8 fossil sites of this age lie within 25 km. At the time, this spot lay about 2° north of the equator. Positions this old are uncertain. Fossils of this age found within 25 km include Glyphaspis (a trilobite), Kootenia (a trilobite), Bolaspis (a trilobite) and Anoria (a trilobite).
-  Drawn (* = recorded nearby): anomalocaris, agnostid, conodont, marrella, glasssponge, eocrinoid, stromatolite, trilobite*, spinytrilobite, cruziana, burrows, sponge
+  Drawn (* = recorded nearby): anomalocaris, agnostid, conodont, marrella, glasssponge, eocrinoid, stromatolite, trilobite*, spinytrilobite, cruziana, burrows, sponge, seamat
 Precambrian | Warm shallow sea | neutral | north-america
   Rock of this age is recorded here (Granite, granitic pegmatite, and aplite and Early Proterozoic metavolcanic rocks), and 22 fossil sites of this age lie within 25 km. Fossils of this age found within 25 km include Leiosphaeridia, Microlepidopalla, Lanulatisphaera and Culcitulisphaera.
   Drawn (* = recorded nearby): stromatolite, seamat

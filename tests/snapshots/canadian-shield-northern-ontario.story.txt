@@ -31,13 +31,13 @@ Early Carboniferous | Land, setting unknown | neutral | north-america
   Drawn (* = recorded nearby): lepidodendron, medullosa, fern
 Devonian | Open shelf sea | neutral | north-america | water 0.87
   No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Stooping River Formation and Sextant Formation). At the time, this spot lay about 30° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): orthocone, thelodont, palaeoniscoid, jawlessfish, bothriolepis, blastoid, glasssponge, colonialrugose, eurypterid, cruziana, lacebryozoan, seastar, crinoid
+  Drawn (* = recorded nearby): orthocone, thelodont, palaeoniscoid, jawlessfish, bothriolepis, blastoid, glasssponge, colonialrugose, eurypterid, cruziana, lacebryozoan, seastar, brittlestar, crinoid
 Silurian | Open shelf sea | neutral | north-america | water 1.00
   No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Attawapiskat Formation). At the time, this spot lay about 17° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): orthocone, conodont, jawlessfish, jellyfish, thelodont, glasssponge, crinoid, tabulate, eurypterid, cruziana, seastar
+  Drawn (* = recorded nearby): orthocone, conodont, jawlessfish, jellyfish, thelodont, glasssponge, crinoid, tabulate, eurypterid, cruziana, seastar, bryozoan
 Ordovician | Open shelf sea | neutral | north-america | water 0.60
   No rock of this age is confirmed at this exact spot. The setting comes from rock recorded in the region (Churchill River Group). At the time, this spot lay about 19° south of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): orthocone, conodont, graptolite, agnostid, jellyfish, glasssponge, eocrinoid, tabulate, eurypterid, cruziana, crinoid, seastar
+  Drawn (* = recorded nearby): orthocone, conodont, graptolite, agnostid, jellyfish, glasssponge, eocrinoid, tabulate, eurypterid, cruziana, crinoid, seastar, bryozoan
 Cambrian | Land, setting unknown | neutral | north-america
   No rock of this age is recorded here. Broad maps of the ancient world show land in this area, and the picture rests on that alone. At the time, this spot lay about 21° south of the equator. Positions this old are uncertain.
   Drawn (* = recorded nearby): landcrust

@@ -37,7 +37,7 @@ Silurian | Open shelf sea | neutral | australia
   Drawn (* = recorded nearby): orthocone, pterygotus, conodont, jawlessfish, thelodont, acanthodian, glasssponge, crinoid, tabulate, trilobite, eurypterid, cruziana, burrows, brittlestar, brachiopod
 Ordovician | Deep water (basin or slope) | neutral | australia
   No rock of this age is recorded here. Broad maps of the ancient world show deep sea in this area, and the picture rests on that alone. At the time, this spot lay about 19° north of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): orthocone, graptolite, agnostid, conodont, glasssponge, trilobite, sponge, burrows
+  Drawn (* = recorded nearby): orthocone, graptolite, agnostid, conodont, glasssponge, trilobite, sponge, burrows, brachiopod, conulariid
 Cambrian | Deep water (basin or slope) | neutral | australia
   No rock of this age is recorded here. Broad maps of the ancient world show deep sea in this area, and the picture rests on that alone. At the time, this spot lay about 19° north of the equator. Positions this old are uncertain.
-  Drawn (* = recorded nearby): anomalocaris, agnostid, marrella, conodont, glasssponge, trilobite, spinytrilobite, brachiopod, sponge
+  Drawn (* = recorded nearby): anomalocaris, agnostid, marrella, conodont, glasssponge, trilobite, spinytrilobite, brachiopod, sponge, burrows, seamat
