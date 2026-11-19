@@ -190,10 +190,11 @@ export interface Permit {
    * For the Ediacaran organisms, which fall into three sets of different ages and settings that did not live together:
    * 'avalon' (older, deep dark water), 'white-sea' (shallow sandy floors covered in microbial mat) and 'nama' (youngest,
    * shallow carbonate floors). The Precambrian is one chapter, so the Stage keeps them apart: one scene draws from one
-   * assemblage only, the one with the most parts recorded near the place. Every such part must be `localOnly`. The
-   * painted pictures do not check this; whoever composes one must keep to one assemblage.
+   * assemblage only, the one with the most parts recorded near the place. A part found in more than one set, such as
+   * the fronds, lists each and counts toward each. Every such part must be `localOnly`. The painted pictures do not
+   * check this; whoever composes one must keep to one assemblage.
    */
-  assemblage?: Assemblage;
+  assemblages?: Assemblage[];
   /**
    * Fossil names that count as "recorded near here": genus names, and class names
    * as the Paleobiology Database spells them. A local record guarantees the part

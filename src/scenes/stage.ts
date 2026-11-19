@@ -200,8 +200,8 @@ export class Stage {
     // The Ediacaran assemblages never mix: keep to the one with the most parts recorded here that this scene could draw.
     const counts = new Map<Assemblage, number>();
     for (const permit of PERMITS) {
-      if (permit.assemblage && this.local.has(permit.id) && permit.scenes.includes(listedAs(p.environment)) && permit.chapters.includes(p.chapter)) {
-        counts.set(permit.assemblage, (counts.get(permit.assemblage) ?? 0) + 1);
+      if (permit.assemblages && this.local.has(permit.id) && permit.scenes.includes(listedAs(p.environment)) && permit.chapters.includes(p.chapter)) {
+        for (const a of permit.assemblages) counts.set(a, (counts.get(a) ?? 0) + 1);
       }
     }
     const most = Math.max(...counts.values());
@@ -219,7 +219,7 @@ export class Stage {
   private permitted(permit: Permit): boolean {
     const { p } = this;
     if (!permit.scenes.includes(listedAs(p.environment)) || !permit.chapters.includes(p.chapter)) return false;
-    if (permit.assemblage && permit.assemblage !== this.assemblage) return false;
+    if (permit.assemblages && !(this.assemblage && permit.assemblages.includes(this.assemblage))) return false;
     if (this.local.has(permit.id)) return true;
     const lat = p.paleolatitude;
     const regions = regionsIn(permit, p.chapter);

@@ -184,7 +184,7 @@ function limits(permit: Permit): string {
   if (permit.regions) out.push(`Only on: ${permit.regions.map((r) => REGION_NAME[r]).join(', ')}.`);
   for (const [chapter, regions] of Object.entries(permit.regionsByChapter ?? {})) out.push(`In the ${chapter}: ${regions.map((r) => REGION_NAME[r]).join(', ')}.`);
   if (permit.localOnly) out.push('Shown only where its fossils are recorded nearby.');
-  if (permit.assemblage) out.push('Never drawn together with the Ediacaran organisms of a different age and setting.');
+  if (permit.assemblages) out.push('Never drawn together with the Ediacaran organisms of a different age and setting.');
   if (permit.localOnlyIn) out.push(`In the ${permit.localOnlyIn.join(' and the ')}, shown only where its fossils are recorded nearby.`);
   return out.join(' ');
 }

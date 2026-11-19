@@ -162,17 +162,19 @@ describe('the three Ediacaran assemblages', () => {
   const EDIACARAN = ['Charnia', 'Fractofusus', 'Dickinsonia', 'Kimberella', 'Tribrachidium', 'Cloudina'];
   const seeds = Array.from({ length: 10 }, (_, i) => i * 53 + 2);
   const drawn = (environment: EnvType, localOrganisms: string[], seed: number) =>
-    [...composeScene({ environment, chapter: 'Precambrian', paleolatitude: null, climate: 'neutral', seed, localOrganisms }).shown.keys()].filter((id) => permitOf(id).assemblage).sort();
-  const setsOf = (ids: string[]) => new Set(ids.map((id) => permitOf(id).assemblage));
+    [...composeScene({ environment, chapter: 'Precambrian', paleolatitude: null, climate: 'neutral', seed, localOrganisms }).shown.keys()].filter((id) => permitOf(id).assemblages).sort();
+  /** The assemblages that every part drawn belongs to: never empty if the scene keeps to one. */
+  const shared = (ids: string[]) => ids.map((id) => permitOf(id).assemblages!).reduce((a, b) => a.filter((x) => b.includes(x)));
 
-  it('files every Ediacaran part under one assemblage, and draws it only where its fossils are recorded', () => {
+  it('files every Ediacaran part under its assemblages, and draws it only where its fossils are recorded', () => {
     for (const p of PERMITS) {
-      expect(p.assemblage !== undefined, p.id).toBe(p.group === 'ediacaran');
-      if (p.assemblage) expect(p.localOnly, p.id).toBe(true);
+      expect(p.assemblages !== undefined, p.id).toBe(p.group === 'ediacaran');
+      if (p.assemblages) expect(p.localOnly, p.id).toBe(true);
     }
     const sets: Record<string, string[]> = {};
-    for (const p of PERMITS) if (p.assemblage) (sets[p.assemblage] ??= []).push(p.id);
-    expect(sets).toEqual({ avalon: ['charnia', 'fractofusus'], 'white-sea': ['dickinsonia', 'kimberella', 'tribrachidium'], nama: ['cloudina'] });
+    for (const p of PERMITS) for (const a of p.assemblages ?? []) (sets[a] ??= []).push(p.id);
+    // The fronds lived both in deep water and on the shallow sandy floors.
+    expect(sets).toEqual({ avalon: ['charnia', 'fractofusus'], 'white-sea': ['charnia', 'dickinsonia', 'kimberella', 'tribrachidium'], nama: ['cloudina'] });
     for (const environment of ENVS) for (const seed of seeds) expect(drawn(environment, [], seed), environment).toEqual([]);
   });
 
@@ -180,19 +182,25 @@ describe('the three Ediacaran assemblages', () => {
     const records = [EDIACARAN, ['Charnia', 'Dickinsonia'], ['Dickinsonia', 'Cloudina'], ['Arborea', 'Kimberella'], ['Charnia', 'Fractofusus', 'Cloudina', 'Tribrachidium']];
     for (const environment of ENVS) {
       for (const localOrganisms of records) {
-        for (const seed of seeds) expect(setsOf(drawn(environment, localOrganisms, seed)).size, `${environment}: ${localOrganisms.join(', ')} (seed ${seed})`).toBeLessThanOrEqual(1);
+        for (const seed of seeds) {
+          const ids = drawn(environment, localOrganisms, seed);
+          if (ids.length) expect(shared(ids), `${environment}: ${localOrganisms.join(', ')} (seed ${seed})`).not.toEqual([]);
+        }
       }
     }
   });
 
   it('keeps to the assemblage with the most parts recorded nearby, and shows all of it', () => {
     for (const seed of seeds) {
-      // An open shelf is the one scene type shared by the frond and the White Sea three: the three outnumber it.
-      expect(drawn('shelf-sea', EDIACARAN, seed)).toEqual(['dickinsonia', 'kimberella', 'tribrachidium']);
+      // An open shelf is the one scene type shared by the frond and the White Sea three, and the frond belongs to both sets.
+      expect(drawn('shelf-sea', EDIACARAN, seed)).toEqual(['charnia', 'dickinsonia', 'kimberella', 'tribrachidium']);
       expect(drawn('deep-sea', EDIACARAN, seed)).toEqual(['charnia', 'fractofusus']);
       expect(drawn('shoreline', EDIACARAN, seed)).toEqual(['dickinsonia', 'kimberella', 'tribrachidium']);
       expect(drawn('reef', EDIACARAN, seed)).toEqual(['cloudina']);
       expect(drawn('shelf-sea', ['Charnia', 'Fractofusus'], seed)).toEqual(['charnia']);
+      expect(drawn('shelf-sea', ['Arborea', 'Dickinsonia'], seed)).toEqual(['charnia', 'dickinsonia']);
+      // In deep water the frond keeps company with Fractofusus, never with the shallow-water animals.
+      expect(drawn('deep-sea', ['Charnia', 'Dickinsonia', 'Kimberella'], seed)).toEqual(['charnia']);
     }
     // One part of each recorded: the place's seed settles it, and both answers turn up.
     const ties = seeds.map((seed) => drawn('carbonate-sea', ['Dickinsonia', 'Cloudina'], seed).join());
