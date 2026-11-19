@@ -286,7 +286,7 @@ export function paint(): string {
   rows.push([{ x: 580, y: 800, s: 4.8, flip: false, pale: 0.98, sink: 14 }]);
   rows.push([{ x: 1556, y: 868, s: 6.4, flip: true, pale: 0.97, sink: 13 }]);
   rows.push([{ x: 30, y: 906, s: 6.6, flip: false, pale: 0.95, sink: 15 }]);
-  // Three shapes, as in the Strelley Pool reef: domes, steep cones and low wavy mounds. The far ranks mix them by
+  // Three shapes, as in the Strelley Pool reef: domes, cones and low wavy mounds. The far ranks mix them by
   // chance; the six near ones are chosen by hand, with the tall cones kept to the middle sizes.
   const fr = p.sub('forms');
   for (const row of rows.slice(0, -6)) {

@@ -1,6 +1,6 @@
 // Drawings: two more shapes of stromatolite, for Precambrian scenes, beside the domes of `stromatolite`
-// (./marine-early-paleozoic.ts): a cluster of steep cones, and a low mound with a wavy, layered top. Domes,
-// cones and wavy-layered mounds are among the forms found together in the oldest known stromatolite reef.
+// (./marine-early-paleozoic.ts): a cluster of cones, and a low mound with a wavy, layered top. Cones, domes
+// and wavy-laminated mounds are among the forms of the 3.43-billion-year-old Strelley Pool reef (Allwood et al. 2006).
 // The matching whitelist entries are in ../whitelist/marine-early-paleozoic.ts.
 
 import { type Rng, n, path, line } from '../draw';
@@ -70,7 +70,8 @@ export function wavyShape(rng: Rng): StromBody[] {
   const main = mound(rng.range(-6, 6), rng.range(40, 47), rng.range(24, 32));
   if (!rng.chance(0.6)) return [main];
   const side = rng.chance(0.5) ? 1 : -1;
-  return [main, mound(main.x + side * rng.range(32, 40), rng.range(14, 19), rng.range(10, 14))];
+  // Kept within the part's width: at most 6 + 34 + 17 = 57 from the middle.
+  return [main, mound(main.x + side * rng.range(28, 34), rng.range(13, 17), rng.range(10, 14))];
 }
 
 /** The outline of a body as path data, from its left foot over its top to its right foot. */
@@ -144,6 +145,7 @@ function wavy(c: PartCtx): string {
 }
 
 export const PARTS: Record<string, PartDef> = {
-  'stromatolite-cone': { role: 'mound', w: 90, h: 62, anchor: 'base', draw: cones },
-  'stromatolite-wavy': { role: 'mound', w: 100, h: 40, anchor: 'base', draw: wavy },
+  // Widths are the full reach of the shapes: cones to 8 + 36 + 13 = 57 from the middle, wavy mounds to 57.
+  'stromatolite-cone': { role: 'mound', w: 114, h: 62, anchor: 'base', draw: cones },
+  'stromatolite-wavy': { role: 'mound', w: 114, h: 34, anchor: 'base', draw: wavy },
 };

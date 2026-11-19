@@ -15,7 +15,7 @@ export const CAVEATS: PartCaveat[] = [
   { parts: ['crinoid'], text: 'Sea lilies (crinoids) are shown in shallow seas from the Ordovician to the Jurassic. Later stalked crinoids are mostly deep-water animals.' },
   { parts: ['stromatolite'], text: 'Stromatolites are shown as a matter of course in Precambrian and Cambrian scenes only. They persisted after that in restricted settings and are still alive today, so in Ordovician and Silurian scenes they are drawn where their fossils are recorded near the place, and nowhere else. They also appear in the painting of the Lau event of the Silurian, whose rocks are known for them. After the Silurian they are not shown at all, which leaves out the places where they lived on.' },
   { parts: ['stromatolite', 'stromatolite-cone', 'stromatolite-wavy'], text: 'Stromatolites can appear in lakes, on shorelines and in open shelf seas as well as in warm shallow seas and reefs. Lake stromatolites are well known from the Precambrian, but in open shelf seas stromatolites were less common than in warm shallow seas.' },
-  { parts: ['stromatolite', 'stromatolite-cone', 'stromatolite-wavy'], text: 'Stromatolites are drawn in three shapes: rounded domes, steep cones, and low mounds with wavy layers. All three are found together in the oldest known stromatolite reef, in Western Australia, which had seven kinds in all. The cones and wavy mounds are shown in Precambrian scenes only, a simplification; the domes are shown later too. Which shape stands where in a picture is the painter\'s choice, and the sizes are not to scale.' },
+  { parts: ['stromatolite', 'stromatolite-cone', 'stromatolite-wavy'], text: 'Stromatolites are drawn in three shapes: rounded domes, cones, and low mounds with wavy layers. All three are found together in a stromatolite reef in Western Australia that is about 3.43 billion years old and had seven kinds in all. There the cones are described as low; the height and steepness of the drawn cones are the drawing\'s own. The cones and wavy mounds are shown in Precambrian scenes only, a simplification; the domes are shown later too. Which shape stands where in a picture is the painter\'s choice, and the sizes are not to scale.' },
   { parts: ['trilobite', 'spinytrilobite'], text: 'Trilobites (both the plain and the spiny drawing) can appear in delta scenes, because their trails are common in tidal and delta-front sandstones. They were strictly sea animals, though, and never lived in the fresh or brackish (slightly salty) parts of a delta.' },
   { parts: ['trilobite'], text: 'The plain trilobite can appear in all four kinds of open-sea scene up to the Permian. After the Devonian only one order of trilobites survived, mostly in shallow shelf seas and reefs, so a Carboniferous or Permian deep-sea trilobite is doubtful.' },
   { parts: ['brachiopod'], text: 'Brachiopods are shown up to the Late Cretaceous. They are still alive today, but after the Permian they were far less common, and the ribbed shells drawn here best fit Paleozoic and Jurassic kinds.' },
@@ -54,7 +54,7 @@ export const PERMITS: Permit[] = [
     scenes: ['carbonate-sea', 'reef', 'shoreline', 'shelf-sea', 'lake'],
     chapters: span('Precambrian', 'Silurian'),
     localOnlyIn: ['Ordovician', 'Silurian'],
-    matches: ['Stromatolite', 'Collenia', 'Cryptozoon', 'Baicalia'],
+    matches: ['Stromatolite', 'Conophyton', 'Collenia', 'Cryptozoon', 'Baicalia'],
     basis: 'Layered mounds built by microbes; the main shallow-water builders before animals.',
   },
   {
@@ -64,7 +64,7 @@ export const PERMITS: Permit[] = [
     scenes: ['carbonate-sea', 'reef', 'shoreline', 'shelf-sea', 'lake'],
     chapters: ['Precambrian'],
     matches: ['Conophyton'],
-    basis: 'Steep cones built by microbes, among the forms of the oldest known stromatolite reef, the Strelley Pool Formation of Western Australia, 3.43 billion years old (Allwood and others, 2006).',
+    basis: 'Cones built by microbes, among the forms of the Strelley Pool reef of Western Australia, 3.43 billion years old (Allwood and others, 2006).',
   },
   {
     id: 'stromatolite-wavy',
