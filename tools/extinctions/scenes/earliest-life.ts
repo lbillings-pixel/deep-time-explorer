@@ -10,7 +10,8 @@
 // Built in the order of the worked example (end-cretaceous.ts): light as colour
 // functions, a lay-in, brushwork far to near, figures, then the air.
 
-import { type Rng, clamp, mix, path, ramp } from '../../../src/scenes/draw';
+import { type Rng, clamp, makeRng, mix, path, ramp } from '../../../src/scenes/draw';
+import { type StromBody, coneShape, wavyShape } from '../../../src/scenes/parts/stromatolite-forms';
 import { H, Painting, type Pt, W, castShadow, figure, groundPlane, lum, mirror, noise1, noise2, smooth, toward, vary } from '../paint';
 
 const CHAPTER = 'Precambrian';
@@ -34,12 +35,12 @@ const ease = (t: number) => {
   return k * k * (3 - 2 * k);
 };
 
-/** The three mounds of the `stromatolite` part, front one first: [centre x, width, height] in part units. */
-const MOUNDS: [number, number, number][] = [
-  [1, 28, 31],
-  [29, 20, 17],
-  [-27, 22, 21],
-];
+/** The three domes of the `stromatolite` part, front one first, as bodies whose top is flat across their width (the old box test). */
+const DOMES: StromBody[] = ([[1, 28, 31], [29, 20, 17], [-27, 22, 21]] as const).map(([x, w, h]) => ({ x, half: w / 2, h, top: (dx: number) => (Math.abs(dx) <= w / 2 ? h : 0) }));
+
+/** The three shapes of stromatolite, as library parts. */
+type Form = 'dome' | 'cone' | 'wavy';
+const PART: Record<Form, string> = { dome: 'stromatolite', cone: 'stromatolite-cone', wavy: 'stromatolite-wavy' };
 
 interface Mound {
   x: number;
@@ -50,7 +51,21 @@ interface Mound {
   pale: number;
   /** How much of the part's foot is under the water and the silt, in part units. */
   sink: number;
+  form?: Form;
+  /** The part's seed: cones and wavy mounds differ by seed. */
+  seed?: number;
 }
+
+/** The bodies of a mound's part, front one first, as the part draws them with the mound's seed. */
+const bodyCache = new WeakMap<Mound, StromBody[]>();
+const bodiesOf = (m: Mound): StromBody[] => {
+  let b = bodyCache.get(m);
+  if (!b) {
+    b = m.form === 'cone' ? [...coneShape(makeRng(m.seed!))].reverse() : m.form === 'wavy' ? [...wavyShape(makeRng(m.seed!))].reverse() : DOMES;
+    bodyCache.set(m, b);
+  }
+  return b;
+};
 
 export function paint(): string {
   const p = new Painting(3430);
@@ -271,6 +286,24 @@ export function paint(): string {
   rows.push([{ x: 580, y: 800, s: 4.8, flip: false, pale: 0.98, sink: 14 }]);
   rows.push([{ x: 1556, y: 868, s: 6.4, flip: true, pale: 0.97, sink: 13 }]);
   rows.push([{ x: 30, y: 906, s: 6.6, flip: false, pale: 0.95, sink: 15 }]);
+  // Three shapes, as in the Strelley Pool reef: domes, steep cones and low wavy mounds. The far ranks mix them by
+  // chance; the six near ones are chosen by hand, with the tall cones kept to the middle sizes.
+  const fr = p.sub('forms');
+  for (const row of rows.slice(0, -6)) {
+    for (const m of row) {
+      const u = fr();
+      m.form = u < 0.5 ? 'dome' : u < 0.7 ? 'cone' : 'wavy';
+      m.seed = fr.int(1, 9999);
+    }
+  }
+  const NEAR: Form[] = ['wavy', 'cone', 'dome', 'wavy', 'dome', 'dome'];
+  rows.slice(-6).forEach((row, i) => Object.assign(row[0]!, { form: NEAR[i], seed: 40 + i * 7 }));
+  for (const m of rows.flat()) {
+    // A wavy mound is low: less of it stands in the water.
+    if (m.form === 'wavy') m.sink *= 0.6;
+    // The cone part is twice as tall as the domes; here they stand only a little above them.
+    if (m.form === 'cone') m.s *= 0.72;
+  }
 
   const SHADE = mix(mix(CREAM, RUST, 0.4), mix(INK, ZENITH, 0.26), 0.66);
   const LIVING = mix(MAT, INK, 0.3);
@@ -281,19 +314,25 @@ export function paint(): string {
       const lx = ((x - m.x) / m.s) * (m.flip ? -1 : 1);
       const up = (m.y + m.sink * m.s - y) / m.s;
       const wet = clamp(1 - (m.y - y) / m.s / 2.6, 0, 1);
-      if (Math.abs(lx) > 46 || up < -3 || up > 36) continue;
-      for (const [cx, w, h] of MOUNDS) {
-        const dx = lx - cx;
-        if (Math.abs(dx) > w / 2 + 1.5 || up > h + 1.5) continue;
+      if (Math.abs(lx) > 70 || up < -3 || up > 70) continue;
+      for (const b of bodiesOf(m)) {
+        const { h } = b;
+        const w = b.half * 2;
+        const dx = lx - b.x;
+        if (Math.abs(dx) > b.half + 1.5 || up > b.top(dx) + 1.5) continue;
         const k = clamp(up / h, 0, 1);
-        const side = (dx / (w / 2)) * (m.flip ? -1 : 1); // -1: the left of the dome, which faces the sun
+        // A cone narrows as it rises, so its light turns across its width at every height.
+        const across = m.form === 'cone' ? Math.max(1.5, b.half * (1 - k)) : b.half;
+        const side = clamp(dx / across, -1, 1) * (m.flip ? -1 : 1); // -1: the left of the mound, which faces the sun
         const lit = clamp(0.46 - side * 0.8 + (k - 0.5) * 0.2, 0, 1);
         let c = mix(SHADE, mix(CREAM, '#f8dc9c', 0.22), ease(lit) * clamp(m.pale, 0, 1));
-        c = mix(c, mix(SHADE, RUST, 0.25), clamp(Math.sin(up * 1.15 + dx * 0.12) * 1.5 - 0.6, 0, 1) * 0.2);
+        // Faint layers: level in a dome, following the top in a cone or a wavy mound.
+        const layer = m.form === 'cone' || m.form === 'wavy' ? (b.top(dx) - up) * 1.3 : up * 1.15 + dx * 0.12;
+        c = mix(c, mix(SHADE, RUST, 0.25), clamp(Math.sin(layer) * 1.5 - 0.6, 0, 1) * 0.2);
         c = mix(c, mix(GREEN, INK, 0.5), wet * 0.7);
         // The living mat covers the upper part of what stands clear of the water.
         const kv = clamp((up - m.sink) / Math.max(1, h - m.sink), 0, 1);
-        const cap = 0.56 + 0.06 * Math.cos((dx / w) * Math.PI * 2) + capN(x, y) * 0.16;
+        const cap = (m.form === 'wavy' ? 0.62 : 0.56) + 0.06 * Math.cos((dx / w) * Math.PI * 2) + capN(x, y) * 0.16;
         if (kv > cap) c = mix(LIVING, mix('#5b5a30', CREAM, 0.1), ease(lit) * 0.4);
         return vary(c, r, 0.016);
       }
@@ -304,7 +343,8 @@ export function paint(): string {
   const moundTone = (hex: string) => (lum(hex) < 0.45 ? LIVING : lum(hex) > 0.6 ? mix(SHADE, RUST, 0.2) : mix(SHADE, CREAM, 0.5));
   const farAir = mix(mix(GREEN, INK, 0.3), SKY, 0.3);
   const fade = (m: Mound) => 0.34 * (1 - clamp((m.y - HZ) / 260, 0, 1));
-  const make = (m: Mound, tone: (hex: string) => string = toward(farAir, fade(m), moundTone)) => figure('stromatolite', CHAPTER, { x: m.x, y: m.y + m.sink * m.s, scale: m.s, flip: m.flip, tone, detail: m.s > 1.4, lightFrom: 'left' });
+  const make = (m: Mound, tone: (hex: string) => string = toward(farAir, fade(m), moundTone)) =>
+    figure(PART[m.form ?? 'dome'], CHAPTER, { x: m.x, y: m.y + m.sink * m.s, scale: m.s, flip: m.flip, tone, detail: m.s > 1.4, lightFrom: 'left', seed: m.seed });
 
   // Reflections in the still water, and the long shadows the low sun throws to the right: all laid before any mound.
   const all = rows.flat();
@@ -318,7 +358,7 @@ export function paint(): string {
     const r = `<g clip-path="url(#below${m.y})">${mirror(make(m), m.y)}</g>`;
     if (m.s < 1.6) reflFar += r;
     else reflNear += r;
-    if (m.s > 0.5) shadows += castShadow(figure('stromatolite', CHAPTER, { x: 0, y: 0, scale: m.s, flip: m.flip, tone: () => shadowDark }), m.x, m.y - 1, 1.7, 0.2);
+    if (m.s > 0.5) shadows += castShadow(figure(PART[m.form ?? 'dome'], CHAPTER, { x: 0, y: 0, scale: m.s, flip: m.flip, tone: () => shadowDark, seed: m.seed }), m.x, m.y - 1, 1.7, 0.2);
   }
   p.add(`<g opacity="0.5">${p.dry(p.blur(reflFar, 0.8, 2.6), { hold: 0.74, grainX: 40, grainY: 3, seed: 14 })}</g>`);
   p.add(`<g opacity="0.6">${p.dry(p.blur(reflNear, 2, 9), { hold: 0.72, grainX: 90, grainY: 6, seed: 15 })}</g>`);
