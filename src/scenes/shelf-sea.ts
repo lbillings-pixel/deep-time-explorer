@@ -156,13 +156,14 @@ export function shelfSea(st: Stage): string {
   put('trace', 'tr0', r.range(140, 200), b4.y(170) + 26, 1, 0.08, 95, 30, undefined, r.range(-5, 5));
   put('stalked', 'sn2', r.range(655, 695), 448, 0.72, 0.1, 50, 130, 0.6);
   for (let i = 0; i < 8; i++) {
-    // A part drawn only where its fossils are recorded has no other chance to be seen, so it must find room:
-    // if twelve tries fail it gets more, and a slot left empty no longer keeps ground clear.
-    const must = st.peek('floor')?.localOnly === true;
+    // A part whose fossils are recorded near the place must be seen, so it gets more tries. A slot left empty
+    // keeps no ground clear.
+    const next = st.peek('floor');
+    const must = next !== undefined && st.isLocal(next.id);
     for (let tries = 0; tries < (must ? 60 : 12); tries++) {
       const x = r.range(20, W - 20);
       const y = b4.y(x) + r.range(14, 64);
-      if (taken.some(([tx, ty, room, up, full]) => (full || tries < 12) && Math.abs(tx - x) < room && y > ty - up && y < ty + 30)) continue;
+      if (taken.some(([tx, ty, room, up, full]) => full && Math.abs(tx - x) < room && y > ty - up && y < ty + 30)) continue;
       put('floor', `fl${i}`, x, y, 0.62 + (y - 394) / 110, 0.14 - (y - 394) / 600, 50, 34);
       break;
     }
